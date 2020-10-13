@@ -33,5 +33,6 @@ else
 fi
 
 printf "Installing Homebrew formulae using Brewfile...\n\n"
+brew tap homebrew/bundle
 brew bundle
 printf "\nFinished installing Homebrew formulae using Brewfile.\n\n"
