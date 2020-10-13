@@ -1,0 +1,5 @@
+[user]
+  name = Aaron Mahan
+  email = knightofiam@gmail.com
+[core]
+  excludesfile = ~/.gitignore_global

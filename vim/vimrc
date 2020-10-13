@@ -1,0 +1,242 @@
+" ============================================================================"
+" Begin critical section - KEEP AT TOP OF FILE
+" ============================================================================"
+
+" Disable vi compatibility mode to unlock extra features
+set nocompatible
+
+" Input commands with , instead of \
+let mapleader=","
+
+" Enable file type-specific settings
+filetype plugin indent on
+
+" Edit ~/.vimrc with ,ev
+:nnoremap <leader>ev :vsplit ~/.vimrc<cr>
+
+" Reload ~/.vimrc changes with ,sv
+:nnoremap <leader>sv :source ~/.vimrc<cr>
+
+" Swap files
+" Create ~/.vim/swap if it doesn't exist
+if !isdirectory($HOME."/.vim/swap")
+  call mkdir($HOME."/.vim/swap", "p", 0700)
+endif
+" Consolidate swap files
+" Use // for absolute file paths to avoid name collisions
+set directory=~/.vim/swap//
+
+" Undo files
+" Create ~/.vim/undo if it doesn't exist
+if !isdirectory($HOME."/.vim/undo")
+  call mkdir($HOME."/.vim/undo", "p", 0700)
+endif
+" Consolidate undo files
+" Use // for absolute file paths to avoid name collisions
+set undodir=~/.vim/undo//
+set undofile " Enable undo files
+
+" Backup files
+" Create ~/.vim/backup if it doesn't exist
+if !isdirectory($HOME."/.vim/backup")
+  call mkdir($HOME."/.vim/backup", "p", 0700)
+endif
+" Consolidate backup files
+" Use // for absolute file paths to avoid name collisions
+set backupdir=~/.vim/backup//
+set backup " Enable backup files
+
+" Spelling files
+" Create ~/.vim/spell if it doesn't exist
+if !isdirectory($HOME."/.vim/spell")
+  call mkdir($HOME."/.vim/spell", "p", 0700)
+endif
+" Specify file to use for ignored spelling errors
+set spellfile=~/.vim/spell/en.utf-8.add
+" Update binary spelling file from plaintext spelling file
+" Hint: You can trigger this with ,sv after editing plaintext spelling file
+for d in glob('~/.vim/spell/*.add', 1, 1)
+  if filereadable(d) && (!filereadable(d . '.spl') || getftime(d) > getftime(d . '.spl'))
+    exec 'mkspell! ' . fnameescape(d)
+  endif
+endfor
+
+" ============================================================================"
+" End critical section - KEEP AT TOP OF FILE
+" ============================================================================"
+
+
+
+" ============================================================================"
+" Begin formatting section
+" ============================================================================"
+
+" Set the terminal title
+set title
+
+" Set status line format
+set rulerformat=%10(%l,%c%V%)
+
+" Visually wrap lines that are longer than textwidth.
+set wrap
+
+" Where to start visually wrapping lines
+set textwidth=120
+
+" Don't break wrapped lines with newlines
+set formatoptions-=t
+
+" Allow up to 5 digit line numbers
+set numberwidth=5
+
+" Tabs
+set backspace=indent,eol,start " Set backspace behavior (so it can backspace over auto-indent, newline, etc.)
+set expandtab " Replace tabs with spaces
+set tabstop=2 " Use 2 spaces to represent a tab
+set softtabstop=2
+set shiftwidth=2 " Use 2 spaces for auto indent (use >> or << to indent current line)
+set autoindent
+
+" Prevent auto-commenting newlines in Vimscript files
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal formatoptions-=ro
+augroup END
+
+" Prevent auto-commenting newlines in all other files
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
+" ============================================================================"
+" End formatting section
+" ============================================================================"
+
+
+
+" ============================================================================"
+" Begin appearance section
+" ============================================================================"
+
+" Enable syntax highlighting
+syntax on
+
+" Do not highlight search matches
+set nohlsearch
+
+" Enable US English spellcheck
+set spell spelllang=en_us
+
+" Use underline for all types of spelling errors
+augroup SpellUnderline
+  autocmd!
+  autocmd ColorScheme *
+        \ highlight SpellBad
+        \   cterm=Underline
+        \   ctermfg=NONE
+        \   ctermbg=NONE
+        \   term=Reverse
+        \   gui=Undercurl
+        \   guisp=Red
+  autocmd ColorScheme *
+        \ highlight SpellCap
+        \   cterm=Underline
+        \   ctermfg=NONE
+        \   ctermbg=NONE
+        \   term=Reverse
+        \   gui=Undercurl
+        \   guisp=Red
+  autocmd ColorScheme *
+        \ highlight SpellLocal
+        \   cterm=Underline
+        \   ctermfg=NONE
+        \   ctermbg=NONE
+        \   term=Reverse
+        \   gui=Undercurl
+        \   guisp=Red
+  autocmd ColorScheme *
+        \ highlight SpellRare
+        \   cterm=Underline
+        \   ctermfg=NONE
+        \   ctermbg=NONE
+        \   term=Reverse
+        \   gui=Undercurl
+        \   guisp=Red
+augroup END
+
+" Change colors (must come after spelling error settings)
+colorscheme elflord
+
+" Show margin at column 80
+set colorcolumn=80
+
+" Use ,s to show/hide all whitespace (includes extraneous spaces)
+set listchars=tab:>-,trail:·,eol:$,nbsp:_
+nmap <silent> <leader>s :set nolist!<CR>
+
+" Show line numbers
+set number
+
+" Don't show intro message when starting vim
+set shortmess=atI
+
+" Show dark background
+set background=dark
+
+" Show status line
+set ruler
+
+" Always show status line
+set laststatus=2
+
+" ============================================================================"
+" End appearance section
+" ============================================================================"
+
+
+
+" ============================================================================"
+" Begin movement section
+" ============================================================================"
+
+" Move between split windows using CTRL + hjkl
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Don't skip over wrapped lines
+nnoremap j gj
+nnoremap k gk
+
+" ============================================================================"
+" End movement section
+" ============================================================================"
+
+
+
+" ============================================================================"
+" Begin miscellaneous section
+" ============================================================================"
+
+" Yank to clipboard
+if has ("clipboard")
+  set clipboard=unnamed " Copy to the system clipboard
+  if has ("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
+
+" Use the current directory when searching for files
+set path=**
+
+" Command mode autocomplete
+set wildmode=full " Autocomplete everything
+set wildmenu " Show autocomplete options in a menu
+set wildignore=*.swp " Ignore certain file types during autocomplete
+
+" ,sp Toggles spellcheck
+imap <Leader>sp <C-o>:setlocal spell! spelllang=en_us<CR>
+nmap <Leader>sp :setlocal spell! spelllang=en_us<CR>
+
+" ============================================================================"
+" End miscellaneous section
+" ============================================================================"

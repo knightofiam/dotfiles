@@ -1,0 +1,2 @@
+# Prevent vim spellfile merge conflicts.
+*.add merge=union

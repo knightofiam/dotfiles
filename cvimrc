@@ -1,0 +1,31 @@
+" Instructions for making changes appear in Google Chrome:
+"
+" 1. Go to the Google Chrome cVim extension settings cVimrc window.
+" 2. Uncomment the following two lines of code.
+" 3. Customize the path to your .cvimrc.
+" 4. Delete everything below the following two indented lines of code.
+" 5. Click 'Save'.
+" 6. Ignore any spurious errors about unsetting the localconfig.
+" 6. Press CMD + R to reload the page.
+" 7. The Chrome cVimrc window should now show the your updated .cvimrc file.
+"
+"let configpath = '/absolute/path/to/.cvimrc'
+"set localconfig
+
+" Use numbers instead of letters for link hints
+set numerichints
+
+" CTRL + D scrolls 1/2 page down
+map <C-d> scrollPageDown
+
+" CTRL + U scrolls 1/2 page up
+map <C-u> scrollPageUp
+
+" Tabs
+map h previousTab
+map l nextTab
+map d closeTab
+map u lastClosedTab
+
+" Don't close tabs with x
+unmap x
