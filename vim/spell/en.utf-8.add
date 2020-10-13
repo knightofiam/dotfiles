@@ -17,6 +17,7 @@ cask
 cli
 coreutils
 cvimrc
+dir
 dropbox
 export
 filename
