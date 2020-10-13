@@ -1,20 +1,17 @@
 #!/usr/bin/env bash
 
 THIS_DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
+dotfiles=("bash_profile" "cvimrc" "git/gitconfig" "git/gitignore_global" "vim" "vim/vimrc")
 
 cd ${HOME}
 
 printf "\nSymlinking dotfiles to ${HOME}...\n\n"
-
-dotfiles=("bash_profile" "cvimrc" "git/gitconfig" "git/gitignore_global" "vim" "vim/vimrc")
-
 for dotfilePath in "${dotfiles[@]}"
 do
   dotfileName=$(basename "${dotfilePath%.*}")
   printf "Symlinking ${THIS_DIR}/${dotfilePath} as ${HOME}/.${dotfileName}\n"
   ln -sfh ${THIS_DIR}/${dotfilePath} ".${dotfileName}"
 done
-
 printf "\nFinished symlinking dotfiles.\n\n"
 
 cd ${THIS_DIR}
