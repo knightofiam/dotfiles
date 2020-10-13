@@ -4,6 +4,7 @@
 ## 4. Use ,sv (source vimrc) after saving to rebuild binary spell file.
 ,ev
 ,sv
+Brewfile
 CTRL
 Uncomment
 Vimscript
@@ -18,10 +19,12 @@ cli
 coreutils
 cvimrc
 dir
+dotfile
 dropbox
 export
 filename
 filenames
+formulae
 gitignore
 hjkl
 homebrew
