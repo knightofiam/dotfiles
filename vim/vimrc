@@ -74,10 +74,19 @@ endfor
 " Set the terminal title
 set title
 
-" Set status line format
-set rulerformat=%10(%l,%c%V%)
+set statusline=
+set statusline +=%{fugitive#statusline()} " git branch
+set statusline +=%1*\ %n\.\ %*            " buffer number
+set statusline +=%4*%<%F%*                "full path
+set statusline +=%2*%m%*                  "modified flag
+set statusline +=%1*%=%5l%*               "current line
+set statusline +=%2*/%L%*                 "total lines
+set statusline +=%1*%4v\ %*               "column number
 
-" Visually wrap lines that are longer than textwidth.
+" Disable ruler since we're customizing the status line
+set noruler
+
+" Visually wrap lines that are longer than textwidth
 set wrap
 
 " Where to start visually wrapping lines
@@ -177,9 +186,6 @@ set number
 
 " Don't show intro message when starting vim
 set shortmess=atI
-
-" Show status line
-set ruler
 
 " Always show status line
 set laststatus=2
