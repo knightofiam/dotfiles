@@ -6,6 +6,7 @@
 ,sv
 Brewfile
 CTRL
+Symlink
 Uncomment
 Vimscript
 X11
@@ -20,6 +21,7 @@ coreutils
 cvimrc
 dir
 dotfile
+dotfiles
 dropbox
 export
 filename
@@ -34,6 +36,7 @@ macvim
 plaintext
 spellfile
 spellfiles
+symlinking
 textwidth
 unnamedplus
 unsetting
