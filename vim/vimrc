@@ -57,7 +57,7 @@ set spellfile=~/.vim/spell/en.utf-8.add
 " Hint: You can trigger this with ,sv after editing plaintext spelling file
 for d in glob('~/.vim/spell/*.add', 1, 1)
   if filereadable(d) && (!filereadable(d . '.spl') || getftime(d) > getftime(d . '.spl'))
-    exec 'mkspell! ' . fnameescape(d)
+    silent exec 'mkspell! ' . fnameescape(d)
   endif
 endfor
 
