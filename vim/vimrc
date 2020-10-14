@@ -178,9 +178,6 @@ set number
 " Don't show intro message when starting vim
 set shortmess=atI
 
-" Show dark background
-set background=dark
-
 " Show status line
 set ruler
 
