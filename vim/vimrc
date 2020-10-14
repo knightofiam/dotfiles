@@ -237,6 +237,9 @@ set wildignore=*.swp " Ignore certain file types during autocomplete
 imap <Leader>sp <C-o>:setlocal spell! spelllang=en_us<CR>
 nmap <Leader>sp :setlocal spell! spelllang=en_us<CR>
 
+" ,hl Toggles search highlighting
+nnoremap <silent><expr> <Leader>hl (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
+
 " ============================================================================"
 " End miscellaneous section
 " ============================================================================"
