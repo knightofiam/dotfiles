@@ -6,6 +6,8 @@ tap 'homebrew/cask-versions'
 brew 'bash'
 brew 'coreutils'
 brew 'git'
+brew 'mackup'
+brew 'macvim'
 
 # Apps
 cask '1password'
