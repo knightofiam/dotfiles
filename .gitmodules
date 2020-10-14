@@ -1,0 +1,6 @@
+[submodule "vim/pack/plugins/start/reveal"]
+	path = vim/pack/plugins/start/reveal
+	url = https://github.com/henrik/vim-reveal-in-finder.git
+[submodule "vim/pack/plugins/start/fugitive"]
+	path = vim/pack/plugins/start/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
