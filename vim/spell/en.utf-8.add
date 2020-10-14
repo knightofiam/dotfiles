@@ -17,6 +17,7 @@ cVim
 cVimrc
 cask
 cli
+colorscheme
 coreutils
 cvimrc
 dir
@@ -29,6 +30,7 @@ filenames
 formulae
 gitignore
 hjkl
+hlsearch
 homebrew
 iterm2
 macOS
@@ -37,6 +39,7 @@ macvim
 plaintext
 spellfile
 spellfiles
+stdout
 submodules
 symlink
 symlinking
