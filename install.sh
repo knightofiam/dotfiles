@@ -29,7 +29,7 @@ dotfiles=("bash_profile" "cvimrc" "git/gitconfig" "git/gitignore_global" "vim" "
 cd ${HOME}
 for dotfilePath in "${dotfiles[@]}"
 do
-  dotfileName=$(basename "${dotfilePath%.*}")
+  dotfileName=$(basename "${dotfilePath}")
   printf "Symlinking ${THIS_DIR}/${dotfilePath} as ${HOME}/.${dotfileName}\n"
   ln -sfh ${THIS_DIR}/${dotfilePath} ".${dotfileName}"
 done
