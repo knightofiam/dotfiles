@@ -190,6 +190,9 @@ set shortmess=atI
 " Always show status line
 set laststatus=2
 
+" ,hl Toggles search highlighting
+nnoremap <silent><expr> <Leader>hl (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
+
 " ============================================================================"
 " End appearance section
 " ============================================================================"
