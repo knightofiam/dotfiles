@@ -90,7 +90,7 @@ set noruler
 set wrap
 
 " Where to start visually wrapping lines
-set textwidth=120
+set textwidth=80
 
 " Don't break wrapped lines with newlines
 set formatoptions-=t
