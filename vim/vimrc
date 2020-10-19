@@ -177,9 +177,9 @@ colorscheme elflord
 " Show margin at column 80
 set colorcolumn=80
 
-" Use ,s to show/hide all whitespace (includes extraneous spaces)
+" Use ,ws to show/hide all whitespace (includes extraneous spaces)
 set listchars=tab:>-,trail:·,eol:$,nbsp:_
-nmap <silent> <leader>s :set nolist!<CR>
+nmap <silent> <leader>ws :set nolist!<CR>
 
 " Show line numbers
 set number
