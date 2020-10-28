@@ -11,6 +11,7 @@ brew 'macvim'
 
 # Apps
 cask '1password'
+cask 'airfoil'
 cask 'discord'
 cask 'dropbox'
 cask 'flux'
