@@ -19,6 +19,7 @@ cask
 cli
 colorscheme
 coreutils
+customizations
 cvimrc
 dir
 dotfile
@@ -44,12 +45,12 @@ submodules
 symlink
 symlinking
 textwidth
+tradeoff
 txt
+unarchiver
 unnamedplus
 unsetting
 usr
 vim
 vimrc
 whitespace
-customizations
-tradeoff
