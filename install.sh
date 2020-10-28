@@ -9,10 +9,6 @@ else
   printf "Homebrew is already installed.\n\n"
 fi
 
-printf "Updating Homebrew...\n\n"
-brew update
-printf "Finished updating Homebrew.\n\n"
-
 printf "Installing Homebrew formulae using Brewfile...\n\n"
 brew tap homebrew/bundle
 brew bundle
