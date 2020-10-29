@@ -1,5 +1,6 @@
 # Homebrew
 export PATH="/usr/local/bin:${PATH}"
+export PATH="/usr/local/sbin:${PATH}"
 
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:${PATH}"
