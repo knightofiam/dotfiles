@@ -8,6 +8,7 @@ brew 'coreutils'
 brew 'git'
 brew 'mackup'
 brew 'macvim'
+brew 'gcc'
 
 # Apps
 cask '1password'
