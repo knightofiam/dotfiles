@@ -21,6 +21,7 @@ colorscheme
 coreutils
 customizations
 cvimrc
+decrypted
 dir
 dotfile
 dotfiles
@@ -29,6 +30,7 @@ export
 filename
 filenames
 formulae
+gcc
 gitignore
 hjkl
 hlsearch
@@ -48,6 +50,7 @@ textwidth
 tradeoff
 txt
 unarchiver
+unencrypted
 unnamedplus
 unsetting
 usr
