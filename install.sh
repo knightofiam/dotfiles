@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+printf "Configuring MacOS system preferences...\n\n"
+./macos
+printf "Finished configuring MacOS system preferences.\n\n"
+
 printf "Checking if Homebrew is installed...\n\n"
 if test ! $(which brew); then
   printf "Installing Homebrew...\n\n"
@@ -21,7 +25,7 @@ printf "Finished symlinking MacVim.app to /Applications.\n\n"
 
 printf "Symlinking dotfiles to ${HOME}...\n\n"
 THIS_DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
-dotfiles=("bash_profile" "cvimrc" "git/gitconfig" "git/gitignore_global" "vim" "vim/vimrc")
+dotfiles=("bash_profile" "cvimrc" "git/gitconfig" "git/gitignore_global" "macos" "vim" "vim/vimrc")
 cd ${HOME}
 for dotfilePath in "${dotfiles[@]}"
 do
