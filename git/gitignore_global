@@ -41,6 +41,7 @@ Brewfile.lock.json
 
 # ==========================================================================================
 # Begin Vim section
+# https://github.com/github/gitignore/blob/master/Global/Vim.gitignore
 # ==========================================================================================
 
 # Swap
@@ -70,6 +71,50 @@ tags
 
 # ==========================================================================================
 # End Vim section
+# ==========================================================================================
+
+
+
+# ==========================================================================================
+# Begin Rider / IntelliJ section
+# https://github.com/JetBrains/resharper-rider-samples/blob/master/.gitignore
+# ==========================================================================================
+
+# User specific
+**/.idea/**/workspace.xml
+**/.idea/**/tasks.xml
+**/.idea/shelf/*
+**/.idea/dictionaries
+**/.idea/httpRequests/
+
+# Sensitive or high-churn files
+**/.idea/**/dataSources/
+**/.idea/**/dataSources.ids
+**/.idea/**/dataSources.xml
+**/.idea/**/dataSources.local.xml
+**/.idea/**/sqlDataSources.xml
+**/.idea/**/dynamic.xml
+
+# Rider
+# Rider auto-generates .iml files, and contentModel.xml
+**/.idea/**/*.iml
+**/.idea/**/contentModel.xml
+**/.idea/**/modules.xml
+
+*.suo
+*.user
+.vs/
+[Bb]in/
+[Oo]bj/
+_UpgradeReport_Files/
+[Pp]ackages/
+
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ==========================================================================================
+# End Rider / IntelliJ section
 # ==========================================================================================
 
 
@@ -150,3 +195,27 @@ crashlytics-build.properties
 # ==========================================================================================
 # End Unity section
 # ==========================================================================================
+
+
+
+# ==========================================================================================
+# Begin Godot section
+# https://github.com/github/gitignore/blob/master/Godot.gitignore
+# ==========================================================================================
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores
+.mono/
+data_*/
+
+# ==========================================================================================
+# End Godot section
+# ==========================================================================================
+
