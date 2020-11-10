@@ -9,6 +9,7 @@ brew 'git'
 brew 'mackup'
 brew 'macvim'
 brew 'gcc'
+brew 'bash-completion'
 
 # Apps
 cask '1password'
