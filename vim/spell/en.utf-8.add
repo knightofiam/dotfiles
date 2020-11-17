@@ -6,6 +6,8 @@ Brewfile
 CTRL
 Homebrew's
 MacVim
+NPC
+RPG
 Symlink
 Uncomment
 Vimscript
@@ -16,7 +18,10 @@ autocompletions
 cVim
 cVimrc
 cask
+citrine
 cli
+collider
+colliders
 colorscheme
 coreutils
 customizations
@@ -39,7 +44,9 @@ iterm2
 macOS
 mackup
 macvim
+pickaxe
 plaintext
+procedurally
 spellfile
 spellfiles
 stdout
