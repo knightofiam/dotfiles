@@ -10,6 +10,7 @@ brew 'mackup'
 brew 'macvim'
 brew 'gcc'
 brew 'bash-completion'
+brew 'hub'
 
 # Apps
 cask '1password'
