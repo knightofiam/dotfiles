@@ -25,7 +25,7 @@ printf "Finished symlinking MacVim.app to /Applications.\n\n"
 
 printf "Symlinking dotfiles to ${HOME}...\n\n"
 THIS_DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
-dotfiles=("bash_profile" "cvimrc" "git/gitconfig" "git/gitignore_global" "macos" "vim" "vim/vimrc")
+dotfiles=("bash_profile" "cvimrc" "git/gitconfig" "git/gitignore_global" "ideavimrc" "macos" "vim" "vim/vimrc")
 cd ${HOME}
 for dotfilePath in "${dotfiles[@]}"
 do
