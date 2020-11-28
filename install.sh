@@ -2,7 +2,7 @@
 
 printf "\nConfiguring MacOS system preferences...\n\n"
 ./macos
-printf "Finished configuring MacOS system preferences.\n\n"
+printf "\nFinished configuring MacOS system preferences.\n\n"
 
 printf "Checking if Homebrew is installed...\n\n"
 if test ! $(which brew); then
