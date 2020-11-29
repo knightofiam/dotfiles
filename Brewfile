@@ -11,6 +11,7 @@ brew 'macvim'
 brew 'gcc'
 brew 'bash-completion'
 brew 'hub'
+brew 'gh'
 
 # Apps
 cask '1password'
