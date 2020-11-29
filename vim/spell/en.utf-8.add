@@ -66,3 +66,6 @@ usr
 vim
 vimrc
 whitespace
+csproj
+sln
+runnable
