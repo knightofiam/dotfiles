@@ -24,6 +24,7 @@ collider
 colliders
 colorscheme
 coreutils
+csproj
 customizations
 cvimrc
 decrypted
@@ -31,6 +32,7 @@ dir
 dotfile
 dotfiles
 dropbox
+executables
 export
 filename
 filenames
@@ -42,13 +44,19 @@ gpg
 hjkl
 hlsearch
 homebrew
+https
 iterm2
+linux
 macOS
 mackup
+macos
 macvim
+os
 pickaxe
 plaintext
 procedurally
+runnable
+sln
 spellfile
 spellfiles
 stdout
@@ -58,6 +66,7 @@ symlinking
 textwidth
 tradeoff
 txt
+ubuntu
 unarchiver
 unencrypted
 unnamedplus
@@ -66,6 +75,4 @@ usr
 vim
 vimrc
 whitespace
-csproj
-sln
-runnable
+workflow
