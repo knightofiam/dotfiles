@@ -3,15 +3,15 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-versions'
 
 # Binaries
+brew 'act'
 brew 'bash'
+brew 'bash-completion'
 brew 'coreutils'
+brew 'gcc'
 brew 'gh'
 brew 'git'
 brew 'mackup'
 brew 'macvim'
-brew 'gcc'
-brew 'bash-completion'
-brew 'gh'
 
 # Apps
 cask '1password'
