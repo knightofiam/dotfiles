@@ -22,6 +22,7 @@ cask 'flux'
 cask 'godot-mono'
 cask 'google-chrome'
 #cask 'gpg-suite-no-mail' # Requires Mojave, see install.sh for workaround
+cask 'itch'
 cask 'iterm2'
 cask 'rider'
 cask 'slack'
