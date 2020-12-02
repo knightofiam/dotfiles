@@ -11,6 +11,8 @@ export PATH="$PATH:$HOME/Library/Application Support/itch/broth/butler/versions/
 
 # Git
 alias ga="git add"
+alias gaa="git add --all"
+alias gaacv="git commit --all --verbose"
 alias gap="git add --patch"
 alias gcav="git commit --amend --verbose"
 alias gcv="git commit --verbose"
