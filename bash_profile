@@ -15,6 +15,8 @@ alias gcav="git commit --amend --verbose"
 alias gcv="git commit --verbose"
 alias gd="git diff"
 alias gds="git diff --staged"
+alias gl="git log"
+alias gp="git push"
 alias grp="git reset --patch"
 alias gs="git status"
 
