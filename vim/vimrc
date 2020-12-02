@@ -60,6 +60,8 @@ for d in glob('~/.vim/spell/*.add', 1, 1)
     silent exec 'mkspell! ' . fnameescape(d)
   endif
 endfor
+" Manually edit spellfile (mainly for sorting) with ,es
+:nnoremap <leader>es :vsplit ~/.vim/spell/en.utf-8.add<cr>
 
 " ============================================================================"
 " End critical section - KEEP AT TOP OF FILE
