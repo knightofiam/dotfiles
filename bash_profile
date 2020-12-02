@@ -33,3 +33,6 @@ fi
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
   . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
+
+# Other aliases
+alias sbf="source ~/.bash_profile"
