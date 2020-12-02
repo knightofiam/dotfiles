@@ -11,9 +11,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-# Hub completion (must be above Git completion).
-alias git=hub # https://github.com/bgithub/hub/issues/1792
-
 # Git completion
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
   . $(brew --prefix)/etc/bash_completion.d/git-completion.bash

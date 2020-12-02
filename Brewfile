@@ -5,12 +5,12 @@ tap 'homebrew/cask-versions'
 # Binaries
 brew 'bash'
 brew 'coreutils'
+brew 'gh'
 brew 'git'
 brew 'mackup'
 brew 'macvim'
 brew 'gcc'
 brew 'bash-completion'
-brew 'hub'
 brew 'gh'
 
 # Apps
