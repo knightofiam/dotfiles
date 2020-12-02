@@ -10,6 +10,7 @@ export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:${PATH}"
 export PATH="$PATH:$HOME/Library/Application Support/itch/broth/butler/versions/15.20.0"
 
 # Git
+alias ga="git add"
 alias gap="git add --patch"
 alias gcav="git commit --amend --verbose"
 alias gcv="git commit --verbose"
@@ -17,6 +18,7 @@ alias gd="git diff"
 alias gds="git diff --staged"
 alias gl="git log"
 alias gp="git push"
+alias gpf="git push --force"
 alias grp="git reset --patch"
 alias gs="git status"
 
