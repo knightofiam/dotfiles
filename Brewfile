@@ -21,7 +21,7 @@ cask 'dropbox'
 cask 'flux'
 cask 'godot-mono'
 cask 'google-chrome'
-#cask 'gpg-suite-no-mail' # Doesn't work on macOS High Sierra, requires macOS Mojave or newer
+#cask 'gpg-suite-no-mail' # Requires Mojave, see install.sh for workaround
 cask 'iterm2'
 cask 'rider'
 cask 'slack'
