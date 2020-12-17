@@ -3,15 +3,18 @@
 ## 3. Comments must begin with a number to stay in order after sorting.
 ## 4. Use ,sv (source vimrc) after saving to rebuild binary spell file.
 Brewfile
+Bugfixes
 CTRL
 Homebrew's
 MacVim
 NPC
 RPG
 Symlink
+TODO
 Uncomment
 Vimscript
 X11
+ambience
 autocomplete
 autocompletion
 autocompletions
@@ -55,6 +58,10 @@ os
 pickaxe
 plaintext
 procedurally
+respawn
+respawned
+respawning
+respawns
 runnable
 sln
 spellfile
