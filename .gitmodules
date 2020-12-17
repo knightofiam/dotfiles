@@ -7,3 +7,6 @@
 [submodule "vim/pack/plugins/start/rename"]
 	path = vim/pack/plugins/start/rename
 	url = https://github.com/danro/rename-vim.git
+[submodule "vim/pack/plugins/start/commentary"]
+	path = vim/pack/plugins/start/commentary
+	url = https://tpope.io/vim/commentary.git
