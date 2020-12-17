@@ -3,7 +3,7 @@
 	url = https://github.com/henrik/vim-reveal-in-finder.git
 [submodule "vim/pack/plugins/start/fugitive"]
 	path = vim/pack/plugins/start/fugitive
-	url = https://github.com/tpope/vim-fugitive.git
+	url = https://tpope.io/vim/fugitive.git
 [submodule "vim/pack/plugins/start/rename"]
 	path = vim/pack/plugins/start/rename
 	url = https://github.com/danro/rename-vim.git
