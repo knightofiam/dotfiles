@@ -1,3 +1,5 @@
+# To sort a section (keep capitalized header first): :sort /^\s*\(#\s*\)\?/
+
 # Taps
 tap 'homebrew/cask'
 tap 'homebrew/cask-versions'
@@ -24,7 +26,9 @@ cask 'google-chrome'
 #cask 'gpg-suite-no-mail' # Requires Mojave, see install.sh for workaround
 cask 'itch'
 cask 'iterm2'
+cask 'loopback'
 cask 'rider'
+cask 'signal'
 cask 'slack'
 cask 'steam'
 cask 'sync'
