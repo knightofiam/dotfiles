@@ -42,4 +42,7 @@ if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
 fi
 
 # Other aliases
+alias coa="cd ~/projects/godot/coa && gs"
+alias dotfiles="cd ~/projects/dotfiles && gs"
+alias eb="vim ~/.bash_profile"
 alias sb="source ~/.bash_profile"
