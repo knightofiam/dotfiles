@@ -5,9 +5,12 @@
 Brewfile
 Bugfixes
 CTRL
+GDScript
 Homebrew's
+KinematicBody2D
 MacVim
 NPC
+Pseudocode
 RPG
 Symlink
 TODO
@@ -57,6 +60,7 @@ macvim
 os
 pickaxe
 plaintext
+player
 procedurally
 respawn
 respawned
@@ -73,12 +77,14 @@ symlinking
 textwidth
 tradeoff
 txt
+uber
 ubuntu
 unarchiver
 unencrypted
 unnamedplus
 unsetting
 usr
+var
 vim
 vimrc
 whitespace
