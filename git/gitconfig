@@ -10,3 +10,7 @@
   showSignature = true
 [pull]
   ff = only
+[mergetool "fugitive"]
+  cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[merge]
+  tool = fugitive
