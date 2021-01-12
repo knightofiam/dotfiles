@@ -44,6 +44,11 @@ do
 done
 printf "\nFinished symlinking dotfiles.\n\n"
 
+# Use Homebrew version of Bash shell.
+if [[ $(grep -L "/usr/local/bin/bash" /etc/shells) ]]; then
+  echo /usr/local/bin/bash | sudo tee -a /etc/shells
+  chsh -s /usr/local/bin/bash
+fi
 
 # Configure file associations.
 duti duti
