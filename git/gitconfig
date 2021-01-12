@@ -2,10 +2,11 @@
   name = Aaron Mahan
   email = knightofiam@gmail.com
 [core]
+  editor = /usr/local/bin/vim
   excludesfile = ~/.gitignore_global
 [commit]
-	gpgsign = true
+  gpgsign = true
 [log]
   showSignature = true
 [pull]
-	ff = only
+  ff = only
