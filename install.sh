@@ -84,3 +84,5 @@ if [[ $(grep -L "auth       sufficient     pam_tid.so" /etc/pam.d/sudo) ]]; then
   auth       sufficient     pam_tid.so\
   ' /etc/pam.d/sudo
 fi
+
+source bash_profile
