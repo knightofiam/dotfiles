@@ -44,3 +44,10 @@ duti duti
 
 # Configure gpg.
 ./gpg.sh
+
+# Use TouchID in terminal.
+if [[ $(grep -L "auth       sufficient     pam_tid.so" /etc/pam.d/sudo) ]]; then
+  sudo sed -i.bak '2i\
+  auth       sufficient     pam_tid.so\
+  ' /etc/pam.d/sudo
+fi
