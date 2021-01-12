@@ -38,3 +38,6 @@ printf "\nFinished symlinking dotfiles.\n\n"
 
 # Configure dock icons.
 ./dock.sh
+
+# Configure gpg.
+./gpg.sh
