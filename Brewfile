@@ -2,6 +2,7 @@
 
 # Taps
 tap 'homebrew/cask'
+tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-versions'
 
 # Binaries
@@ -9,28 +10,45 @@ brew 'act'
 brew 'bash'
 brew 'bash-completion'
 brew 'coreutils'
+brew 'dockutil'
+brew 'duti'
 brew 'gcc'
 brew 'gh'
 brew 'git'
 brew 'mackup'
-brew 'macvim'
+brew 'mas'
 
 # Apps
 cask '1password'
+cask '1password-cli'
 cask 'airfoil'
+cask 'cleanmymac'
 cask 'discord'
 cask 'dropbox'
 cask 'flux'
 cask 'godot-mono'
 cask 'google-chrome'
-#cask 'gpg-suite-no-mail' # Requires Mojave, see install.sh for workaround
+cask 'gpg-suite-no-mail'
+cask 'istat-menus'
 cask 'itch'
 cask 'iterm2'
 cask 'loopback'
+cask 'macvim'
+cask 'parallels'
 cask 'rider'
 cask 'signal'
 cask 'slack'
 cask 'steam'
+cask 'steelseries-engine'
 cask 'sync'
 cask 'the-unarchiver'
 cask 'visual-studio-code'
+cask 'zoom'
+
+# Mac App Store
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Speedtest by Ookla", id: 1153157709
+mas "Xcode", id: 497799835
