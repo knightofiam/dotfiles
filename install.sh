@@ -25,7 +25,7 @@ fi
 
 printf "Symlinking dotfiles to ${HOME}...\n\n"
 THIS_DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
-dotfiles=("bash_profile" "cvimrc" "git/gitconfig" "git/gitignore_global" "ideavimrc" "macos" "vim" "vim/vimrc")
+dotfiles=("bash_profile" "cvimrc" "duti" "git/gitconfig" "git/gitignore_global" "ideavimrc" "macos" "vim" "vim/vimrc")
 cd ${HOME}
 for dotfilePath in "${dotfiles[@]}"
 do
@@ -35,6 +35,9 @@ do
 done
 printf "\nFinished symlinking dotfiles.\n\n"
 
+
+# Configure file associations.
+duti duti
 
 # Configure dock icons.
 ./dock.sh
