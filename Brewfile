@@ -17,6 +17,7 @@ brew 'gh'
 brew 'git'
 brew 'mackup'
 brew 'mas'
+brew 'pyenv'
 
 # Apps
 cask '1password'
