@@ -21,6 +21,7 @@ alias gcv="git commit --verbose"
 alias gd="git diff"
 alias gds="git diff --staged"
 alias gl="git log"
+alias gll=" git log --oneline --no-show-signature --color | nl | less -R"
 alias gp="git push"
 alias gpf="git push --force"
 alias gr="git reset"
@@ -30,6 +31,7 @@ alias gsh="git show"
 alias gshn="git show --name-only --oneline"
 alias gsp="git stash pop"
 alias gss="git stash save"
+alias gsl="git stash list"
 
 # Bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
