@@ -23,6 +23,8 @@ dockutil --add "/System/Applications/System Preferences.app"
 dockutil --add "/System/Applications/System Preferences.app"
 dockutil --add '~/Downloads' --view grid --display folder
 dockutil --add '~/Sync/secureset/secureset-notes.txt'
+dockutil --add '~/Sync/secureset/net/secureset-net-notes.txt'
+dockutil --add '~/Sync/secureset/sys/secureset-sys-notes.txt'
 dockutil --add '~/Sync/dev/dotfiles-todo.txt'
 dockutil --add '~/Sync/dev/coa/notes/coa-todo.txt'
 dockutil --add '~/Sync/dev/vim-keyboard-shortcuts.txt'
