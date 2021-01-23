@@ -15,3 +15,5 @@
   cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [merge]
   tool = fugitive
+[submodule]
+  recurse = true
