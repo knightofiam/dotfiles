@@ -1,6 +1,7 @@
 [user]
   name = Aaron Mahan
   email = knightofiam@gmail.com
+  signingkey = 334C16FC06A7A97CB4ECAC24AC4017E6FC14ED9A
 [core]
   editor = /usr/local/bin/vim
   excludesfile = ~/.gitignore_global
