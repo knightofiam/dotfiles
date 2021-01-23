@@ -46,6 +46,7 @@ cask 'steelseries-engine'
 cask 'sync'
 cask 'the-unarchiver'
 cask 'visual-studio-code'
+cask 'vmware-fusion'
 cask 'zoom'
 
 # Mac App Store
