@@ -29,9 +29,9 @@ alias grp="git reset --patch"
 alias gs="git status"
 alias gsh="git show"
 alias gshn="git show --name-only --oneline"
+alias gsl="git stash list"
 alias gsp="git stash pop"
 alias gss="git stash save"
-alias gsl="git stash list"
 
 # Bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
