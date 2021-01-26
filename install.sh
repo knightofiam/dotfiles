@@ -85,4 +85,8 @@ if [[ $(grep -L "auth       sufficient     pam_tid.so" /etc/pam.d/sudo) ]]; then
   ' /etc/pam.d/sudo
 fi
 
+# Enable iTerm2 shell integration for searching command history.
+# (See https://iterm2.com/documentation-shell-integration.html)
+curl -L https://iterm2.com/shell_integration/install_shell_integration.sh | bash
+
 source bash_profile

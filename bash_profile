@@ -53,3 +53,8 @@ alias ssp="cd ~/Sync/secureset/python && pwd && ls"
 
 # Python
 eval "$(pyenv init -)"
+
+# iTerm2
+if [ -e ~/.iterm2_shell_integration.bash ]; then
+  source ~/.iterm2_shell_integration.bash
+fi
