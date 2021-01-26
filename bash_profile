@@ -48,8 +48,8 @@ alias coa="cd ~/projects/godot/coa && gs"
 alias dotfiles="cd ~/projects/dotfiles && gs"
 alias eb="vim ~/.bash_profile"
 alias sb="source ~/.bash_profile"
-alias ss="cd ~/Sync/secureset"
-alias ssp="cd ~/Sync/secureset/python"
+alias ss="cd ~/Sync/secureset && pwd && ls"
+alias ssp="cd ~/Sync/secureset/python && pwd && ls"
 
 # Python
 eval "$(pyenv init -)"
