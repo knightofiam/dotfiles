@@ -10,3 +10,6 @@
 [submodule "vim/pack/plugins/start/commentary"]
 	path = vim/pack/plugins/start/commentary
 	url = https://tpope.io/vim/commentary.git
+[submodule "vim/pack/plugins/start/indentpython"]
+	path = vim/pack/plugins/start/indentpython
+	url = https://github.com/vim-scripts/indentpython.vim
