@@ -89,4 +89,8 @@ fi
 # (See https://iterm2.com/documentation-shell-integration.html)
 curl -L https://iterm2.com/shell_integration/install_shell_integration.sh | bash
 
+# Modify mvim to open new tabs instead of new windows
+# https://stackoverflow.com/a/9100989/14410393
+cp vim/mvim /usr/local/bin/mvim
+
 source bash_profile
