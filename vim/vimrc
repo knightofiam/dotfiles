@@ -272,6 +272,9 @@ set smartcase " Non-lowercase search is case-sensitive
 " Disable bell in vim & MacVim
 autocmd! GUIEnter * set vb t_vb=
 
+" Increment / decrement letters with CTRL + A / CTRL + X
+set nrformats+=alpha
+
 " ============================================================================"
 " End miscellaneous section
 " ============================================================================"
