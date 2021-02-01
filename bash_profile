@@ -50,6 +50,7 @@ alias eb="vim ~/.bash_profile"
 alias sb="source ~/.bash_profile"
 alias ss="cd ~/Sync/secureset && pwd && ls"
 alias ssp="cd ~/Sync/secureset/python && pwd && ls"
+alias ssc="cd ~/Sync/secureset/crypto && pwd && ls"
 
 # Python
 eval "$(pyenv init -)"
