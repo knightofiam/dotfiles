@@ -12,6 +12,7 @@ KinematicBody2D
 MacVim
 NPC
 Pseudocode
+RFID
 RPG
 Symlink
 TODO
@@ -35,7 +36,9 @@ coreutils
 csproj
 customizations
 cvimrc
+cybersecurity
 decrement
+decrypt
 decrypted
 dir
 dotfile
@@ -45,6 +48,7 @@ executables
 export
 filename
 filenames
+financials
 formulae
 gcc
 gitignore
@@ -52,8 +56,10 @@ godot
 gpg
 hjkl
 hlsearch
+hoc
 homebrew
 https
+iPhones
 iterm2
 linux
 macOS
@@ -61,10 +67,12 @@ mackup
 macos
 macvim
 os
+outcompete
 pickaxe
 plaintext
 player
 procedurally
+proprietorships
 respawn
 respawned
 respawning
@@ -75,6 +83,8 @@ spellfile
 spellfiles
 stdout
 submodules
+subnet
+subnets
 symlink
 symlinking
 textwidth
