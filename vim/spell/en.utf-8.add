@@ -1,4 +1,4 @@
-## 1. Use :sort command after adding words.
+## 1. Use :sort command in normal (not visual) mode after adding words.
 ## 2. Do not use :sort i command (case-insensitive).
 ## 3. Comments must begin with a number to stay in order after sorting.
 ## 4. Use ,sv (source vimrc) after saving to rebuild binary spell file.
