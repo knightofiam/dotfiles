@@ -193,7 +193,7 @@ set shortmess=atI
 set laststatus=2
 
 " ,hl Toggles search highlighting
-nnoremap <silent><expr> <Leader>hl (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
+nnoremap <silent><expr> <Leader>hl (&hls && v:hlsearch ? ':set nohls' : ':set hls')."\n"
 
 " ============================================================================"
 " End appearance section
