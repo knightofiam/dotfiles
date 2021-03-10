@@ -227,13 +227,17 @@ nnoremap k gk
 
 " Configure PEP 8 indentation for python files
 au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
     \ set fileformat=unix
+
+" Highlight extraneous whitespace in python files as an error.
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead *.py match BadWhitespace /\s\+$/
 
 " ============================================================================"
 " End python section
