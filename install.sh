@@ -18,9 +18,17 @@ brew tap homebrew/bundle
 brew bundle
 printf "\nFinished installing Homebrew formulae using Brewfile.\n\n"
 
-# Configure Xcode
+# Configure Xcode CLT.
 if [[ ! -d "$('xcode-select' -print-path 2>/dev/null)" ]]; then
+  printf "Configuring Xcode CLT...\n\n"
+  sudo xcode-select --install
   sudo xcode-select -switch /Library/Developer/CommandLineTools
+  printf "\nFinished configuring Xcode CLT.\n\n"
+fi
+
+# gcc must be installed after configuring Xcode CLT.
+if test $(which brew); then
+  brew install gcc
 fi
 
 printf "Symlinking dotfiles to ${HOME}...\n\n"
