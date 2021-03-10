@@ -24,4 +24,14 @@ do
   ln -sfh ${THIS_DIR}/${dotfilePath} ".${dotfileName}"
 done
 
+# Symlink ~/.extra for local settings.
+if [[ ! -f .extra && -f ${HOME}/Sync/dev/.extra ]]; then
+  printf "Symlinking ${HOME}/Sync/dev/.extra as ${HOME}/.extra\n"
+  ln -sfh ${HOME}/Sync/dev/.extra .extra
+elif [[ -f .extra ]]; then
+  printf "\nWARNING: ${HOME}/.extra exists, skipping...\n"
+else
+  printf "\nWARNING: ${HOME}/Sync/dev/.extra doesn't exist, skipping...\n"
+fi
+
 printf "\nFinished symlinking dotfiles.\n\n"

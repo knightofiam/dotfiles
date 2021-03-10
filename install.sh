@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source bash_profile
+
 ./macos.sh
 ./brew.sh
 ./xcode.sh

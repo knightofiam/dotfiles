@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Sign into 1Password
-eval $(op signin my.1password.com knightofiam@gmail.com)
+eval $(op signin my.1password.com ${EMAIL})
 
 # Backup & rename any existing private key file with the same name because
 # op refuses to overwrite.
@@ -18,7 +18,7 @@ fi
 printf "\nImporting & signing your personal private key from 1Password documents...\n"
 op get document "My Private Key.asc" --vault Private --output ${HOME}/key.asc
 gpg --import "${HOME}/key.asc"
-gpg --sign-key knightofiam@gmail.com
+gpg --sign-key ${EMAIL}
 printf "\nDeleting temporary file ${HOME}/key.asc...\n"
 rm "${HOME}/key.asc"
 printf "\nDone.\n"

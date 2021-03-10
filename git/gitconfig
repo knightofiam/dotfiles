@@ -1,6 +1,9 @@
 [user]
-  name = Aaron Mahan
-  email = knightofiam@gmail.com
+  # Use ~/.extra to set name and email:
+  #   GIT_AUTHOR_NAME=
+  #   GIT_AUTHOR_EMAIL=
+  #   GIT_COMMITTER_NAME=
+  #   GIT_COMMITTER_EMAIL=
   signingkey = 334C16FC06A7A97CB4ECAC24AC4017E6FC14ED9A
 [core]
   editor = /usr/local/bin/vim

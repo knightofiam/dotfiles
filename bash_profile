@@ -79,3 +79,8 @@ eval "$(pyenv init -)"
 if [ -e ~/.iterm2_shell_integration.bash ]; then
   source ~/.iterm2_shell_integration.bash
 fi
+
+# Private env vars
+set -a
+source ~/.extra
+set +a
