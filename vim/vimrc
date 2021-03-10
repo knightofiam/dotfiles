@@ -76,7 +76,7 @@ endfor
 " Set terminal title
 set title
 
-" Configure status line.
+" Configure status line
 set statusline=
 set statusline +=%{fugitive#statusline()} " git branch
 set statusline +=%1*\ %n\.\ %*            " buffer number
@@ -174,7 +174,7 @@ augroup SpellUnderline
         \   guisp=Red
 augroup END
 
-    " Highlight the active tab.
+    " Highlight active tab
     augroup TabColors
       autocmd!
       autocmd ColorScheme *
@@ -261,7 +261,7 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
-" Highlight extraneous whitespace in python files as an error.
+" Highlight extraneous whitespace in python files as an error
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead *.py match BadWhitespace /\s\+$/
 
