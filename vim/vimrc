@@ -73,17 +73,18 @@ endfor
 " Begin formatting section
 " ============================================================================"
 
-" Set the terminal title
+" Set terminal title
 set title
 
+" Configure status line.
 set statusline=
 set statusline +=%{fugitive#statusline()} " git branch
 set statusline +=%1*\ %n\.\ %*            " buffer number
-set statusline +=%4*%<%F%*                "full path
-set statusline +=%2*%m%*                  "modified flag
-set statusline +=%1*%=%5l%*               "current line
-set statusline +=%2*/%L%*                 "total lines
-set statusline +=%1*%9v\ %*               "column number
+set statusline +=%4*%<%F%*                " full path
+set statusline +=%2*%m%*                  " modified flag
+set statusline +=%1*%=%5l%*               " current line
+set statusline +=%2*/%L%*                 " total lines
+set statusline +=%1*%9v\ %*               " column number
 
 " Disable ruler since we're customizing the status line
 set noruler
