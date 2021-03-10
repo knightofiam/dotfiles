@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+printf "\nConfiguring MacOS system preferences...\n\n"
+
 # Disable boot sound effect.
 sudo nvram SystemAudioVolume=" "
 
@@ -478,3 +480,4 @@ sudo spctl --master-disable
 # Restart Finder to force changes to update.
 killall Finder
 
+printf "\nFinished configuring MacOS system preferences.\n\n"
