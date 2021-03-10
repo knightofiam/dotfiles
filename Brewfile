@@ -25,6 +25,7 @@ brew 'pyenv'
 # Apps
 cask '1password'
 cask '1password-cli'
+cask 'adobe-acrobat-reader'
 cask 'airfoil'
 cask 'cleanmymac'
 cask 'discord'
