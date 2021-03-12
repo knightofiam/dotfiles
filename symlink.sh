@@ -19,13 +19,20 @@ fi
 
 for dotfilePath in "${dotfiles[@]}"
 do
-  if [[ -f ${THIS_DIR}/${dotfilePath} || -d ${THIS_DIR}/${dotfilePath} ]]; then
-    dotfileName=$(basename "${dotfilePath}")
-    printf "Symlinking ${THIS_DIR}/${dotfilePath} as ${HOME}/.${dotfileName}\n"
-    ln -sfn ${THIS_DIR}/${dotfilePath} ".${dotfileName}"
-  else
-    printf "WARNING: ${dotfilePath} doesn't exist, skipping...\n"
+  dotfileName=$(basename "${dotfilePath}")
+
+  if [[ ( -f ${HOME}/.${dotfileName} || -d ${HOME}/.${dotfileName} ) && ! -L ${HOME}/.${dotfileName} ]]; then
+    printf "WARNING: ${HOME}/.${dotfileName} exists and is not a symlink, skipping...\n"
+    continue
   fi
+
+  if [[ ! -f ${THIS_DIR}/${dotfilePath} && ! -d ${THIS_DIR}/${dotfilePath} ]]; then
+    printf "WARNING: ${THIS_DIR}/${dotfilePath} doesn't exist, skipping...\n"
+    continue
+  fi
+
+  printf "Symlinking ${THIS_DIR}/${dotfilePath} as ${HOME}/.${dotfileName}\n"
+  ln -sfn ${THIS_DIR}/${dotfilePath} ".${dotfileName}"
 done
 
 # Symlink ~/.extra for local settings.
