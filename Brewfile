@@ -19,7 +19,9 @@ brew 'git'
 brew 'grep'
 brew 'mackup'
 brew 'mas'
+brew 'nmap'
 brew 'pyenv'
+brew 'tree'
 
 # Apps
 cask '1password'
