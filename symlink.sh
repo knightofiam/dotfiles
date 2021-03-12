@@ -21,7 +21,7 @@ for dotfilePath in "${dotfiles[@]}"
 do
   dotfileName=$(basename "${dotfilePath}")
   printf "Symlinking ${THIS_DIR}/${dotfilePath} as ${HOME}/.${dotfileName}\n"
-  ln -sfh ${THIS_DIR}/${dotfilePath} ".${dotfileName}"
+  ln -sfn ${THIS_DIR}/${dotfilePath} ".${dotfileName}"
 done
 
 # Symlink ~/.extra for local settings.
