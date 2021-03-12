@@ -49,6 +49,7 @@ alias dotfiles="cd ~/projects/dotfiles && gs"
 alias eb="vim ~/.bash_profile"
 alias sb="source ~/.bash_profile"
 alias ev="vim ~/.vimrc"
+alias ip="curl ifconfig.me"
 
 # SecureSet
 alias ss="cd ~/Sync/secureset && pwd && ls"
