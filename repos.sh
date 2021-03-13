@@ -2,7 +2,12 @@
 
 # Configure dotfiles git repository.
 # Preserve any local changes.
+
+THIS_DIR="${BASH_SOURCE%/*}"
+[[ ! -d "$THIS_DIR" ]] && THIS_DIR="$PWD"
+
 cd ${THIS_DIR}
+
 if [[ ! $(git rev-parse --is-inside-work-tree 2>/dev/null) ]]; then
   git init
   git config remote.origin.url >/dev/null 2>&1 || \
