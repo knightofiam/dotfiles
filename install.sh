@@ -12,7 +12,7 @@ source bash_profile
 ./gpg.sh
 ./iterm2.sh
 ./mvim.sh
-./symlink.sh
 ./repos.sh
+./symlink.sh
 
 source bash_profile
