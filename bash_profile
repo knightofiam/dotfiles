@@ -76,6 +76,10 @@ alias sst="cd ~/Sync/secureset/threat && pwd && ls"
 # Python
 eval "$(pyenv init -)"
 
+# Disable CTRL+D 10 times before quitting.
+# Prevents accidentally closing the terminal.
+set -o ignoreeof
+
 # iTerm2
 if [ -e ~/.iterm2_shell_integration.bash ]; then
   source ~/.iterm2_shell_integration.bash
