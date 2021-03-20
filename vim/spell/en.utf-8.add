@@ -26,6 +26,9 @@ cybersecurity
 decrement
 decrypt
 decrypted
+decrypting
+decrypts
+DER
 dir
 dotfile
 dotfiles
@@ -59,11 +62,16 @@ macos
 MacVim
 macvim
 NPC
+openssl
 os
 outcompete
+PCAP
+pcap
 pickaxe
 plaintext
 player
+PolarProxy
+PolarProxy's
 procedurally
 proprietorships
 Pseudocode
@@ -77,6 +85,7 @@ runnable
 sln
 spellfile
 spellfiles
+SSL
 stdout
 submodules
 subnet
@@ -84,7 +93,9 @@ subnets
 Symlink
 symlink
 symlinking
+TCP
 textwidth
+TLS
 TODO
 tradeoff
 txt
