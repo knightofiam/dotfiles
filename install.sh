@@ -14,5 +14,6 @@ source bash_profile
 ./mvim.sh
 ./repos.sh
 ./symlink.sh
+./extra.sh
 
 source bash_profile
