@@ -34,13 +34,15 @@ done
 #         - If is symlink, use symlinked path (actual_path_of (${THIS_DIR}/dotfile)).
 #         - Othwerwise, proceed as usual (assume path is ${THIS_DIR}/dotfile)
 # Symlink ~/.extra for local settings.
-if [[ ! -f ${HOME}/.extra && -f ${HOME}/Sync/dev/.extra ]]; then
+if [[ ! -e ${HOME}/.extra && -e ${HOME}/Sync/dev/.extra ]]; then
   printf "Symlinking ${HOME}/Sync/dev/.extra as ${HOME}/.extra\n"
   ln -sfh ${HOME}/Sync/dev/.extra .extra
-elif [[ -f .extra ]]; then
-  printf "WARNING: ${HOME}/.extra exists, skipping...\n"
+elif [[ ! -e ${HOME}/.extra && ! -e ${HOME}/Sync/dev/.extra ]]; then
+  printf "WARNING: ${HOME}/Sync/dev/.extra doesn't exist\n"
+  printf "Copying ${THIS_DIR}/.extra to ${HOME}/extra...\n"
+  cp "${THIS_DIR}/extra" "${HOME}/.extra"
 else
-  printf "WARNING: ${HOME}/Sync/dev/.extra doesn't exist, skipping...\n"
+  printf "WARNING: ${HOME}/.extra exists, skipping...\n"
 fi
 
 printf "\nFinished symlinking dotfiles.\n\n"
