@@ -22,7 +22,9 @@ brew 'mackup'
 brew 'mas'
 brew 'nmap'
 brew 'pyenv'
+brew 'scons'
 brew 'tree'
+brew 'yasm'
 
 # Apps
 cask '1password'
