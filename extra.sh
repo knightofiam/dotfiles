@@ -7,7 +7,7 @@ printf "\nConfiguring ${HOME}/.extra...\n\n"
 # Configure ~/.extra for local settings.
 if [[ ! -e ${HOME}/.extra && -e ${HOME}/Sync/dev/.extra ]]; then
   printf "Symlinking ${HOME}/Sync/dev/.extra as ${HOME}/.extra\n"
-  ln -sfh ${HOME}/Sync/dev/.extra .extra
+  ln -sfh ${HOME}/Sync/dev/dotfiles/.extra .extra
 elif [[ ! -e ${HOME}/.extra && ! -e ${HOME}/Sync/dev/.extra ]]; then
   printf "WARNING: ${HOME}/Sync/dev/.extra doesn't exist\n"
   printf "Copying ${THIS_DIR}/.extra to ${HOME}/extra...\n"
