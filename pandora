@@ -1,24 +1,21 @@
 #!/usr/bin/env bash
 
-# TODO Quote variables uses.
-# TODO Move to script pandora.sh and source it here.
-# TODO Try other function declaration style.
+PANDORA_FIFO="${HOME}/.config/pianobar/ctl"
 
-PANDORA_FIFO=${HOME}/.config/pianobar/ctl
-
-function pandora {
+pandora() {
+  [[ $1 == "quit" ]] && { quit_pandora; return; }
   is_pandora_running && { resume_pandora; return; }
   start_pandora
   login_to_pandora
 }
 
-function start_pandora {
-  rm ${PANDORA_FIFO} &> /dev/null
-  mkfifo ${PANDORA_FIFO}
+start_pandora() {
+  rm "${PANDORA_FIFO}" &> /dev/null
+  mkfifo "${PANDORA_FIFO}"
   screen -dmS pandora bash -c pianobar
 }
 
-function login_to_pandora {
+login_to_pandora() {
   ! is_op_logged_in && op_login
   ! is_op_logged_in && { op_login_failed; return 1; }
   send_to_pandora $(get_pandora_login username)
@@ -26,38 +23,39 @@ function login_to_pandora {
   printf "Started Pandora.\n"
 }
 
-function is_op_logged_in {
+is_op_logged_in() {
   op get account &> /dev/null
 }
 
-function op_login {
+op_login() {
   eval $(op signin 2>/dev/null)
 }
 
-function op_login_failed {
+op_login_failed() {
   printf "Failed to login.\n"
   quit_pandora
 }
 
-function send_to_pandora {
-  echo $1 > ${PANDORA_FIFO}
+send_to_pandora() {
+  echo "$1" > "${PANDORA_FIFO}"
 }
 
-function get_pandora_login {
-  op get item 4wrr4xvuwzfgpayczrmsnefihy --fields ${1}
+get_pandora_login() {
+  op get item 4wrr4xvuwzfgpayczrmsnefihy --fields "${1}"
 }
 
-function is_pandora_running {
+is_pandora_running() {
   screen -list | grep -q "pandora"
 }
 
-function resume_pandora {
+resume_pandora() {
   screen -rd pandora &> /dev/null
 }
 
-function quit_pandora {
-  is_pandora_running && echo "q" > ${PANDORA_FIFO}
+quit_pandora() {
+  is_pandora_running && echo "q" > "${PANDORA_FIFO}"
   is_pandora_running && screen -X -S pandora quit
   is_pandora_running && printf "Error: Failed to q" || printf "Q"
   printf "uit Pandora.\n"
+  rm "${PANDORA_FIFO}" &> /dev/null
 }
