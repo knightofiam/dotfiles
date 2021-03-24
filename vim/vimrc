@@ -305,6 +305,10 @@ autocmd! GUIEnter * set vb t_vb=
 " Increment / decrement letters with CTRL + A / CTRL + X
 set nrformats+=alpha
 
+" Place new window on right/bottom when v/h splitting, respectively.
+set splitright
+set splitbelow
+
 " ============================================================================"
 " End miscellaneous section
 " ============================================================================"
