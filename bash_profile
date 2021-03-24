@@ -85,6 +85,9 @@ if [ -e ~/.iterm2_shell_integration.bash ]; then
   source ~/.iterm2_shell_integration.bash
 fi
 
+# Pandora
+source ~/.pandora
+
 # Private env vars
 set -a
 source ~/.extra
