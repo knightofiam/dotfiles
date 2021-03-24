@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PANDORA_FIFO="${HOME}/.config/pianobar/ctl"
+PANDORA_FIFO="${HOME}/.config/pianobar/pipe"
 
 pandora() {
   [[ $1 == "quit" ]] && { quit_pandora; return; }
@@ -10,7 +10,7 @@ pandora() {
 }
 
 start_pandora() {
-  rm "${PANDORA_FIFO}" &> /dev/null
+  remove_pandora_fifo
   mkfifo "${PANDORA_FIFO}"
   screen -dmS pandora bash -c pianobar
 }
@@ -28,7 +28,7 @@ is_op_logged_in() {
 }
 
 op_login() {
-  eval $(op signin 2>/dev/null)
+  eval $(op signin 2> /dev/null)
 }
 
 op_login_failed() {
@@ -57,5 +57,9 @@ quit_pandora() {
   is_pandora_running && screen -X -S pandora quit
   is_pandora_running && printf "Error: Failed to q" || printf "Q"
   printf "uit Pandora.\n"
+  remove_pandora_fifo
+}
+
+remove_pandora_fifo() {
   rm "${PANDORA_FIFO}" &> /dev/null
 }
