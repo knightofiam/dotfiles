@@ -19,6 +19,12 @@ if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
   . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
 
+# iTerm2 command history & many other featuers
+# https://iterm2.com/documentation-shell-integration.html
+if [ -e ~/.iterm2_shell_integration.bash ]; then
+  source ~/.iterm2_shell_integration.bash
+fi
+
 # Python
 eval "$(pyenv init -)"
 
@@ -26,18 +32,14 @@ eval "$(pyenv init -)"
 # Prevents accidentally closing the terminal.
 set -o ignoreeof
 
-# iTerm2
-if [ -e ~/.iterm2_shell_integration.bash ]; then
-  source ~/.iterm2_shell_integration.bash
-fi
-
 # Pandora
 source ~/.pandora
 
 # Aliases
 source ~/.bash_aliases
 
-# Private env vars
+# Private environment variables.
+# Use set -a to export all variables without explicitly using 'export'.
 set -a
 source ~/.extra
 set +a
