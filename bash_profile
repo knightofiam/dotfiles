@@ -26,7 +26,9 @@ if [ -e ~/.iterm2_shell_integration.bash ]; then
 fi
 
 # Python
-eval "$(pyenv init -)"
+if test $(which pyenv); then
+  eval "$(pyenv init -)"
+fi
 
 # Disable CTRL+D 10 times before quitting.
 # Prevents accidentally closing the terminal.
