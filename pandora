@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PANDORA_FIFO="${HOME}/.config/pianobar/pipe"
+PANDORA_FIFO="${HOME}/.config/pianobar/ctl"
 
 pandora() {
   [[ $1 == "quit" ]] && { quit_pandora; return; }
