@@ -4,9 +4,10 @@
 # Must come after brew.sh (installs coreutils).
 MV_COMMAND="/usr/local/bin/gmv"
 THIS_DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
-DOTFILES=("bash_aliases" "bash_profile" "cvimrc" "config" "duti" "git/gitconfig" "git/gitignore_global" "ideavimrc" "pandora" "ssh" "vim" "vim/vimrc")
 
 printf "Symlinking dotfiles to ${HOME}...\n\n"
+
+readarray -s 2 -t DOTFILES < "${THIS_DIR}/symlinks"
 
 for dotfilepath in "${DOTFILES[@]}"
 do

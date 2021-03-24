@@ -1,0 +1,14 @@
+# List of dotfiles to be dotted & symlinked.
+
+bash_aliases
+bash_profile
+cvimrc
+config
+duti
+git/gitconfig
+git/gitignore_global
+ideavimrc
+pandora
+ssh
+vim
+vim/vimrc
