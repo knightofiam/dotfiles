@@ -11,12 +11,12 @@ export PATH="$PATH:$HOME/Library/Application Support/itch/broth/butler/versions/
 
 # Bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+  source $(brew --prefix)/etc/bash_completion
 fi
 
 # Git completion
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
-  . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+  source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
 
 # iTerm2 command history & many other featuers
