@@ -48,8 +48,10 @@ alias sst="cd ~/Sync/secureset/threat && pwd && ls"
 
 # Miscellaneous
 alias dotfiles="cd ~/projects/dotfiles && gs"
+alias website="cd ~/projects/website && gs"
 alias coa="cd ~/projects/godot/coa && gs"
 alias eb="vim ~/.bash_profile"
 alias sb="source ~/.bash_profile"
 alias ev="vim ~/.vimrc"
 alias ip="curl ifconfig.me"
+alias ea="vim ~/.bash_aliases"
