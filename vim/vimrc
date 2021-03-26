@@ -95,8 +95,8 @@ set wrap
 " Where to start visually wrapping lines
 set textwidth=80
 
-" Don't break wrapped lines with newlines
-set formatoptions-=t
+" Break wrapped lines with newlines
+set formatoptions+=t
 
 " Allow up to 5 digit line numbers
 set numberwidth=5
