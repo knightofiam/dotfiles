@@ -45,6 +45,8 @@ alias sss200="cd ~/Sync/secureset/sys/200 && pwd && ls"
 alias sss300="cd ~/Sync/secureset/sys/300 && pwd && ls"
 alias sss="cd ~/Sync/secureset/sys && pwd && ls"
 alias sst="cd ~/Sync/secureset/threat && pwd && ls"
+alias sspt="cd ~/Sync/secureset/pentest && pwd && ls"
+alias sspt100="cd ~/Sync/secureset/pentest/100 && pwd && ls"
 
 # Miscellaneous
 alias dotfiles="cd ~/projects/dotfiles && gs"
