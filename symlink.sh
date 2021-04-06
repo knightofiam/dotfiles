@@ -2,7 +2,7 @@
 
 # Using gmv from coreutils for backup feature.
 # Must come after brew.sh (installs coreutils).
-MV_COMMAND="/usr/local/bin/gmv"
+MV_COMMAND="$(brew --prefix)/bin/gmv"
 THIS_DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 
 printf "Symlinking dotfiles to ${HOME}...\n\n"

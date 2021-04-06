@@ -1,47 +1,36 @@
 # Homebrew
-export PATH="/usr/local/bin:${PATH}"
-export PATH="/usr/local/sbin:${PATH}"
-
-# Ruby
-export PATH="/usr/local/opt/ruby/bin:${PATH}"
-export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:${PATH}"
+[[ $(which brew) ]] &&\
+  export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:${PATH}"
 
 # Butler
-export PATH="$PATH:$HOME/Library/Application Support/itch/broth/butler/versions/15.20.0"
+[[ $(which butler) ]] &&\
+  export PATH="$PATH:$HOME/Library/Application Support/itch/broth/butler/versions/15.20.0"
 
 # Bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  source $(brew --prefix)/etc/bash_completion
-fi
+[[ $(which brew) && -f $(brew --prefix)/etc/bash_completion ]] &&\
+  . $(brew --prefix)/etc/bash_completion
 
 # Git completion
-if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
-  source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
-fi
+[[ $(which brew) && -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]] &&\
+  . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 
 # iTerm2 command history & many other featuers
 # https://iterm2.com/documentation-shell-integration.html
-if [ -e ~/.iterm2_shell_integration.bash ]; then
-  source ~/.iterm2_shell_integration.bash
-fi
+[[ -e ~/.iterm2_shell_integration.bash ]] && . ~/.iterm2_shell_integration.bash
 
 # Python
-if test $(which pyenv); then
-  eval "$(pyenv init -)"
-fi
+[[ $(which pyenv) ]] && eval "$(pyenv init -)"
 
 # Disable CTRL+D 10 times before quitting.
 # Prevents accidentally closing the terminal.
 set -o ignoreeof
 
 # Pandora
-source ~/.pandora
+[[ -f ~/.pandora ]] && . ~/.pandora
 
 # Aliases
-source ~/.bash_aliases
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
 # Private environment variables.
 # Use set -a to export all variables without explicitly using 'export'.
-set -a
-source ~/.extra
-set +a
+[[ -f ~/.extra ]] && { set -a; . ~/.extra; set +a; }

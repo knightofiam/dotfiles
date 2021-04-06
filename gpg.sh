@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Using gmv from coreutils for backup feature.
+# Must come after brew.sh (installs coreutils).
+MV_COMMAND="$(brew --prefix)/bin/gmv"
+
 # Sign into 1Password
 eval $(op signin my.1password.com ${ONE_PASSWORD_EMAIL})
 
@@ -7,9 +11,7 @@ eval $(op signin my.1password.com ${ONE_PASSWORD_EMAIL})
 # op refuses to overwrite.
 if [[ -f ${HOME}/key.asc ]]; then
   printf "\n${HOME}/key.asc already exists, backing up before overwriting...\n"
-  # Using gmv from coreutils for backup feature.
-  # Must come after `brew bundle` (installs coreutils).
-  /usr/local/bin/gmv --backup=numbered "${HOME}/key.asc" "${HOME}/key.asc.backup"
+  ${MV_COMMAND} --backup=numbered "${HOME}/key.asc" "${HOME}/key.asc.backup"
   printf "\nFinished backing up ${HOME}/key.asc.\n\n"
 fi
 
