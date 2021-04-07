@@ -19,7 +19,7 @@ git_completion="${brew_prefix}/etc/bash_completion.d/git-completion.bash"
 [[ -e ~/.iterm2_shell_integration.bash ]] && . ~/.iterm2_shell_integration.bash
 
 # Python
-$(command -v pyenv &>/dev/null) && eval “$(pyenv init -)”
+command -v pyenv &>/dev/null && eval "$(pyenv init -)"
 
 # Pandora
 [[ -f ~/.pandora ]] && . ~/.pandora
