@@ -23,7 +23,7 @@ fi
 
 # Import my personal private key from 1Password documents as ~/key.asc into gpg.
 # (op locks down file permissions by default to 0600)
-printf "Importing & signing your personal private key from 1Password documents...\n\n"
+printf "\nImporting & signing your personal private key from 1Password documents...\n\n"
 op get document "My Private Key.asc" --vault Private --output ${HOME}/key.asc
 gpg --import "${HOME}/key.asc"
 if [[ ! -z ${GPG_KEY_SIGNING_EMAIL} && ${GPG_KEY_SIGNING_EMAIL} != "first.last@example.com" ]]; then
@@ -42,4 +42,4 @@ printf "\nFinished importing your personal private key from 1Password documents.
 printf "Importing & signing GitHub's web-based key for signed pull-request merges...\n\n"
 curl https://github.com/web-flow.gpg | gpg --import
 gpg --sign-key noreply@github.com
-printf "Finished importing & signing GitHub's web-based key for signed pull-request merges.\n\n"
+printf "\nFinished importing & signing GitHub's web-based key for signed pull-request merges.\n\n"
