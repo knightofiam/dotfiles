@@ -4,6 +4,7 @@
 alias ga="git add"
 alias gaa="git add --all"
 alias gaacv="git commit --all --verbose"
+alias gaaacv="git commit --all --amend --verbose"
 alias gap="git add --patch"
 alias gb="git branch"
 alias gc="git checkout"
