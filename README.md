@@ -2,9 +2,21 @@
 
 ## Installation
 
+Download
+
 ```
 curl -Ls https://github.com/knightofiam/dotfiles/archive/master.tar.gz | tar xz && mv -f dotfiles-master ~/dotfiles && cd ~/dotfiles
-./install.sh
+```
+
+macOS
+
+```
+./install-macos.sh
+```
+
+Linux
+```
+./install-linux.sh
 ```
 
 ## License

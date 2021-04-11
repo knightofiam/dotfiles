@@ -39,20 +39,20 @@ do
   rm "${THIS_DIR}/${i}" &>/dev/null
 done
 
-# install.sh: Remove macOS-specific content.
+# install-macos.sh: Remove macOS-specific content.
 declare -a install=("dock" "duti" "iterm2" "macos" "mvim" "xcode")
 for i in "${install[@]}"
 do
-  sed -i "/${i}/d" "${THIS_DIR}/install.sh"
+  sed -i "/${i}/d" "${THIS_DIR}/install-macos.sh"
 done
 
-# install.sh: Modify for Linux.
+# install-macos.sh: Modify for Linux.
 bashrc_append="grep -Fxq \"[[ -f ~/.bash_profile ]] \&\& . ~/.bash_profile\" ~/.bashrc || echo -e \"\\\n[[ -f ~/.bash_profile ]] \&\& . ~/.bash_profile\" >> ~/.bashrc"
 bashrc_append_grep="${bashrc_append//\\&/&}"
 bashrc_append_grep="${bashrc_append_grep//\\n/n}"
 brew_path="export PATH=\"/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:\${PATH}\""
-grep -Fxq "${brew_path}" install.sh || sed -i "s,${SHEBANG},${SHEBANG}\\n\\n${brew_path}," install.sh
-grep -Fxq "${bashrc_append_grep}" install.sh || sed -i "s,${SHEBANG},${SHEBANG}\\n\\n${bashrc_append}," install.sh
+grep -Fxq "${brew_path}" install-macos.sh || sed -i "s,${SHEBANG},${SHEBANG}\\n\\n${brew_path}," install-macos.sh
+grep -Fxq "${bashrc_append_grep}" install-macos.sh || sed -i "s,${SHEBANG},${SHEBANG}\\n\\n${bashrc_append}," install-macos.sh
 
 # brew.sh: Modify for Linux.
 homebrew_post_install="${package_install} vim-gtk"
