@@ -24,6 +24,7 @@ brew 'nmap'
 brew 'pianobar'
 brew 'pyenv'
 brew 'scons'
+brew 'screen'
 brew 'tree'
 brew 'yasm'
 
