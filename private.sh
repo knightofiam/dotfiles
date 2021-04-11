@@ -6,7 +6,7 @@ EXTRA_TEMPLATE="${THIS_DIR}/extra"
 EXTRA_SRC="${HOME}/Sync/dev/dotfiles/.extra"
 EXTRA_DST="${HOME}/.extra"
 
-printf "\nConfiguring ${EXTRA_DST} for private settings...\n\n"
+printf "Configuring ${EXTRA_DST} for private settings...\n\n"
 
 # Configure ~/.extra for local settings.
 if [[ ! -e ${EXTRA_DST} && -e ${EXTRA_SRC} ]]; then

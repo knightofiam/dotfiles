@@ -5,7 +5,7 @@
 MV_COMMAND="$(brew --prefix)/bin/gmv"
 THIS_DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 
-printf "Symlinking dotfiles to ${HOME}...\n\n"
+printf "\nSymlinking dotfiles to ${HOME}...\n\n"
 
 readarray -s 2 -t DOTFILES < "${THIS_DIR}/symlinks"
 
