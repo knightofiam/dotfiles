@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Use Homebrew version of Bash shell.
-if [[ $(grep -L "/usr/local/bin/bash" /etc/shells) ]]; then
-  echo /usr/local/bin/bash | sudo tee -a /etc/shells
-  chsh -s /usr/local/bin/bash
+if [[ $(grep -L $(brew --prefix)/bin/bash /etc/shells) ]]; then
+  echo $(brew --prefix)/bin/bash | sudo tee -a /etc/shells
+  chsh -s $(brew --prefix)/bin/bash
 fi
 
 # Use Touch ID in shell.
