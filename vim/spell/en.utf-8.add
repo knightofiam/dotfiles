@@ -6,6 +6,7 @@ APA
 Brewfile
 Bugfixes
 CTRL
+DDoS
 DER
 Declutter
 Dystopia
@@ -23,6 +24,7 @@ Pseudocode
 RFID
 RPG
 SSL
+Splunk
 Symlink
 TCP
 TLS
@@ -40,6 +42,7 @@ autocompletions
 blazingly
 cVim
 cVimrc
+captchas
 cask
 citrine
 cli
@@ -97,12 +100,14 @@ plaintext
 player
 procedurally
 proprietorships
+reconfiguring
 respawn
 respawned
 respawning
 respawns
 runnable
 runtime
+sanitization
 siloing
 sln
 spellfile
