@@ -12,6 +12,7 @@ package_update=""
 package_install=""
 package_uninstall=""
 homebrew_pre_install=""
+vim_package=""
 
 if command -v rpm &>/dev/null; then
   package_type="rpm"
@@ -20,6 +21,7 @@ if command -v rpm &>/dev/null; then
   package_install="${package_command} -y install"
   package_uninstall="${package_command} -y remove"
   homebrew_pre_install="${package_update}; ${package_install} @'Development Tools' curl file gawk git libxcrypt-compat"
+  vim_package="vim-X11"
 elif command -v dpkg &>/dev/null; then
   package_type="deb"
   package_command="sudo apt-get"
@@ -27,6 +29,7 @@ elif command -v dpkg &>/dev/null; then
   package_install="${package_command} -y install"
   package_uninstall="${package_command} -y purge"
   homebrew_pre_install="${package_update}; ${package_install} build-essential curl file gawk git"
+  vim_package="vim-gtk"
 else
   printf "Error: Unsupported OS. Could not detect a valid Linux package manager.\n"
   exit 1
@@ -55,7 +58,7 @@ grep -Fxq "${brew_path}" install-macos.sh || sed -i "s,${SHEBANG},${SHEBANG}\\n\
 grep -Fxq "${bashrc_append_grep}" install-macos.sh || sed -i "s,${SHEBANG},${SHEBANG}\\n\\n${bashrc_append}," install-macos.sh
 
 # brew.sh: Modify for Linux.
-homebrew_post_install="${package_install} vim-gtk"
+homebrew_post_install="${package_install} ${vim_package}"
 homebrew_post_uninstall="${package_uninstall} gawk git"
 grep -Fxq "${homebrew_pre_install}" brew.sh || sed -i "s,${SHEBANG},${SHEBANG}\\n\\n${homebrew_pre_install}," brew.sh
 grep -Fxq "${homebrew_post_install}" brew.sh || echo -e "\n${homebrew_post_install}" >> brew.sh
