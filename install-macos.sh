@@ -13,6 +13,7 @@ source bash_profile
 ./iterm2.sh
 ./mvim.sh
 ./repos.sh
+./ssh.sh
 ./symlink.sh
 ./private.sh
 
