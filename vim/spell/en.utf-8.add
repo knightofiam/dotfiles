@@ -3,27 +3,37 @@
 ## 3. Comments must begin with a number to stay in order after sorting.
 ## 4. Use ,sv (source vimrc) after saving to rebuild binary spell file.
 APA
+AWS
 Brewfile
 Bugfixes
 CTRL
 DDoS
 DER
 Declutter
+DigitalOcean
 Dystopia
+EC2
 GDScript
 GRC
 Homebrew's
+IaaS
 KinematicBody2D
+Kinesis
+LinkedIn
 MacVim
 NPC
 OCEG
 PCAP
+PaaS
 PolarProxy
 PolarProxy's
 Pseudocode
 RFID
 RPG
+Ransomware
+SIEM
 SSL
+SaaS
 Splunk
 Symlink
 TCP
@@ -100,6 +110,7 @@ plaintext
 player
 procedurally
 proprietorships
+ransomware
 reconfiguring
 respawn
 respawned
@@ -108,6 +119,7 @@ respawns
 runnable
 runtime
 sanitization
+scalability
 siloing
 sln
 spellfile
@@ -134,6 +146,7 @@ usr
 var
 vim
 vimrc
+virtualized
 wakeup
 whitespace
 workflow
