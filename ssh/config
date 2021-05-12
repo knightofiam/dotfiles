@@ -1,4 +1,3 @@
-
 Host *
   # Refresh ssh connection every 60 seconds.
   ServerAliveInterval 60
