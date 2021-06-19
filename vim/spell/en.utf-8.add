@@ -6,6 +6,7 @@ APA
 AWS
 Brewfile
 Bugfixes
+CISA
 CTRL
 DDoS
 DER
@@ -13,6 +14,7 @@ Declutter
 DigitalOcean
 Dystopia
 EC2
+GDPR
 GDScript
 GRC
 Homebrew's
@@ -21,6 +23,7 @@ KinematicBody2D
 Kinesis
 LinkedIn
 MacVim
+NIST
 NPC
 OCEG
 PCAP
@@ -63,6 +66,7 @@ coreutils
 csproj
 customizations
 cvimrc
+cyber
 cybersecurity
 decrement
 decrypt
@@ -92,6 +96,7 @@ homebrew
 https
 iPhones
 instead
+interoperability
 iterm2
 keto
 linux
@@ -99,6 +104,7 @@ macOS
 mackup
 macos
 macvim
+mitigations
 openssl
 os
 outcompete
@@ -132,6 +138,7 @@ symlink
 symlinked
 symlinking
 symlinks
+synergistically
 synergizes
 textwidth
 tradeoff
