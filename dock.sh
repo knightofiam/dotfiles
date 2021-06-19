@@ -29,23 +29,12 @@ dockutil --add "/System/Applications/Utilities/Activity Monitor.app"
 dockutil --add "/System/Applications/Preview.app"
 dockutil --add "/System/Applications/System Preferences.app"
 dockutil --add '~/Downloads' --view grid --display folder
-dockutil --add '~/Sync/secureset/course-plan.txt'
-dockutil --add '~/Sync/secureset/secureset-notes.txt'
 dockutil --add '~/Sync/dev/dotfiles-todo.txt'
 dockutil --add '~/Sync/dev/coa/notes/coa-todo.txt'
 dockutil --add '~/Sync/dev/vim-tips.txt'
 dockutil --add '~/Sync/dev/git-tips.txt'
 dockutil --add '~/Sync/dev/iterm2-tips.txt'
 dockutil --add '~/Sync/dev/godot-tips.txt'
-dockutil --add https://flatironschool.zoom.us/j/95936609425 --label 'SecureSet Zoom'
-dockutil --add https://learning.flatironschool.com/courses/2514 --label 'SecureSet Canvas Homeroom'
-dockutil --add https://learning.flatironschool.com/courses/2510/modules --label 'SecureSet App'
-dockutil --add https://learning.flatironschool.com/courses/2515/modules --label 'SecureSet Logs'
-dockutil --add https://learning.flatironschool.com/courses/3141/modules --label 'SecureSet Networking'
-dockutil --add https://learning.flatironschool.com/courses/2518/modules --label 'SecureSet Systems'
-dockutil --add https://learning.flatironschool.com/courses/2519/modules --label 'SecureSet Threat'
-dockutil --add https://learning.flatironschool.com/courses/2513/modules --label 'SecureSet GRC'
-dockutil --add https://portal.flatironschool.com/coaching/journey --label 'SecureSet Career Coaching'
 dockutil --add https://github.com/knightofiam --label 'GitHub: knightofiam'
 dockutil --add https://github.com/forerunnergames --label 'GitHub: forerunnergames'
 dockutil --add https://github.com/knightofiam/dotfiles --label 'GitHub: dotfiles'
