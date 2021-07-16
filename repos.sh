@@ -20,6 +20,6 @@ if [[ ! $(git rev-parse --is-inside-work-tree 2>/dev/null) ]]; then
 fi
 
 # Configure GitHub development projects, including dotfiles.
-mkdir -p "${HOME}/projects/godot"
-mv "${HOME}/dotfiles" "${HOME}/projects/"
-git clone https://github.com/forerunnergames/coa.git "${HOME}/projects/godot/coa"
+mkdir -p "${HOME}/Sync/projects/godot"
+mv "${HOME}/dotfiles" "${HOME}/Sync/projects/"
+git clone https://github.com/forerunnergames/coa.git "${HOME}/Sync/projects/godot/coa"
