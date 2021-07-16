@@ -8,6 +8,7 @@ duti
 git/gitconfig
 git/gitignore_global
 ideavimrc
+mackup.cfg
 pandora
 ssh
 vim
