@@ -6,6 +6,7 @@ AES
 APA
 AWS
 BCRYPT
+Blockchain
 Blowfish
 Brewfile
 Bugfixes
@@ -23,15 +24,18 @@ Degaussing
 DigitalOcean
 Dystopia
 EC2
+ECC
 Enum
 GDPR
 GDScript
 GRC
 HIPAA
 Homebrew's
+Homomorphic
 IM
 IOC
 IPS
+IPsec
 IaaS
 IoT
 Keyspace
@@ -52,6 +56,7 @@ Pseudocode
 RC4
 RFID
 RPG
+RSA
 Ransomware
 SCADA
 SEH
@@ -88,6 +93,7 @@ cVim
 cVimrc
 captchas
 cask
+ciphertext
 citrine
 cli
 collider
@@ -133,11 +139,13 @@ hoc
 homebrew
 https
 iPhones
+incrementing
 instead
 interoperability
 iterm2
 keto
 keyholder
+keystream
 linux
 macOS
 mackup
@@ -161,6 +169,7 @@ preprocesses
 procedurally
 proprietorships
 pseudorandom
+qubits
 ransomware
 reconfiguring
 respawn
