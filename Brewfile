@@ -4,6 +4,7 @@
 tap 'homebrew/cask'
 tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-versions'
+tap 'trinitronx/homebrew-pcloud'
 
 # Binaries
 brew 'act'
@@ -49,6 +50,7 @@ cask 'loopback'
 cask 'macvim'
 cask 'obs'
 cask 'parallels'
+cask 'pcloud-drive'
 cask 'rider'
 cask 'securityspy'
 cask 'signal'
