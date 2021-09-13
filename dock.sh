@@ -27,6 +27,7 @@ dockutil --add "/System/Applications/Calculator.app"
 dockutil --add "/Applications/1Password 7.app"
 dockutil --add "/System/Applications/Utilities/Activity Monitor.app"
 dockutil --add "/System/Applications/Preview.app"
+dockutil --add "/System/Applications/QuickTime Player.app"
 dockutil --add "/System/Applications/System Preferences.app"
 dockutil --add '~/Downloads' --view grid --display folder
 dockutil --add '~/Sync/career/sec-plus-notes.txt'
