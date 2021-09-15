@@ -10,11 +10,11 @@
 #
 # Bundle Id      UTI                     Role
 
-org.vim.MacVim   public.plain-text       all
+org.vim.MacVim   duti                    all
 org.vim.MacVim   public.data             all
 org.vim.MacVim   public.gd               all
-org.vim.MacVim   public.unix-executable  all
-org.vim.MacVim   public.shell-script     all
-org.vim.MacVim   public.python-script    all
 org.vim.MacVim   public.php-script       all
-org.vim.MacVim   duti                    all
+org.vim.MacVim   public.plain-text       all
+org.vim.MacVim   public.python-script    all
+org.vim.MacVim   public.shell-script     all
+org.vim.MacVim   public.unix-executable  all
