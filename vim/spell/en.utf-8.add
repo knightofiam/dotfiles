@@ -59,6 +59,7 @@ Homomorphic
 IAM
 ICV
 IDE
+IEnumerable
 IKEv2
 IM
 IMAP
@@ -87,6 +88,7 @@ NAC
 NIST
 NPC
 NTP
+NuGet
 OAuth
 OCEG
 OSI
@@ -168,6 +170,7 @@ agentless
 ambience
 analytics
 antimalware
+async
 authenticator
 autocomplete
 autocompletion
@@ -222,6 +225,7 @@ filenames
 financials
 firewalled
 footprinting
+formatter
 formulae
 foundational
 gameplay
@@ -329,5 +333,6 @@ wakeup
 whitelist
 whitelisted
 whitespace
+wildcard
 workflow
 zsh
