@@ -3,13 +3,16 @@
 ## 3. Comments must begin with a number to stay in order after sorting.
 ## 4. Use ,sv (source vimrc) after saving to rebuild binary spell file.
 AAAA
+ACL
 ACL's
 AES
 APA
 API's
 AWS
+Aggregators
 BCRYPT
 Base64
+Biometrics
 BitLocker
 Blockchain
 Blowfish
@@ -32,6 +35,7 @@ DNSSEC
 DOM
 Declutter
 Degaussing
+Deprovisioning
 Diffie-Hellman
 DigitalOcean
 DoS
@@ -77,6 +81,7 @@ Keychain
 Keyspace
 KinematicBody2D
 Kinesis
+Kubernetes
 L2TP
 LDAP
 LDAPS
@@ -84,6 +89,8 @@ LOTL
 LinkedIn
 MIB
 MacVim
+Metasploit
+Microservices
 NAC
 NIST
 NPC
@@ -93,7 +100,10 @@ OAuth
 OCEG
 OSI
 OSINT
+Oauth
 OpenID
+OpenId
+OpenSSL
 PCAP
 PCR
 PEM
@@ -103,6 +113,7 @@ PPTP
 PaaS
 PolarProxy
 PolarProxy's
+PowerShell
 Pseudocode
 QoS
 RC4
@@ -135,6 +146,7 @@ SaaS
 Sandboxing
 SharePoint
 Splunk
+Stateful
 Steganography
 Symlink
 TACACS
@@ -151,6 +163,7 @@ UEFI
 Unabbreviate
 Uncomment
 Uninterruptable
+Unsecure
 VLAN
 VM
 VM's
@@ -158,12 +171,14 @@ VNC
 VPC
 VPC's
 VPN
+VPN's
 Vimscript
 Virtualization
 VoIP
 WEP
 WPA
 Wildcard
+Wireshark
 X11
 XSS
 agentless
@@ -175,14 +190,17 @@ authenticator
 autocomplete
 autocompletion
 autocompletions
+backend
 balancer
 balancers
+biometric
 blazingly
 bootloader
 cVim
 cVimrc
 captchas
 cask
+checksum
 chipset
 ciphertext
 citrine
@@ -201,12 +219,16 @@ cyber
 cybersecurity
 datacenter
 datacenters
+deauthentication
 decrement
 decrypt
 decrypted
 decrypting
 decrypts
+degauss
+degaussing
 dir
+discoverable
 dissolvable
 dotfile
 dotfiles
@@ -217,6 +239,7 @@ encryptable
 executables
 exfiltrated
 exfiltration
+exploitations
 export
 failover
 fileless
@@ -243,9 +266,11 @@ hotfixes
 https
 iPhones
 incrementing
+inductor
 instead
 interoperability
 iterm2
+jitter
 keto
 keychain
 keyholder
@@ -256,6 +281,7 @@ mackup
 macos
 macvim
 metadata
+middleware
 mistyped
 mitigations
 namespaces
@@ -271,9 +297,11 @@ pianobar
 pickaxe
 plaintext
 player
+popups
 prepending
 preprocesses
 procedurally
+programmatically
 proprietorships
 pseudorandom
 qubits
@@ -300,6 +328,8 @@ smishing
 spellfile
 spellfiles
 spim
+splitter
+stateful
 stdout
 submodules
 subnet
