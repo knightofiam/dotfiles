@@ -2,6 +2,7 @@
 ## 2. Do not use :sort i command (case-insensitive).
 ## 3. Comments must begin with a number to stay in order after sorting.
 ## 4. Use ,sv (source vimrc) after saving to rebuild binary spell file.
+#ollission
 AAAA
 ACL
 ACL's
@@ -10,6 +11,8 @@ APA
 API's
 AWS
 Aggregators
+Anonymization
+Aseprite
 BCRYPT
 Base64
 Biometrics
@@ -92,6 +95,7 @@ MacVim
 Metasploit
 Microservices
 NAC
+NDA
 NIST
 NPC
 NTP
@@ -187,6 +191,8 @@ XSS
 agentless
 ambience
 analytics
+anonymization
+anonymized
 antimalware
 async
 authenticator
@@ -196,6 +202,7 @@ autocompletions
 backend
 balancer
 balancers
+believability
 biometric
 blazingly
 bootloader
@@ -214,6 +221,7 @@ colliders
 colorscheme
 coreutils
 coroutine
+criticality
 cryptographic
 csproj
 customizations
@@ -254,6 +262,7 @@ footprinting
 formatter
 formulae
 foundational
+framerate
 gameplay
 gcc
 geolocation
@@ -273,6 +282,7 @@ inductor
 instead
 interoperability
 iterm2
+jailbroken
 jitter
 keto
 keychain
@@ -316,6 +326,7 @@ rect
 rects
 remediate
 requestor
+resellers
 respawn
 respawned
 respawning
@@ -346,6 +357,8 @@ synergistically
 synergizes
 textwidth
 tilemap
+timeframes
+tokenization
 tradeoff
 txt
 typosquatting
@@ -353,6 +366,7 @@ uber
 ubuntu
 unarchiver
 unencrypted
+unequipping
 unnamedplus
 unsetting
 untrusted
