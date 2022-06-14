@@ -33,6 +33,7 @@ dockutil --add '~/Downloads' --view grid --display folder
 dockutil --add '~/Sync/career/sec-plus-notes.txt'
 dockutil --add '~/Sync/dev/dotfiles/dotfiles-todo.txt'
 dockutil --add '~/Sync/dev/coa/notes/coa-todo.txt'
+dockutil --add '~/Sync/dev/coa/notes/coa-done.txt'
 dockutil --add '~/Sync/dev/vim/vim-tips.txt'
 dockutil --add '~/Sync/dev/git/git-tips.txt'
 dockutil --add '~/Sync/dev/iterm/iterm2-tips.txt'
