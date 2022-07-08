@@ -8,6 +8,7 @@ tap 'trinitronx/homebrew-pcloud'
 
 # Binaries
 brew 'act'
+brew 'awscli'
 brew 'bash'
 brew 'bash-completion'
 brew 'coreutils'
