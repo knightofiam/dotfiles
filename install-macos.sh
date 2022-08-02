@@ -15,6 +15,7 @@ source bash_profile
 ./repos.sh
 ./ssh.sh
 ./symlink.sh
+./python.sh
 ./private.sh
 
 source bash_profile
