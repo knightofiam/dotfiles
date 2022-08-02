@@ -20,6 +20,16 @@ git_completion="${brew_prefix}/etc/bash_completion.d/git-completion.bash"
 
 # Python
 command -v pyenv &>/dev/null && eval "$(pyenv init -)"
+export PATH=/usr/local/share/python:$PATH
+
+# virtualenv
+WORKON_HOME=$HOME/.virtualenvs
+VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+source /usr/local/bin/virtualenvwrapper.sh
+
+# AWS Elastic Beanstalk CLI
+export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
 
 # Pandora
 [[ -f ~/.pandora ]] && . ~/.pandora
