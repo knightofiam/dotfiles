@@ -30,10 +30,8 @@ dockutil --add "/System/Applications/Preview.app"
 dockutil --add "/System/Applications/QuickTime Player.app"
 dockutil --add "/System/Applications/System Preferences.app"
 dockutil --add '~/Downloads' --view grid --display folder
-dockutil --add '~/Sync/career/sec-plus-notes.txt'
 dockutil --add '~/Sync/dev/dotfiles/dotfiles-todo.txt'
 dockutil --add '~/Sync/dev/coa/notes/coa-todo.txt'
-dockutil --add '~/Sync/dev/coa/notes/coa-done.txt'
 dockutil --add '~/Sync/dev/vim/vim-tips.txt'
 dockutil --add '~/Sync/dev/git/git-tips.txt'
 dockutil --add '~/Sync/dev/iterm/iterm2-tips.txt'
@@ -41,7 +39,6 @@ dockutil --add '~/Sync/dev/godot/godot-tips.txt'
 dockutil --add '~/Sync/dev/aseprite/aseprite-tips.txt'
 dockutil --add '~/Sync/dev/garageband/garageband-tips.txt'
 dockutil --add https://www.lumosity.com/app/v4/dashboard --label 'Lumosity'
-dockutil --add https://lms.onlineexpert.com/ --label 'LearnKey'
 dockutil --add https://github.com/knightofiam --label 'GitHub: knightofiam'
 dockutil --add https://github.com/forerunnergames --label 'GitHub: forerunnergames'
 dockutil --add https://github.com/knightofiam/dotfiles --label 'GitHub: dotfiles'
