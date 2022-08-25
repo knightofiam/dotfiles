@@ -310,6 +310,11 @@ set nrformats+=alpha
 set splitright
 set splitbelow
 
+" Enable file-specific settings
+" E.g., to disable spellcheck on a file, place the following line at its top:
+"   # vim: nospell
+set modeline
+
 " ============================================================================"
 " End miscellaneous section
 " ============================================================================"
