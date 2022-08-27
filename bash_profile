@@ -18,15 +18,12 @@ git_completion="${brew_prefix}/etc/bash_completion.d/git-completion.bash"
 # https://iterm2.com/documentation-shell-integration.html
 [[ -e ~/.iterm2_shell_integration.bash ]] && . ~/.iterm2_shell_integration.bash
 
-# Python
+# Python / pyenv / virtualenv
+# https://alysivji.github.io/setting-up-pyenv-virtualenvwrapper.html
 command -v pyenv &>/dev/null && eval "$(pyenv init -)"
-export PATH=/usr/local/share/python:$PATH
-
-# virtualenv
-WORKON_HOME=$HOME/.virtualenvs
-VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-source /usr/local/bin/virtualenvwrapper.sh
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+export WORKON_HOME=$HOME/.virtualenvs
+pyenv virtualenvwrapper_lazy
 
 # AWS Elastic Beanstalk CLI
 export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
