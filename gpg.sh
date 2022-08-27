@@ -24,7 +24,7 @@ fi
 # Import my personal private key from 1Password documents as ~/key.asc into gpg.
 # (op locks down file permissions by default to 0600)
 printf "\nImporting & signing your personal private key from 1Password documents...\n\n"
-op get document "My Private Key.asc" --vault Private --output ${HOME}/key.asc
+op document get "My Private Key.asc" --vault Private --output ${HOME}/key.asc
 gpg --import "${HOME}/key.asc"
 if [[ ! -z ${GPG_KEY_SIGNING_EMAIL} && ${GPG_KEY_SIGNING_EMAIL} != "first.last@example.com" ]]; then
   gpg --sign-key ${GPG_KEY_SIGNING_EMAIL}
