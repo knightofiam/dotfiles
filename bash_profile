@@ -41,3 +41,6 @@ export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
 # Disable CTRL+D 10 times before quitting.
 # Prevents accidentally closing the terminal.
 set -o ignoreeof
+
+# Mono - Disable crash files
+export MONO_CRASH_NOFILE=""
