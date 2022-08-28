@@ -24,7 +24,7 @@ login_to_pandora() {
 }
 
 is_op_logged_in() {
-  op get account &> /dev/null
+  op account get 2> /dev/null
 }
 
 op_login() {
@@ -41,7 +41,7 @@ send_to_pandora() {
 }
 
 get_pandora_login() {
-  op get item 4wrr4xvuwzfgpayczrmsnefihy --fields "${1}"
+  op item get 4wrr4xvuwzfgpayczrmsnefihy --fields "${1}"
 }
 
 is_pandora_running() {
