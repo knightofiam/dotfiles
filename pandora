@@ -24,7 +24,7 @@ login_to_pandora() {
 }
 
 is_op_logged_in() {
-  op account get 2> /dev/null
+  op account get &> /dev/null
 }
 
 op_login() {
