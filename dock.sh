@@ -27,7 +27,7 @@ dockutil --add "/System/Applications/Preview.app"
 dockutil --add "/System/Applications/QuickTime Player.app"
 dockutil --add "/System/Applications/System Preferences.app"
 dockutil --add '~/Downloads' --view grid --display folder
-dockutil --add '~/Sync/career/hack-the-box.txt'
+dockutil --add '~/Sync/career/hack-the-box-tips.txt'
 dockutil --add '~/Sync/dev/dotfiles/dotfiles-todo.txt'
 dockutil --add '~/Sync/dev/coa/notes/coa-todo.txt'
 dockutil --add '~/Sync/dev/vim/vim-tips.txt'
