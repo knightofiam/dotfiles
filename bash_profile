@@ -44,3 +44,6 @@ set -o ignoreeof
 
 # Mono - Disable crash files
 export MONO_CRASH_NOFILE=""
+
+# 1Password SSH Agent
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
