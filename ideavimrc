@@ -1,3 +1,3 @@
 source ~/.vimrc
-set clipboard += ideaplus
-set clipboard += unnamedplus
+set clipboard+=ideaplus
+set clipboard+=unnamedplus
