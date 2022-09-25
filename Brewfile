@@ -29,6 +29,7 @@ brew 'pyenv'
 brew 'pyenv-virtualenvwrapper'
 brew 'scons'
 brew 'screen'
+brew 'transmission'
 brew 'tree'
 brew 'yasm'
 
