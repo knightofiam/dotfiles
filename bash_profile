@@ -28,6 +28,19 @@ pyenv virtualenvwrapper_lazy
 # AWS Elastic Beanstalk CLI
 export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
 
+# Android
+export ANT_HOME=${brew_prefix}/opt/ant
+export MAVEN_HOME=${brew_prefix}/opt/maven
+export GRADLE_HOME=${brew_prefix}/opt/gradle
+export ANDROID_HOME=${brew_prefix}/share/android-sdk
+export ANDROID_NDK_HOME=${brew_prefix}/share/android-ndk
+export PATH=$ANT_HOME/bin:$PATH
+export PATH=$MAVEN_HOME/bin:$PATH
+export PATH=$GRADLE_HOME/bin:$PATH
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/build-tools/33.0.0:$PATH
+
 # Pandora
 [[ -f ~/.pandora ]] && . ~/.pandora
 
