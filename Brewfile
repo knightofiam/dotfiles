@@ -5,10 +5,12 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-versions'
 tap 'trinitronx/homebrew-pcloud'
+tap 'ytsutano/toolbox'
 
 # Binaries
 brew 'act'
 brew 'awscli'
+brew 'axmldec'
 brew 'bash'
 brew 'bash-completion'
 brew 'coreutils'
