@@ -34,6 +34,7 @@ brew 'scons'
 brew 'screen'
 brew 'transmission'
 brew 'tree'
+brew 'wget'
 brew 'yasm'
 
 # Apps
