@@ -20,3 +20,4 @@ org.vim.MacVim   public.res              all
 org.vim.MacVim   public.shell-script     all
 org.vim.MacVim   public.unix-executable  all
 org.vim.MacVim   com.apple.log           all
+org.vim.MacVim   public.yaml             all
