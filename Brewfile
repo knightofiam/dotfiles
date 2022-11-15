@@ -14,6 +14,7 @@ brew 'axmldec'
 brew 'bash'
 brew 'bash-completion'
 brew 'coreutils'
+brew 'docker'
 # brew 'dockutil' # Not working on macOS >= 12.3, see https://github.com/kcrawford/dockutil/issues/127
 brew 'duti'
 brew 'findutils'
