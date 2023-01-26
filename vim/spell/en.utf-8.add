@@ -76,6 +76,7 @@ IPS
 IPsec
 IPv4
 IPv6
+IST
 IaaS
 Internetwork
 IoT
@@ -264,6 +265,7 @@ dropbox
 dropdown
 dropdownable
 encryptable
+enums
 executables
 exfiltrated
 exfiltration
