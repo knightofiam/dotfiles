@@ -6,9 +6,10 @@ brew_prefix="/usr/local"
 butler_path="$HOME/Library/Application Support/itch/broth/butler/versions/15.20.0"
 [[ -d ${butler_path} ]] && export PATH="$PATH:${butler_path}"
 
-# Bash completion
-bash_completion="${brew_prefix}/etc/bash_completion"
-[[ -f ${bash_completion} ]] && . ${bash_completion}
+# Bash completion 2
+# https://superuser.com/a/1393343/1229669
+bash_completion="${brew_prefix}/etc/profile.d/bash_completion.sh"
+[[ -r ${bash_completion} ]] && . ${bash_completion}
 
 # Git completion
 git_completion="${brew_prefix}/etc/bash_completion.d/git-completion.bash"
@@ -20,10 +21,20 @@ git_completion="${brew_prefix}/etc/bash_completion.d/git-completion.bash"
 
 # Python / pyenv / virtualenv
 # https://alysivji.github.io/setting-up-pyenv-virtualenvwrapper.html
-command -v pyenv &>/dev/null && eval "$(pyenv init -)"
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-export WORKON_HOME=$HOME/.virtualenvs
-pyenv virtualenvwrapper_lazy
+# https://github.com/pyenv/pyenv/issues/784#issuecomment-826444110
+# https://github.com/davidparsson/zsh-pyenv-lazy/blob/master/pyenv-lazy.plugin.zsh
+export PYENV_ROOT="${PYENV_ROOT:=${HOME}/.pyenv}"
+if ! type pyenv > /dev/null && [ -f "${PYENV_ROOT}/bin/pyenv" ]; then
+    export PATH="${PYENV_ROOT}/bin:${PATH}"
+fi
+if type pyenv > /dev/null; then
+  export PATH="${PYENV_ROOT}/bin:${PYENV_ROOT}/shims:${PATH}"
+  function pyenv() {
+    unset -f pyenv
+    eval "$(command pyenv init -)"
+    pyenv $@
+  }
+fi
 
 # AWS Elastic Beanstalk CLI
 export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
