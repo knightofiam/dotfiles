@@ -22,3 +22,7 @@
   tool = fugitive
 [submodule]
   recurse = true
+[sendpack]
+  sideband = false
+[http]
+  postBuffer = 524288000
