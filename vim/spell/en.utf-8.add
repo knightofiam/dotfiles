@@ -127,6 +127,7 @@ QoS
 RC4
 RDP
 RFID
+RPC
 RPG
 RSA
 RSS
@@ -199,6 +200,7 @@ X11
 XSS
 agentless
 ambience
+amidst
 analytics
 anonymization
 anonymized
@@ -302,6 +304,7 @@ iPhones
 incrementing
 inductor
 influencer
+initializer
 instead
 interoperability
 iterm2
@@ -335,6 +338,7 @@ os
 outcompete
 pandora
 passcode
+pathfinding
 pcap
 perchable
 perchables
@@ -400,13 +404,17 @@ symlinking
 symlinks
 synergistically
 synergizes
+teleport
 teleportation
+teleported
 textwidth
 tilemap
 tilesets
 timeframes
 tokenization
 tradeoff
+traversability
+traversable
 trillionaire
 txt
 typosquatting
@@ -417,8 +425,10 @@ unencrypted
 unequip
 unequipping
 unnamedplus
+unoccupiable
 unperchable
 unsetting
+untraversable
 untrusted
 uptime
 usr
