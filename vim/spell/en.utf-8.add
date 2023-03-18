@@ -11,6 +11,7 @@ API's
 AWS
 Aggregators
 Anonymization
+Area2D
 Aseprite
 BCRYPT
 Base64
@@ -222,6 +223,7 @@ biometric
 blazingly
 bootloader
 bugfix
+bugfixes
 cVim
 cVimrc
 captchas
@@ -257,6 +259,10 @@ decrypting
 decrypts
 degauss
 degaussing
+despawn
+despawnable
+despawned
+despawning
 devlog
 dir
 discoverable
@@ -268,6 +274,7 @@ dropbox
 dropdown
 dropdownable
 encryptable
+enum
 enums
 executables
 exfiltrated
