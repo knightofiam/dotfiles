@@ -2,7 +2,7 @@
 
 dockutil --remove all
 dockutil --add "/System/Applications/Launchpad.app"
-dockutil --add "/Applications/Google Chrome.app"
+dockutil --add "/Applications/Firefox.app"
 dockutil --add "/Applications/iTerm.app"
 dockutil --add "/Applications/MacVim.app"
 dockutil --add "/Applications/Rider.app"
