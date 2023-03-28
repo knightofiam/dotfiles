@@ -48,6 +48,7 @@ EAP
 EC2
 ECC
 EDR
+ENet
 EQ
 Enum
 Extranet
@@ -154,6 +155,7 @@ STARTTLS
 STIX
 SaaS
 Sandboxing
+SceneTree
 SharePoint
 Splunk
 Stateful
@@ -317,6 +319,7 @@ interoperability
 iterm2
 jailbroken
 jitter
+json
 kanban
 keto
 keychain
