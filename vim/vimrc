@@ -109,6 +109,7 @@ set tabstop=2 " Use 2 spaces to represent a tab
 set softtabstop=2
 set shiftwidth=2 " Use 2 spaces for auto indent (use >> or << to indent current line)
 set autoindent
+set fileformats=unix " Show carriage return characters as ^M, so we can efficiently eliminate them.
 
 " Prevent auto-commenting newlines in Vimscript files
 augroup filetype_vim
