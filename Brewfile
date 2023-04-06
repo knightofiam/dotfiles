@@ -4,9 +4,10 @@
 tap 'homebrew/cask'
 tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-versions'
+tap 'isen-ng/dotnet-sdk-versions'
+tap 'srkomodo/tap'
 tap 'trinitronx/homebrew-pcloud'
 tap 'ytsutano/toolbox'
-tap 'srkomodo/tap'
 
 # Binaries
 brew 'act'
@@ -55,7 +56,8 @@ cask 'authy'
 cask 'cleanmymac'
 cask 'discord'
 cask 'docker'
-cask 'dotnet-sdk'
+cask 'dotnet-sdk6-0-400' # latest dotnet 6 for Godot Mono 3 C# projects
+cask 'dotnet-sdk7-0-200' # latest dotnet 7 for non-Godot C# projects
 cask 'expressvpn'
 cask 'firefox'
 cask 'flux'
