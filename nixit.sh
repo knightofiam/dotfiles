@@ -36,7 +36,7 @@ else
 fi
 
 # Remove macOS-specific dotfiles.
-declare -a files=("cvimrc" "dock.sh" "duti" "duti.sh" "ideavimrc" "iterm2.sh" "macos.sh" "mvim.sh" "xcode.sh")
+declare -a files=("cvimrc" "dock.sh" "duti" "duti.sh" "ideavimrc" "iterm2.sh" "macos.sh" "mvim.sh" "rider.sh" "xcode.sh")
 for i in "${files[@]}"
 do
   rm "${THIS_DIR}/${i}" &>/dev/null
