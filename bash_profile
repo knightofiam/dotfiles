@@ -36,6 +36,9 @@ if type pyenv > /dev/null; then
   }
 fi
 
+# Vim
+export EDITOR=vim
+
 # AWS Elastic Beanstalk CLI
 export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
 
