@@ -1,7 +1,8 @@
-config/configstore/
-config/gh
-config/iterm2
 config/NuGet
+config/configstore/
+config/gh/*
+!config/gh/config.yml
+config/iterm2
 config/op
 config/pianobar/state
 ssh/known_hosts
