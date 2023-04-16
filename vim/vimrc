@@ -285,6 +285,13 @@ if has ("clipboard")
   endif
 endif
 
+" Prevent double time tracking in WakaTime when using terminal vim.
+" Only use vim's WakaTime plugin for MacVim.
+" iTerm2's WakaTime plugin will track time in terminal vim.
+if has ('gui_running')
+  packadd vim-wakatime
+endif
+
 " Use the current directory when searching for files
 set path=**
 
