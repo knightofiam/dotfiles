@@ -10,6 +10,7 @@ source bash_profile
 ./duti.sh
 ./dock.sh
 ./gpg.sh
+./git.sh
 ./iterm2.sh
 ./mvim.sh
 ./repos.sh
