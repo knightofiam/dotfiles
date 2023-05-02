@@ -15,6 +15,9 @@ Area2D
 Aseprite
 BCRYPT
 Base64
+Batchable
+Batchables
+Batcher
 Biometrics
 BitLocker
 Blockchain
@@ -158,6 +161,7 @@ SaaS
 Sandboxing
 SceneTree
 SharePoint
+Spawnable
 Splunk
 Stateful
 Steganography
@@ -172,9 +176,13 @@ TPM
 TTP
 TeamViewer
 Tokenization
+Tween
+Tweening
+Tweens
 UDP
 UEFI
 Unabbreviate
+Uncentered
 Unclickables
 Uncomment
 Uninterruptable
@@ -223,6 +231,9 @@ backend
 backticks
 balancer
 balancers
+batchable
+batchables
+batcher
 believability
 biometric
 blazingly
@@ -398,6 +409,7 @@ serverless
 siloing
 sln
 smishing
+spawnable
 spellfile
 spellfiles
 spim
@@ -429,11 +441,15 @@ tradeoff
 traversability
 traversable
 trillionaire
+tween
+tweening
+tweens
 txt
 typosquatting
 uber
 ubuntu
 unarchiver
+uncentered
 unencrypted
 unequip
 unequipping
