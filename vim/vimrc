@@ -239,10 +239,6 @@ noremap <C-l> <C-w>l
 nnoremap j gj
 nnoremap k gk
 
-" Shift + HL tab switching
-nnoremap H gT
-nnoremap L gt
-
 " ============================================================================"
 " End movement section
 " ============================================================================"
