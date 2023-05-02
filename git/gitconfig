@@ -28,3 +28,5 @@
   sideband = false
 [http]
   postBuffer = 524288000
+[filter "ignore_project_godot_wakatime_plugin"]
+  clean = ~/.git-filters/clean/git-filter-project-godot-wakatime-addon.sh
