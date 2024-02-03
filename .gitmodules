@@ -19,3 +19,6 @@
 [submodule "vim/pack/plugins/opt/vim-wakatime"]
 	path = vim/pack/plugins/opt/vim-wakatime
 	url = https://github.com/wakatime/vim-wakatime.git
+[submodule "vim/pack/plugins/start/goyo.vim"]
+	path = vim/pack/plugins/start/goyo.vim
+	url = https://github.com/junegunn/goyo.vim.git

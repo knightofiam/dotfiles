@@ -312,6 +312,17 @@ set splitbelow
 "   # vim: nospell
 set modeline
 
+" Configure prose writing mode
+function WritingMode()
+  Goyo " Enable writing mode plugin
+  set fillchars=eob:\ " Remove tildes
+  " Add multiple custom dictionaries separated by commas
+  set spellfile=~/.vim/spell/en.utf-8.add,~/.vim/spell/coa.utf-8.add
+  set linebreak
+  set guifont=Menlo:h20
+endfunction
+nnoremap <leader>w :call WritingMode()<cr>
+
 " ============================================================================"
 " End miscellaneous section
 " ============================================================================"
