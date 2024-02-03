@@ -6,3 +6,4 @@ config/iterm2
 config/op
 config/pianobar/state
 ssh/known_hosts
+vim/spell/*
