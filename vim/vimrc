@@ -297,6 +297,9 @@ nmap <Leader>sp :setlocal spell! spelllang=en_us<CR>
 set ignorecase " Lowercase search is case-insensitive
 set smartcase " Non-lowercase search is case-sensitive
 
+" ,* searches without word boundaries
+nnoremap <leader>* :let @/ = '\V' . escape(expand('<cword>'), '/\')<CR>n
+
 " Disable bell in vim & MacVim
 autocmd! GUIEnter * set vb t_vb=
 
