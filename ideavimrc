@@ -1,3 +1,4 @@
 source ~/.vimrc
 set clipboard+=ideaplus
 set clipboard+=unnamedplus
+set nowrap
