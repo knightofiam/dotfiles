@@ -291,6 +291,9 @@ decrypting
 decrypts
 degauss
 degaussing
+dehover
+dehovered
+dehovering
 despawn
 despawnable
 despawned
@@ -391,6 +394,7 @@ npc
 npcs
 occluder
 onboarding
+openable
 openssl
 os
 outcompete
@@ -437,6 +441,7 @@ respawning
 respawns
 responders
 resync
+rng
 runnable
 runtime
 sanitization
