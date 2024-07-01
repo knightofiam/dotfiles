@@ -58,6 +58,7 @@ cask 'cleanmymac'
 cask 'discord'
 cask 'dotnet-sdk6-0-400' # latest dotnet 6 for Godot Mono 3 C# projects
 cask 'dotnet-sdk7-0-200' # latest dotnet 7 for non-Godot C# projects
+cask 'dotnet-sdk8-0-300' # latest dotnet 8 for Godot Mono 4 C# projects
 cask 'firefox'
 cask 'gpg-suite-no-mail'
 # Workaround for 'dockutil' on macOS >= 12.3, See https://github.com/kcrawford/dockutil/issues/127
