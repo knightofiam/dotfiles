@@ -199,6 +199,7 @@ Uncentered
 Unclickables
 Uncomment
 Uninterruptable
+Unpaused
 Unsecure
 Upwork
 VLAN
@@ -241,6 +242,7 @@ authenticator
 autocomplete
 autocompletion
 autocompletions
+autoloaded
 autotile
 backend
 backticks
@@ -496,11 +498,13 @@ uber
 ubuntu
 unarchiver
 uncentered
+uncollapsed
 unencrypted
 unequip
 unequipping
 unnamedplus
 unoccupiable
+unpaused
 unperchable
 unsetting
 unsplit
