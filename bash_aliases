@@ -34,6 +34,11 @@ alias gshn="git show --name-only --oneline --no-show-signature"
 alias gsl="git stash list"
 alias gsp="git stash pop"
 alias gss="git stash save"
+alias gfpr="git_fetch_pr"
+alias gupr="git_pull_pr"
+alias gcpr="git_checkout_pr"
+alias gdpr="git_delete_pr"
+alias gum="git checkout main && git fetch upstream && git rebase upstream/main && git push origin main"
 
 # Miscellaneous
 alias coa="cd ~/Sync/dev/projects/godot/coa && gs"
@@ -44,7 +49,94 @@ alias es="vim ~/.vim/spell/en.utf-8.add"
 alias ev="vim ~/.vimrc"
 alias godot="/Applications/Godot_mono.app/Contents/MacOS/Godot"
 alias godot2="cd ~/Sync/dev/projects/godot && ls"
+alias unity="cd ~/Sync/dev/projects/unity && ls"
 alias ip="curl ifconfig.me"
 alias py="cd ~/Sync/dev/projects/python && ls"
 alias sbp="source ~/.bash_profile"
 alias website="cd ~/Sync/dev/projects/website && gs"
+
+# Function to fetch a PR and create a local branch with the PR title
+git_fetch_pr() {
+  if [ -z "$1" ]; then
+    echo "Usage: gfpr <pr-number>"
+    return 1
+  fi
+
+  pr_number=$1
+  # Retrieve and format the PR title
+  pr_title=$(gh pr view $pr_number --json title -q .title 2>/dev/null | tr '[:upper:]' '[:lower:]' | sed -E 's/[[:space:]]+/-/g; s/[^a-z0-9-]//g; s/-+$//')
+
+  if [ -z "$pr_title" ]; then
+    echo "Failed to fetch PR title for PR #$pr_number"
+    return 1
+  fi
+
+  local_branch_name="pr-$pr_number-$pr_title"
+
+  if git show-ref --verify --quiet refs/heads/$local_branch_name; then
+    echo "Branch '$local_branch_name' already exists."
+    return 1
+  fi
+
+  git fetch upstream pull/$pr_number/head:$local_branch_name && git checkout $local_branch_name
+}
+
+# Function to pull changes to an existing PR branch
+git_pull_pr() {
+  if [ -z "$1" ]; then
+    echo "Usage: gupr <pr-number>"
+    return 1
+  fi
+
+  pr_number=$1
+  # Retrieve and format the PR title
+  pr_title=$(gh pr view $pr_number --json title -q .title 2>/dev/null | tr '[:upper:]' '[:lower:]' | sed -E 's/[[:space:]]+/-/g; s/[^a-z0-9-]//g; s/-+$//')
+  local_branch_name="pr-$pr_number-$pr_title"
+
+  if ! git show-ref --verify --quiet refs/heads/$local_branch_name; then
+    echo "Branch '$local_branch_name' does not exist. Use gfpr to fetch the PR first."
+    return 1
+  fi
+
+  git checkout $local_branch_name && git reset --hard HEAD^ && git pull upstream pull/$pr_number/head
+}
+
+# Function to check out an existing PR branch
+git_checkout_pr() {
+  if [ -z "$1" ]; then
+    echo "Usage: gcpr <pr-number>"
+    return 1
+  fi
+
+  pr_number=$1
+  # Retrieve and format the PR title
+  pr_title=$(gh pr view $pr_number --json title -q .title 2>/dev/null | tr '[:upper:]' '[:lower:]' | sed -E 's/[[:space:]]+/-/g; s/[^a-z0-9-]//g; s/-+$//')
+  local_branch_name="pr-$pr_number-$pr_title"
+
+  if ! git show-ref --verify --quiet refs/heads/$local_branch_name; then
+    echo "Branch '$local_branch_name' does not exist. Use gfpr to fetch the PR first."
+    return 1
+  fi
+
+  git checkout $local_branch_name
+}
+
+# Function to delete a PR branch
+git_delete_pr() {
+  if [ -z "$1" ]; then
+    echo "Usage: gprd <pr-number>"
+    return 1
+  fi
+
+  pr_number=$1
+  # Retrieve and format the PR title
+  pr_title=$(gh pr view $pr_number --json title -q .title 2>/dev/null | tr '[:upper:]' '[:lower:]' | sed -E 's/[[:space:]]+/-/g; s/[^a-z0-9-]//g; s/-+$//')
+  local_branch_name="pr-$pr_number-$pr_title"
+
+  if ! git show-ref --verify --quiet refs/heads/$local_branch_name; then
+    echo "Branch '$local_branch_name' does not exist."
+    return 1
+  fi
+
+  git branch -D $local_branch_name
+}
