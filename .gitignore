@@ -3,6 +3,7 @@ config/configstore/
 config/gh/*
 !config/gh/config.yml
 config/iterm2
+config/jgit/config
 config/op
 config/pianobar/state
 ssh/known_hosts
