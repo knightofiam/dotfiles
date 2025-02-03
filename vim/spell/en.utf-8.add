@@ -64,11 +64,14 @@ GDScript
 GRC
 Geofencing
 Geotagging
+Giftable
+Giftables
 HIDS
 HIPAA
 HSM
 HSTS
 HTML5
+Hireable
 Homebrew's
 Homomorphic
 IAM
@@ -149,6 +152,7 @@ RSA
 RSS
 RTP
 Ransomware
+Recruitable
 Resync
 SAML
 SCADA
@@ -188,6 +192,7 @@ TPM
 TTP
 TeamViewer
 Tokenization
+Triangulator
 Tween
 Tweening
 Tweens
@@ -261,6 +266,7 @@ cVim
 cVimrc
 captchas
 carb
+carryable
 cask
 changelogs
 checksum
@@ -335,10 +341,13 @@ gameplay
 gcc
 geolocation
 geotagging
+giftable
+giftables
 giftings
 gitignore
 godot
 gpg
+hireable
 hjkl
 hlsearch
 hoc
@@ -431,6 +440,7 @@ reauthentication
 rebaudiana
 reconfiguring
 reconnection
+recruitable
 rect
 rects
 remediate
@@ -442,6 +452,7 @@ respawned
 respawning
 respawns
 responders
+restorable
 resync
 rng
 runnable
@@ -451,10 +462,12 @@ sautéed
 scalability
 scrollable
 scroller
+selectable
 serverless
 siloing
 sln
 smishing
+sortings
 spawnable
 spellfile
 spellfiles
@@ -488,6 +501,7 @@ tokenization
 tradeoff
 traversability
 traversable
+triangulator
 trillionaire
 tween
 tweening
@@ -497,6 +511,7 @@ typosquatting
 uber
 ubuntu
 unarchiver
+unbreak
 uncentered
 uncollapsed
 unencrypted
@@ -506,6 +521,8 @@ unnamedplus
 unoccupiable
 unpaused
 unperchable
+unrestorable
+unrestored
 unsetting
 unsplit
 untraversable
