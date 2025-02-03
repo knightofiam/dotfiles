@@ -17,7 +17,7 @@ brew 'axmldec'
 brew 'bash'
 brew 'bash-completion@2'
 brew 'coreutils'
-# brew 'dockutil' # Not working on macOS >= 12.3, see https://github.com/kcrawford/dockutil/issues/127
+brew 'dockutil'
 brew 'duti'
 brew 'findutils'
 brew 'gawk'
@@ -61,8 +61,6 @@ cask 'dotnet-sdk7-0-200' # latest dotnet 7 for non-Godot C# projects
 cask 'dotnet-sdk8-0-300' # latest dotnet 8 for Godot Mono 4 C# projects
 cask 'firefox'
 cask 'gpg-suite-no-mail'
-# Workaround for 'dockutil' on macOS >= 12.3, See https://github.com/kcrawford/dockutil/issues/127
-cask 'hpedrorodrigues/tools/dockutil'
 cask 'istat-menus'
 cask 'itch'
 cask 'iterm2'
