@@ -1,4 +1,10 @@
 source ~/.vimrc
 set clipboard+=ideaplus
 set clipboard+=unnamedplus
+set formatoptions-=t
 set nowrap
+
+" Disable vim-based line breaking to allow JetBrains Rider's settings to handle
+" this, otherwise the current line will break when typing beyond whatever
+" ~/.vimrc set textwidth to.
+set textwidth=0
