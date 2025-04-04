@@ -21,6 +21,7 @@ alias gpp="git push"
 alias gppf="git push --force"
 alias gprc="gh pr create"
 alias gprcf="gh pr create --fill"
+alias gprcf2="git_pr_create_from_remote_branch"
 alias gpsu="git push --set-upstream origin HEAD"
 alias gprm="gh pr merge"
 alias gprms="gh pr merge --squash"
@@ -139,4 +140,39 @@ git_delete_pr() {
   fi
 
   git branch -D $local_branch_name
+}
+
+# Function to create a PR directly from someone else's fork branch to upstream
+git_pr_create_from_remote_branch() {
+  if [ $# -ne 1 ]; then
+    echo "Usage: gprcf2 remote/branch"
+    return 1
+  fi
+
+  # Split the input into remote and branch
+  IFS='/' read -r fork_name fork_branch <<< "$1"
+
+  # Validate input
+  if [ -z "$fork_name" ] || [ -z "$fork_branch" ]; then
+    echo "Invalid input. Use format: remote/branch-name"
+    return 1
+  fi
+
+  # Check if the remote exists
+  if ! git remote get-url "$fork_name" >/dev/null 2>&1; then
+    echo "Remote '$fork_name' does not exist. Add it first with:"
+    echo "git remote add $fork_name <repository-url>"
+    return 1
+  fi
+
+  # Get the fork's owner from the remote URL
+  fork_owner=$(git remote get-url "$fork_name" | sed -n 's/.*github.com[:\/]\([^\/]*\)\/.*/\1/p')
+
+  echo "Creating PR from $fork_owner:$fork_branch..."
+
+  # Need to fetch the branch to get commit messages for auto-filling PR details
+  git fetch "$fork_name" "$fork_branch"
+
+  # Create the PR with the specified head reference and use --fill
+  gh pr create --head "$fork_owner:$fork_branch" --fill
 }
