@@ -6,6 +6,7 @@ config/iterm2
 config/jgit/config
 config/op
 config/pianobar/state
+config/VintagestoryData/
 ssh/known_hosts
 vim/spell/*
 .runsettings
