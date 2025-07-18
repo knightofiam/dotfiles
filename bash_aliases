@@ -125,7 +125,7 @@ git_checkout_pr() {
 # Function to delete a PR branch
 git_delete_pr() {
   if [ -z "$1" ]; then
-    echo "Usage: gprd <pr-number>"
+    echo "Usage: gdpr <pr-number>"
     return 1
   fi
 
@@ -170,9 +170,29 @@ git_pr_create_from_remote_branch() {
 
   echo "Creating PR from $fork_owner:$fork_branch..."
 
-  # Need to fetch the branch to get commit messages for auto-filling PR details
+  # Fetch the remote branch
   git fetch "$fork_name" "$fork_branch"
-
-  # Create the PR with the specified head reference and use --fill
-  gh pr create --head "$fork_owner:$fork_branch" --fill
+  
+  # Save current branch
+  current_branch=$(git symbolic-ref --short HEAD)
+  
+  # Create temp branch name
+  temp_branch="temp-pr-${fork_name}-${fork_branch}"
+  
+  # Check if temp branch exists and delete if it does
+  if git show-ref --verify --quiet refs/heads/"$temp_branch"; then
+    git branch -D "$temp_branch"
+  fi
+  
+  # Create a temporary local branch from the remote branch
+  git checkout -b "$temp_branch" "$fork_name/$fork_branch"
+  
+  # Create the PR
+  gh pr create --fill
+  
+  # Return to original branch
+  git checkout "$current_branch"
+  
+  # Clean up temp branch
+  git branch -D "$temp_branch"
 }
