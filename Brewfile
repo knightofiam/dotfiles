@@ -60,6 +60,7 @@ cask 'dotnet-sdk6-0-400' # latest dotnet 6 for Godot Mono 3 C# projects
 cask 'dotnet-sdk7-0-200' # latest dotnet 7 for non-Godot C# projects
 cask 'dotnet-sdk8-0-300' # latest dotnet 8 for Godot Mono 4 C# projects
 cask 'firefox'
+cask 'gfxcardstatus'
 cask 'gpg-suite-no-mail'
 cask 'istat-menus'
 cask 'itch'
