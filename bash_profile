@@ -2,6 +2,10 @@
 brew_prefix="/usr/local"
 [[ -f ${brew_prefix}/bin/brew ]] && export PATH="${brew_prefix}/bin:${brew_prefix}/sbin:${PATH}"
 
+# Java (OpenJDK 17)
+export JAVA_HOME=/usr/local/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+export PATH="$JAVA_HOME/bin:$PATH"
+
 # Butler
 butler_path="$HOME/Library/Application Support/itch/broth/butler/versions/15.20.0"
 [[ -d ${butler_path} ]] && export PATH="$PATH:${butler_path}"
