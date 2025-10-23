@@ -1,0 +1,10 @@
+~/.zsh/aliases.zsh        zsh/aliases.zsh
+~/.zprofile               zsh/zprofile
+~/.vim                    vim
+~/.vimrc                  vim/vimrc
+~/.ideavimrc              ideavimrc
+~/.gitconfig              git/gitconfig
+~/.gitignore_global       git/gitignore_global
+~/.gitattributes_global   git/gitattributes_global
+~/.ssh/config             ssh/config
+~/.zshrc                  zsh/zshrc

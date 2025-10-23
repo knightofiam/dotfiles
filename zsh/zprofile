@@ -1,0 +1,5 @@
+# JetBrains Toolbox
+export PATH="$PATH:/Users/aaron/Library/Application Support/JetBrains/Toolbox/scripts"
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"

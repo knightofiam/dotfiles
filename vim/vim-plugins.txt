@@ -1,0 +1,8 @@
+# path                                          url                                                      branch
+vim/pack/plugins/start/fugitive                 https://github.com/tpope/vim-fugitive.git                master
+vim/pack/plugins/start/commentary               https://github.com/tpope/vim-commentary.git              master
+vim/pack/plugins/start/surround                 https://github.com/tpope/vim-surround.git                master
+vim/pack/plugins/start/goyo.vim                 https://github.com/junegunn/goyo.vim.git                 master
+vim/pack/plugins/start/indentpython             https://github.com/vim-scripts/indentpython.vim          master
+vim/pack/plugins/start/rename                   https://github.com/danro/rename.vim.git                  master
+vim/pack/plugins/start/reveal                   https://github.com/henrik/vim-reveal-in-finder.git       master

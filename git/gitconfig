@@ -1,35 +1,35 @@
 [user]
-  # Use ~/.extra to set name and email:
-  #   GIT_AUTHOR_NAME=
-  #   GIT_AUTHOR_EMAIL=
-  #   GIT_COMMITTER_NAME=
-  #   GIT_COMMITTER_EMAIL=
-  signingkey = 334C16FC06A7A97CB4ECAC24AC4017E6FC14ED9A
-[core]
-  editor = /usr/local/bin/vim
-  excludesfile = ~/.gitignore_global
-  attributesfile = ~/.gitattributes_global
-  commentchar = ";"
+	signingkey = DCDFFC6A8551507C0EB0A7A75F607B44F44EFD8F
+	name = Aaron Mahan
+	email = aaron@forerunnergames.com
 [commit]
-  gpgsign = true
+	gpgsign = true
+[credential]
+	helper = osxkeychain
+[core]
+	editor = /usr/bin/vim
+	attributesfile = ~/.gitattributes_global
+	excludesfile = ~/.gitignore_global
 [log]
-  showSignature = true
+	showSignature = true
 [pull]
-  ff = only
+	ff = only
 [push]
-  autoSetupRemote = true
-[mergetool "fugitive"]
-  cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"
-[merge]
-  tool = fugitive
+	autoSetupRemote = true
+[remote]
+	pushDefault = origin
 [submodule]
-  recurse = true
-[sendpack]
-  sideband = false
-[http]
-  postBuffer = 524288000
+	recurse = true
+[merge]
+	tool = fugitive
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [filter "lfs"]
+	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-	required = true
+[init]
+	defaultBranch = main
+[gpg]
+	program = gpg

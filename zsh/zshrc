@@ -1,0 +1,67 @@
+export GPG_TTY="$(tty)"
+
+# GUI-launched shells (Automator, LaunchServices)
+export PATH="/opt/homebrew/bin:/usr/local/bin:$HOME/Sync/dev/rider/scripts:$PATH"
+
+# Use Vim for all CLI editing
+export EDITOR=vim
+export VISUAL=vim
+export GIT_EDITOR=vim
+
+# Snappy escape sequences in vi-mode
+export KEYTIMEOUT=1
+
+# --- Homebrew path (Apple Silicon) ---
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# Rider CLI scripts
+if [[ -d "$HOME/Sync/dev/rider/scripts" ]]; then
+  export PATH="$HOME/Sync/dev/rider/scripts:$PATH"
+fi
+# --- Aliases (kept in repo via symlink) ---
+[[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
+
+# --- 1Password SSH agent (names or fingerprints) ---
+OP_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+[[ -S "$OP_SOCK" ]] && export SSH_AUTH_SOCK="$OP_SOCK"
+
+# --- vi keybindings in zsh line editor ---
+bindkey -v
+
+# Make sure terminal & TTY agree on backspace/delete
+stty erase '^?'
+
+# Backspace (0x7F) & ^H in both vi maps
+bindkey -M viins '^?' backward-delete-char
+bindkey -M vicmd '^?' backward-delete-char
+bindkey -M viins '^H'  backward-delete-char
+bindkey -M vicmd '^H'  backward-delete-char
+
+# Forward Delete (fn+Delete usually sends ESC [ 3 ~)
+bindkey -M viins '^[[3~' delete-char
+bindkey -M vicmd '^[[3~' delete-char
+
+# Ensure Home/End (if iTerm2 sends ^A / ^E or \e[H / \e[F)
+bindkey -M viins '^A' beginning-of-line
+bindkey -M vicmd '^A' beginning-of-line
+bindkey -M viins '^E' end-of-line
+bindkey -M vicmd '^E' end-of-line
+bindkey -M viins '^[OH' beginning-of-line   # \eOH
+bindkey -M viins '^[OF' end-of-line         # \eOF
+bindkey -M viins '^[[H' beginning-of-line   # \e[H
+bindkey -M viins '^[[F' end-of-line         # \e[F
+
+# Quiet the bell
+unsetopt BEEP
+unsetopt LIST_BEEP
+
+# --- Optional: pyenv (only if installed) ---
+if command -v pyenv >/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# Simple prompt: "<user> <dirname> %"
+PROMPT='%n %1~ %# '
+PROMPT='%n %1~ %# '
