@@ -1,0 +1,34 @@
+# duti2 — default file handler configuration (macOS Sequoia/Tahoe compatible)
+
+# Bundle ID:
+#
+#     mdls /Applications/Google\ Chrome.app | grep "\<kMDItemCFBundleIdentifier\>"
+#
+# UTI:
+#
+#     mdls file.ext | grep "\<kMDItemContentType\>"
+
+# Bundle Id                     UTI                                 Role
+
+# MacVim
+org.vim.MacVim                  .spine-json                         all
+org.vim.MacVim                  .atlas                              all
+org.vim.MacVim                  .dic                                all
+org.vim.MacVim                  com.apple.log                       all
+org.vim.MacVim                  duti                                all
+org.vim.MacVim                  public.data                         all
+org.vim.MacVim                  public.gd                           all
+org.vim.MacVim                  public.php-script                   all
+org.vim.MacVim                  public.plain-text                   all
+org.vim.MacVim                  public.python-script                all
+org.vim.MacVim                  public.res                          all
+org.vim.MacVim                  public.shell-script                 all
+org.vim.MacVim                  public.yaml                         all
+org.vim.MacVim                  public.zsh-script                   all
+
+# VLC
+org.videolan.vlc                com.microsoft.waveform-audio        all
+org.videolan.vlc                public.mp3                          all
+
+# The Unarchiver
+com.macpaw.site.theunarchiver   rar                                 all
