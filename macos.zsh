@@ -89,6 +89,10 @@ defaults write com.apple.dock mru-spaces -bool false
 # Hide recent apps in Dock
 defaults write com.apple.dock show-recents -bool false
 
+# Disable edge gestures that trigger snapping / tiling
+defaults write com.apple.dock showMissionControlGestureEnabled -bool false
+defaults write com.apple.dock showAppExposeGestureEnabled -bool false
+
 # Disable “More Gestures” (best-effort; Apple moves these around)
 for d in com.apple.AppleMultitouchTrackpad com.apple.driver.AppleBluetoothMultitouch.trackpad; do
   defaults write "$d" TrackpadThreeFingerHorizSwipeGesture -int 0   # swipe pages
