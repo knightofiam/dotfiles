@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # -----------------------------
-# Git aliases
+# Git
 # -----------------------------
 alias ga="git add"
 alias gaa="git add --all"
@@ -10,7 +10,7 @@ alias gaaacv="git commit --all --amend --verbose"
 alias gaacv="git commit --all --verbose"
 alias gap="git add --patch"
 alias gb="git branch"
-alias gc="git checkout"              # keep your muscle memory; optionally: alias gsw='git switch'
+alias gc="git checkout"
 alias gcav="git commit --amend --verbose"
 alias gcv="git commit --verbose"
 alias gd="git diff"
@@ -46,11 +46,11 @@ alias gum='git checkout main && git fetch upstream && git rebase upstream/main &
 # -----------------------------
 # Miscellaneous
 # -----------------------------
-alias begin="$HOME/Sync/dev/begin.zsh"
+alias begin="~/Sync/dev/begin/begin.zsh"
+alias eb="vim ~/Sync/dev/begin/begin.zsh"
 alias coa="cd ~/Sync/dev/projects/godot/coa && gs"
 alias dotfiles="cd ~/Sync/dev/projects/dotfiles && gs"
-alias ea="vim ~/.zsh/aliases.zsh"        # was ~/.bash_aliases
-alias ebp="vim ~/.zprofile"              # was ~/.bash_profile
+alias ea="vim ~/.zsh/aliases.zsh"
 alias es="vim ~/.vim/spell/en.utf-8.add"
 alias ev="vim ~/.vimrc"
 alias godot="/Applications/Godot_4_5_1_stable_mono.app/Contents/MacOS/Godot"
@@ -58,11 +58,11 @@ alias godot2="cd ~/Sync/dev/projects/godot && ls"
 alias unity="cd ~/Sync/dev/projects/unity && ls"
 alias ip="curl ifconfig.me"
 alias py="cd ~/Sync/dev/projects/python && ls"
-alias sbp="source ~/.zprofile"           # was source ~/.bash_profile
+alias sz="source ~/.zshrc"
 alias website="cd ~/Sync/dev/projects/website && gs"
 
 # -----------------------------
-# Functions (zsh-safe)
+# Functions
 # -----------------------------
 
 # Fetch a PR and create a local branch named from its title
