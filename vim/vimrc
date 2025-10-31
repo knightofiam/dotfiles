@@ -301,7 +301,10 @@ set smartcase " Non-lowercase search is case-sensitive
 nnoremap <leader>* :let @/ = '\V' . escape(expand('<cword>'), '/\')<CR>n
 
 " Disable bell in vim & MacVim
-autocmd! GUIEnter * set vb t_vb=
+set noerrorbells
+set novisualbell
+set t_vb=
+set belloff=all
 
 " Increment / decrement letters with CTRL + A / CTRL + X
 set nrformats+=alpha
