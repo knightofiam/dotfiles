@@ -16,6 +16,7 @@ org.vim.MacVim                  .dic                                all
 org.vim.MacVim                  .spine-json                         all
 org.vim.MacVim                  com.apple.log                       all
 org.vim.MacVim                  duti                                all
+org.vim.MacVim                  net.daringfireball.markdown         all
 org.vim.MacVim                  public.data                         all
 org.vim.MacVim                  public.gd                           all
 org.vim.MacVim                  public.json                         all
