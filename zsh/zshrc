@@ -16,6 +16,9 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# --- Enable zsh completion system ---
+autoload -Uz compinit && compinit
+
 # Rider CLI scripts
 if [[ -d "$HOME/Sync/dev/rider/scripts" ]]; then
   export PATH="$HOME/Sync/dev/rider/scripts:$PATH"
