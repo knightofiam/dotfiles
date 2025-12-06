@@ -1,3 +1,4 @@
+brew "cocoapods"
 brew "duti"
 brew "gh"
 brew "git"
