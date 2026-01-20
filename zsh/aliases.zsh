@@ -42,6 +42,7 @@ alias gupr="git_pull_pr"
 alias gcpr="git_checkout_pr"
 alias gdpr="git_delete_pr"
 alias gum='git checkout main && git fetch upstream && git rebase upstream/main && git push origin main'
+alias gumd='PREV_BRANCH=$(git symbolic-ref --short HEAD) && git checkout main && git fetch upstream && git rebase upstream/main && git push origin main && [[ "$PREV_BRANCH" != "main" ]] && git branch -D "$PREV_BRANCH" || true'
 
 # -----------------------------
 # Miscellaneous
