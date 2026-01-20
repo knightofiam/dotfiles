@@ -34,3 +34,6 @@ org.videolan.vlc                public.mp3                          all
 
 # The Unarchiver
 com.macpaw.site.theunarchiver   rar                                 all
+
+# Windows Batch Scripts (.bat)
+org.vim.MacVim                  dyn.ah62d4rv4ge80e2py               all
