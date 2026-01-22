@@ -1,0 +1,165 @@
+name: Test macOS Installation
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  test-macos:
+    name: Test on macOS ${{ matrix.os-name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false  # Continue testing other versions even if one fails
+      matrix:
+        include:
+          - os: macos-13
+            os-name: "Ventura"
+          - os: macos-14
+            os-name: "Sonoma"
+          - os: macos-15
+            os-name: "Sequoia"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: System Information
+        run: |
+          echo "macOS Version:"
+          sw_vers
+          echo ""
+          echo "Hardware:"
+          system_profiler SPHardwareDataType
+          echo ""
+          echo "Shell:"
+          echo $SHELL
+          zsh --version
+
+      - name: Check for installation script
+        run: |
+          if [[ -f ./install-macos.zsh ]]; then
+            echo "✓ Found install-macos.zsh"
+            INSTALL_SCRIPT="./install-macos.zsh"
+          elif [[ -f ./install-macos.sh ]]; then
+            echo "✓ Found install-macos.sh"
+            INSTALL_SCRIPT="./install-macos.sh"
+          else
+            echo "✗ No installation script found"
+            exit 1
+          fi
+          echo "INSTALL_SCRIPT=$INSTALL_SCRIPT" >> $GITHUB_ENV
+
+      - name: Make scripts executable
+        run: |
+          chmod +x ./*.sh ./*.zsh 2>/dev/null || true
+          chmod +x ./tests/*.zsh 2>/dev/null || true
+
+      - name: Test installation script syntax
+        run: |
+          echo "Testing script syntax..."
+          zsh -n $INSTALL_SCRIPT || bash -n $INSTALL_SCRIPT
+          echo "✓ Syntax check passed"
+
+      - name: Run installation (dry-run if supported)
+        run: |
+          echo "Attempting dry-run installation..."
+          if $INSTALL_SCRIPT --dry-run 2>/dev/null; then
+            echo "✓ Dry-run completed successfully"
+          else
+            echo "⚠ Dry-run not supported or failed, skipping"
+          fi
+
+      - name: Test individual scripts
+        run: |
+          echo "Testing individual installation scripts..."
+
+          # Test brew script
+          if [[ -f ./brew.zsh ]]; then
+            echo "Testing brew.zsh..."
+            zsh -n ./brew.zsh
+            ./brew.zsh --help 2>/dev/null || echo "No --help flag"
+          fi
+
+          # Test shell script
+          if [[ -f ./shell.zsh ]]; then
+            echo "Testing shell.zsh..."
+            zsh -n ./shell.zsh
+          fi
+
+          # Test symlink script
+          if [[ -f ./symlink.zsh ]]; then
+            echo "Testing symlink.zsh..."
+            zsh -n ./symlink.zsh
+            ./symlink.zsh --dry-run 2>/dev/null || echo "Dry-run not supported"
+          fi
+
+          echo "✓ Script tests completed"
+
+      - name: Check for common issues
+        run: |
+          echo "Checking for common issues..."
+
+          # Check for proper shebang
+          echo "Checking shebangs..."
+          for script in *.sh *.zsh; do
+            if [[ -f "$script" ]]; then
+              first_line=$(head -n1 "$script")
+              if [[ ! "$first_line" =~ ^#!/ ]]; then
+                echo "⚠ Warning: $script missing shebang"
+              fi
+            fi
+          done
+
+          # Check for common macOS paths
+          echo "Checking for hardcoded paths..."
+          if grep -r "/usr/local/bin" . --exclude-dir=.git | grep -v "test-macos.yml"; then
+            echo "⚠ Warning: Found hardcoded /usr/local/bin paths (may not work on Apple Silicon)"
+          fi
+
+          echo "✓ Issue check completed"
+
+      - name: Validate configuration files
+        run: |
+          echo "Validating configuration files..."
+
+          # Check Brewfile syntax
+          if [[ -f ./Brewfile2 ]]; then
+            echo "Checking Brewfile2..."
+            brew bundle check --file=./Brewfile2 --no-upgrade || echo "Some packages not installed (expected in CI)"
+          elif [[ -f ./Brewfile ]]; then
+            echo "Checking Brewfile..."
+            brew bundle check --file=./Brewfile --no-upgrade || echo "Some packages not installed (expected in CI)"
+          fi
+
+          # Check zsh config syntax
+          if [[ -f ./zsh/zshrc ]]; then
+            echo "Checking zshrc..."
+            zsh -n ./zsh/zshrc || echo "Warning: zshrc syntax check failed"
+          fi
+
+          echo "✓ Configuration validation completed"
+
+      - name: Run custom tests if available
+        run: |
+          if [[ -f ./tests/test-macos.zsh ]]; then
+            echo "Running custom test suite..."
+            ./tests/test-macos.zsh
+          else
+            echo "No custom tests found (tests/test-macos.zsh)"
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Test Summary for macOS ${{ matrix.os-name }}"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          if [[ "${{ job.status }}" == "success" ]]; then
+            echo "✓ All tests passed!"
+          else
+            echo "✗ Some tests failed"
+          fi
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

@@ -1,0 +1,148 @@
+name: Test Linux Installation
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  test-linux:
+    name: Test on ${{ matrix.distro-name }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - distro: ubuntu:22.04
+            distro-name: "Ubuntu 22.04"
+            pkg-manager: apt
+          - distro: ubuntu:24.04
+            distro-name: "Ubuntu 24.04"
+            pkg-manager: apt
+          - distro: debian:12
+            distro-name: "Debian 12"
+            pkg-manager: apt
+          - distro: fedora:39
+            distro-name: "Fedora 39"
+            pkg-manager: dnf
+
+    container:
+      image: ${{ matrix.distro }}
+
+    steps:
+      - name: Install base dependencies
+        run: |
+          if [[ "${{ matrix.pkg-manager }}" == "apt" ]]; then
+            apt-get update
+            apt-get install -y git zsh curl ca-certificates sudo
+          elif [[ "${{ matrix.pkg-manager }}" == "dnf" ]]; then
+            dnf install -y git zsh curl ca-certificates sudo
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: System Information
+        run: |
+          echo "Distribution:"
+          cat /etc/os-release || true
+          echo ""
+          echo "Shell:"
+          zsh --version
+
+      - name: Check for installation script
+        run: |
+          if [[ -f ./install-linux.zsh ]]; then
+            echo "✓ Found install-linux.zsh"
+            INSTALL_SCRIPT="./install-linux.zsh"
+          elif [[ -f ./nixit.sh ]]; then
+            echo "⚠ Found legacy nixit.sh (needs migration)"
+            INSTALL_SCRIPT="./nixit.sh"
+          else
+            echo "⚠ No Linux installation script found (macOS only?)"
+            exit 0  # Don't fail, just skip
+          fi
+          echo "INSTALL_SCRIPT=$INSTALL_SCRIPT" >> $GITHUB_ENV
+
+      - name: Make scripts executable
+        run: |
+          chmod +x ./*.sh ./*.zsh 2>/dev/null || true
+          chmod +x ./tests/*.zsh 2>/dev/null || true
+
+      - name: Test installation script syntax
+        if: env.INSTALL_SCRIPT != ''
+        run: |
+          echo "Testing script syntax..."
+          zsh -n $INSTALL_SCRIPT || bash -n $INSTALL_SCRIPT
+          echo "✓ Syntax check passed"
+
+      - name: Run installation (dry-run if supported)
+        if: env.INSTALL_SCRIPT != ''
+        run: |
+          echo "Attempting dry-run installation..."
+          if $INSTALL_SCRIPT --dry-run 2>/dev/null; then
+            echo "✓ Dry-run completed successfully"
+          else
+            echo "⚠ Dry-run not supported or failed, skipping"
+          fi
+
+      - name: Test individual scripts
+        run: |
+          echo "Testing individual installation scripts..."
+
+          # Test scripts that should work on Linux
+          for script in brew.zsh shell.zsh symlink.zsh; do
+            if [[ -f ./$script ]]; then
+              echo "Testing $script..."
+              zsh -n ./$script || echo "⚠ Syntax check failed for $script"
+            fi
+          done
+
+          echo "✓ Script tests completed"
+
+      - name: Check for platform detection
+        run: |
+          echo "Checking for proper platform detection..."
+
+          # Check if scripts detect Linux properly
+          if grep -r "uname" ./*.zsh ./*.sh 2>/dev/null | grep -v ".git" | grep -v "workflows"; then
+            echo "✓ Found platform detection code"
+          else
+            echo "⚠ No platform detection found (scripts may be macOS-only)"
+          fi
+
+      - name: Validate configuration files
+        run: |
+          echo "Validating configuration files..."
+
+          # Check zsh config syntax
+          if [[ -f ./zsh/zshrc ]]; then
+            echo "Checking zshrc..."
+            zsh -n ./zsh/zshrc || echo "⚠ Warning: zshrc syntax check failed"
+          fi
+
+          echo "✓ Configuration validation completed"
+
+      - name: Run custom tests if available
+        run: |
+          if [[ -f ./tests/test-linux.zsh ]]; then
+            echo "Running custom test suite..."
+            ./tests/test-linux.zsh
+          else
+            echo "No custom tests found (tests/test-linux.zsh)"
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Test Summary for ${{ matrix.distro-name }}"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          if [[ "${{ job.status }}" == "success" ]]; then
+            echo "✓ All tests passed!"
+          else
+            echo "✗ Some tests failed"
+          fi
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

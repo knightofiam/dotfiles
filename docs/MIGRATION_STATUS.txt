@@ -1,0 +1,195 @@
+================================================================================
+DOTFILES MIGRATION STATUS MATRIX
+================================================================================
+
+MIGRATION LEGEND:
+  [v1]      = Bash version exists only
+  [v1→v2]   = Both Bash and Zsh versions exist
+  [v2]      = Zsh version exists only
+  [config]  = Configuration data file (not script)
+
+================================================================================
+CORE SETUP SCRIPTS (Installation & System Configuration)
+================================================================================
+
+PRIORITY  |  STATUS   |  FILENAME              |  PURPOSE
+----------|-----------|------------------------|---------------------------------------------
+CRITICAL  |  [v1]     |  install-macos.sh     |  Main orchestrator (23 lines)
+CRITICAL  |  [v1]     |  install-linux.sh     |  Linux wrapper (5 lines)
+HIGH      |  [v1]     |  nixit.sh             |  Linux preprocessor (95 lines, complex!)
+HIGH      |  [v1→v2]  |  shell.sh / .zsh      |  Brew zsh + Touch ID setup
+MEDIUM    |  [v1]     |  repos.sh             |  Clone GitHub repos (26 lines)
+MEDIUM    |  [v1]     |  private.sh           |  Private config (35 lines)
+MEDIUM    |  [v1]     |  dock.sh              |  macOS Dock setup (50 lines)
+MEDIUM    |  [v1]     |  android.sh           |  Android SDK (12 lines)
+MEDIUM    |  [v1]     |  mvim.sh              |  MacVim config (10 lines)
+MEDIUM    |  [v1]     |  ssh.sh               |  SSH setup (15 lines)
+LOW       |  [v1]     |  python.sh            |  Python env (8 lines)
+LOW       |  [v1]     |  rider.sh             |  Rider IDE (6 lines)
+LOW       |  [v1]     |  gcc.sh               |  GCC setup (5 lines)
+
+================================================================================
+MIGRATED SCRIPTS (Both versions available)
+================================================================================
+
+PURPOSE                    |  BASH          |  ZSH           |  STATUS
+---------------------------|----------------|---|------------------------------
+Homebrew bundle           |  brew.sh       |  brew.zsh      |  ✅ Fully migrated (robust)
+Shell environment + Touch |  shell.sh      |  shell.zsh     |  ✅ Fully migrated
+Symlink creation          |  symlink.sh    |  symlink.zsh   |  ✅ Fully migrated (+ flags)
+File type associations    |  duti.sh       |  duti.zsh      |  ✅ Fully migrated
+
+================================================================================
+NEW ZOSH-ONLY SCRIPTS (v2 Native)
+================================================================================
+
+SCRIPT                |  PURPOSE                              |  LINES  |  NOTES
+----------------------|---------------------------------------|---------|----------
+gpg.zsh               |  1Password → GPG key import           |  ~120   |  Sophisticated
+macos.zsh             |  macOS system tweaks (Sequoia-safe)   |  ~150   |  Modern
+nswag.zsh             |  NSwag API code generation            |  ~50    |  Small utility
+vim/update-plugins.zsh|  Vim plugin manager                   |  ~100   |  Plugin mgmt
+
+================================================================================
+CONFIGURATION FILES
+================================================================================
+
+CATEGORY              |  OLD (v1)      |  NEW (v2)      |  PURPOSE
+----------------------|---|---|-----|---|---|-------|
+Homebrew              |  Brewfile      |  Brewfile2     |  Package list
+Symlink mapping       |  symlinks      |  symlinks2     |  Dotfile targets
+File associations     |  duti          |  duti2         |  File handler rules
+
+NEW ZSH CONFIG FILES:
+  - zsh/zshrc       → ~/.zshrc (runtime config)
+  - zsh/zprofile    → ~/.zprofile (login config)
+  - zsh/aliases.zsh → ~/.zsh/aliases.zsh (command aliases)
+
+LEGACY BASH CONFIG:
+  - bash_profile    (still used by install-macos.sh)
+  - bash_aliases    (large, 200+ lines)
+
+================================================================================
+DIRECTORY ORGANIZATION
+================================================================================
+
+zsh/                    New Zsh configurations
+├── zshrc              # Runtime configuration
+├── zprofile           # Login shell setup
+└── aliases.zsh        # Command aliases
+
+vim/                    Vim editor setup
+├── vimrc              # Vim configuration
+├── update-plugins.zsh # Plugin manager (Zsh)
+├── pack/plugins/      # Plugin packages
+└── spell/             # Spell checking
+
+git/                    Git configuration
+├── gitconfig          # Git settings
+├── gitignore_global   # Global ignore patterns
+└── gitattributes_global
+
+ssh/                    SSH configuration
+├── config             # SSH client config
+└── known_hosts        # Known servers
+
+config/                 XDG config applications
+├── gh/                # GitHub CLI
+├── iterm2/            # iTerm2 terminal
+├── op/                # 1Password CLI
+└── ...
+
+================================================================================
+INSTALLATION FLOW COMPARISON
+================================================================================
+
+OLD FLOW (Current - Mixed bash/zsh):
+  install-macos.sh (bash)
+    ├── [bash]  macos.sh
+    ├── [bash]  brew.sh          OR  [zsh]  brew.zsh
+    ├── [bash]  xcode.sh
+    ├── [bash]  gcc.sh
+    ├── [bash]  shell.sh         OR  [zsh]  shell.zsh
+    ├── [bash]  duti.sh          OR  [zsh]  duti.zsh
+    ├── [bash]  dock.sh
+    ├── [bash]  gpg.sh           OR  [zsh]  gpg.zsh
+    ├── [bash]  iterm2.sh
+    ├── [bash]  mvim.sh
+    ├── [bash]  repos.sh
+    ├── [bash]  rider.sh
+    ├── [bash]  ssh.sh
+    ├── [bash]  symlink.sh       OR  [zsh]  symlink.zsh
+    ├── [bash]  python.sh
+    └── [bash]  private.sh
+
+TARGET FLOW (Post-migration):
+  install-macos.zsh (zsh)
+    ├── [zsh]  macos.zsh
+    ├── [zsh]  brew.zsh
+    ├── [zsh]  xcode.zsh
+    ├── [zsh]  gcc.zsh
+    ├── [zsh]  shell.zsh
+    ├── [zsh]  duti.zsh
+    ├── [zsh]  dock.zsh
+    ├── [zsh]  gpg.zsh
+    ├── [zsh]  iterm2.zsh
+    ├── [zsh]  mvim.zsh
+    ├── [zsh]  repos.zsh
+    ├── [zsh]  rider.zsh
+    ├── [zsh]  ssh.zsh
+    ├── [zsh]  symlink.zsh
+    ├── [zsh]  python.zsh
+    └── [zsh]  private.zsh
+
+LINUX FLOW (Current):
+  install-linux.sh (bash)
+    └── nixit.sh (preprocessor - modifies everything for Linux)
+        └── install-macos.sh (now Linux-adapted)
+
+================================================================================
+MIGRATION READINESS SCORE
+================================================================================
+
+Core Scripts:           ██░░░░░░░░  25% (4/16 migrated)
+Configuration Files:   ██████░░░░  60% (basic + 3 v2 configs)
+Documentation:         ░░░░░░░░░░   0% (needs expansion)
+Test Coverage:         ░░░░░░░░░░   0% (no tests found)
+Overall Progress:      ███░░░░░░░  30% estimated
+
+BLOCKING ISSUES FOR COMPLETION:
+  1. install-macos.sh not updated to call .zsh versions
+  2. nixit.sh (95 lines) is complex Linux transformation
+  3. Only 4 core scripts have .zsh equivalents
+  4. 12 more scripts need Zsh versions
+  5. No clear cleanup strategy for old .sh files
+
+================================================================================
+RECOMMENDED MIGRATION ORDER
+================================================================================
+
+PHASE 1 (FOUNDATION):
+  1. Port nixit.sh to nixit.zsh
+  2. Create install-macos.zsh to orchestrate
+  3. Create install-linux.zsh wrapper
+
+PHASE 2 (QUICK WINS):
+  4. repos.sh → repos.zsh (straightforward)
+  5. android.sh → android.zsh (simple)
+  6. python.sh → python.zsh (trivial)
+
+PHASE 3 (IMPORTANT):
+  7. private.sh → private.zsh
+  8. ssh.sh → ssh.zsh
+  9. dock.sh → dock.zsh
+
+PHASE 4 (NICE TO HAVE):
+  10. mvim.sh → mvim.zsh
+  11. rider.sh → rider.zsh
+  12. gcc.sh → gcc.zsh
+
+PHASE 5 (CLEANUP):
+  13. Test all .zsh versions thoroughly
+  14. Archive/remove old .sh versions
+  15. Update README with Zsh-first approach
+
+================================================================================

@@ -1,0 +1,339 @@
+================================================================================
+DOTFILES REPOSITORY - FILE INVENTORY
+Generated: 2026-01-20
+================================================================================
+
+ABSOLUTE PATHS TO ALL KEY FILES
+(For easy reference in analysis and migration)
+
+================================================================================
+ANALYSIS DOCUMENTS (NEWLY CREATED)
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/ANALYSIS_INDEX.md
+  Navigation guide to all analysis documents
+
+/Users/aaron/Sync/dev/projects/dotfiles/EXECUTIVE_SUMMARY.md
+  High-level overview and quick facts
+
+/Users/aaron/Sync/dev/projects/dotfiles/MIGRATION_ANALYSIS.md
+  Comprehensive 50+ page detailed analysis
+
+/Users/aaron/Sync/dev/projects/dotfiles/MIGRATION_STATUS.txt
+  Visual status matrix and priority lists
+
+/Users/aaron/Sync/dev/projects/dotfiles/FILE_INVENTORY.txt
+  This file - complete file inventory
+
+================================================================================
+INSTALLATION ORCHESTRATORS (BASH - NEED MIGRATION)
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/install-macos.sh
+  Main orchestrator script (CRITICAL - calls 16 scripts sequentially)
+
+/Users/aaron/Sync/dev/projects/dotfiles/install-linux.sh
+  Linux wrapper script (calls nixit.sh preprocessor)
+
+/Users/aaron/Sync/dev/projects/dotfiles/nixit.sh
+  Linux conversion preprocessor (95 lines - most complex script)
+
+================================================================================
+SETUP SCRIPTS - FULLY MIGRATED (BOTH .sh AND .zsh VERSIONS EXIST)
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/brew.sh
+  Homebrew installation (old bash version)
+
+/Users/aaron/Sync/dev/projects/dotfiles/brew.zsh
+  Homebrew installation (new zsh version - improved)
+
+---
+
+/Users/aaron/Sync/dev/projects/dotfiles/shell.sh
+  Shell & Touch ID setup (old bash version)
+
+/Users/aaron/Sync/dev/projects/dotfiles/shell.zsh
+  Shell & Touch ID setup (new zsh version - sophisticated)
+
+---
+
+/Users/aaron/Sync/dev/projects/dotfiles/duti.sh
+  File type associations (old bash version - minimal)
+
+/Users/aaron/Sync/dev/projects/dotfiles/duti.zsh
+  File type associations (new zsh version - improved)
+
+---
+
+/Users/aaron/Sync/dev/projects/dotfiles/symlink.sh
+  Dotfile symlinking (old bash version)
+
+/Users/aaron/Sync/dev/projects/dotfiles/symlink.zsh
+  Dotfile symlinking (new zsh version - has --dry-run and --prune flags)
+
+================================================================================
+SETUP SCRIPTS - BASH ONLY (NEED MIGRATION TO ZSH)
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/android.sh
+  Android SDK setup (12 lines - simple)
+
+/Users/aaron/Sync/dev/projects/dotfiles/dock.sh
+  macOS Dock configuration (50 lines - medium complexity)
+
+/Users/aaron/Sync/dev/projects/dotfiles/gcc.sh
+  GCC compiler setup (5 lines - trivial)
+
+/Users/aaron/Sync/dev/projects/dotfiles/mvim.sh
+  MacVim configuration (10 lines - simple)
+
+/Users/aaron/Sync/dev/projects/dotfiles/private.sh
+  Private settings setup (35 lines - medium)
+
+/Users/aaron/Sync/dev/projects/dotfiles/python.sh
+  Python environment setup (8 lines - trivial)
+
+/Users/aaron/Sync/dev/projects/dotfiles/repos.sh
+  Git repositories configuration (26 lines - straightforward)
+
+/Users/aaron/Sync/dev/projects/dotfiles/rider.sh
+  JetBrains Rider IDE setup (6 lines - trivial)
+
+/Users/aaron/Sync/dev/projects/dotfiles/ssh.sh
+  SSH configuration (15 lines - simple)
+
+================================================================================
+MODERN ZSH-ONLY SCRIPTS (ALREADY V2 - NO BASH EQUIVALENT)
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/gpg.zsh
+  1Password → GPG key import and Git signing setup (~120 lines - sophisticated)
+
+/Users/aaron/Sync/dev/projects/dotfiles/macos.zsh
+  macOS system customization (keyboard, trackpad, power settings) (~150 lines)
+
+/Users/aaron/Sync/dev/projects/dotfiles/nswag.zsh
+  NSwag API code generation utility (~50 lines)
+
+/Users/aaron/Sync/dev/projects/dotfiles/vim/update-plugins.zsh
+  Vim plugin manager (~100 lines)
+
+================================================================================
+SHELL CONFIGURATION FILES - BASH (LEGACY)
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/bash_profile
+  Bash environment setup (exports, PATH, completions)
+
+/Users/aaron/Sync/dev/projects/dotfiles/bash_aliases
+  Bash command aliases (~200 lines of git aliases and utilities)
+
+================================================================================
+SHELL CONFIGURATION FILES - ZSH (NEW)
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/zsh/zshrc
+  Zsh runtime configuration (symlinked to ~/.zshrc)
+
+/Users/aaron/Sync/dev/projects/dotfiles/zsh/zprofile
+  Zsh login shell configuration (symlinked to ~/.zprofile)
+
+/Users/aaron/Sync/dev/projects/dotfiles/zsh/aliases.zsh
+  Zsh command aliases (symlinked to ~/.zsh/aliases.zsh)
+
+================================================================================
+CONFIGURATION FILE VERSIONS (v1 BASH, v2 ZSH)
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/Brewfile
+  Homebrew packages (old format - v1)
+
+/Users/aaron/Sync/dev/projects/dotfiles/Brewfile2
+  Homebrew packages (new format - v2, modern)
+
+---
+
+/Users/aaron/Sync/dev/projects/dotfiles/symlinks
+  Dotfile target mappings (old bash-style format)
+
+/Users/aaron/Sync/dev/projects/dotfiles/symlinks2
+  Dotfile target mappings (new human-readable format)
+
+---
+
+/Users/aaron/Sync/dev/projects/dotfiles/duti
+  File type associations (old format)
+
+/Users/aaron/Sync/dev/projects/dotfiles/duti2
+  File type associations (new format - Sequoia compatible)
+
+================================================================================
+VIM CONFIGURATION
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/vim/vimrc
+  Vim configuration file
+
+/Users/aaron/Sync/dev/projects/dotfiles/vim/update-plugins.zsh
+  Vim plugin manager (Zsh script)
+
+/Users/aaron/Sync/dev/projects/dotfiles/vim/vim-plugins.txt
+  List of Vim plugins to install
+
+/Users/aaron/Sync/dev/projects/dotfiles/vim/mvim
+  MacVim launcher script
+
+/Users/aaron/Sync/dev/projects/dotfiles/vim/pack/plugins/start/
+  Installed Vim plugin packages directory
+
+/Users/aaron/Sync/dev/projects/dotfiles/vim/spell/
+  Vim spell checking dictionaries
+
+/Users/aaron/Sync/dev/projects/dotfiles/vim/backup/
+  Vim backup files directory
+
+/Users/aaron/Sync/dev/projects/dotfiles/vim/swap/
+  Vim swap files directory
+
+/Users/aaron/Sync/dev/projects/dotfiles/vim/undo/
+  Vim undo history files directory
+
+================================================================================
+GIT CONFIGURATION
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/git/gitconfig
+  Git client configuration (symlinked to ~/.gitconfig)
+
+/Users/aaron/Sync/dev/projects/dotfiles/git/gitignore_global
+  Global Git ignore patterns
+
+/Users/aaron/Sync/dev/projects/dotfiles/git/gitattributes_global
+  Global Git attributes
+
+================================================================================
+SSH CONFIGURATION
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/ssh/config
+  SSH client configuration (symlinked to ~/.ssh/config)
+
+/Users/aaron/Sync/dev/projects/dotfiles/ssh/known_hosts
+  Known SSH hosts
+
+================================================================================
+XDG CONFIG DIRECTORY APPLICATIONS
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/config/gh/
+  GitHub CLI configuration
+
+/Users/aaron/Sync/dev/projects/dotfiles/config/iterm2/
+  iTerm2 terminal settings
+
+/Users/aaron/Sync/dev/projects/dotfiles/config/NuGet/
+  NuGet package manager configuration
+
+/Users/aaron/Sync/dev/projects/dotfiles/config/op/
+  1Password CLI configuration
+
+/Users/aaron/Sync/dev/projects/dotfiles/config/pianobar/
+  Pianobar music player configuration
+
+/Users/aaron/Sync/dev/projects/dotfiles/config/configstore/
+  Various tool configuration storage
+
+================================================================================
+OTHER CONFIGURATION FILES
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/cvimrc
+  cVim browser extension configuration
+
+/Users/aaron/Sync/dev/projects/dotfiles/ideavimrc
+  IntelliJ IDEA Vim keybindings configuration
+
+/Users/aaron/Sync/dev/projects/dotfiles/pandora
+  Pandora radio player configuration
+
+/Users/aaron/Sync/dev/projects/dotfiles/extra
+  Template for private environment variables
+
+/Users/aaron/Sync/dev/projects/dotfiles/nswag.zsh
+  NSwag (API documentation generator) setup
+
+================================================================================
+DOCUMENTATION
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/README.md
+  Original project README (minimal - just installation instructions)
+
+/Users/aaron/Sync/dev/projects/dotfiles/.gitignore
+  Git ignore patterns
+
+/Users/aaron/Sync/dev/projects/dotfiles/.gitmodules
+  Git submodules configuration
+
+================================================================================
+GIT REPOSITORY
+================================================================================
+
+/Users/aaron/Sync/dev/projects/dotfiles/.git/
+  Git repository metadata directory
+
+================================================================================
+SUMMARY STATISTICS
+================================================================================
+
+Total Files:
+  - Shell scripts (.sh): 16
+  - Shell scripts (.zsh): 6
+  - Configuration files: 30+
+  - Directories: 8 major (zsh, vim, git, ssh, config, legal, vim/*, config/*)
+
+Migration Status:
+  - Bash only (need migration): 12 scripts
+  - Both versions (fully migrated): 4 scripts
+  - Zsh only (already modern): 6 scripts
+
+Key Script Lines:
+  - nixit.sh: 95 lines (most complex - blocking issue)
+  - install-macos.sh: 23 lines (orchestrator - needs update)
+  - shell.zsh: 110 lines (sophisticated example)
+  - gpg.zsh: 120 lines (1Password integration example)
+  - macos.zsh: 150 lines (system customization example)
+
+Configuration Files:
+  - v1 versions: Brewfile, symlinks, dutil, bash_profile, bash_aliases
+  - v2 versions: Brewfile2, symlinks2, dutil2
+  - New Zsh configs: zsh/zshrc, zsh/zprofile, zsh/aliases.zsh
+
+================================================================================
+RECOMMENDED STARTING FILES FOR MIGRATION
+================================================================================
+
+1. /Users/aaron/Sync/dev/projects/dotfiles/nixit.sh
+   Why: Most complex (95 lines) - shows the challenge
+
+2. /Users/aaron/Sync/dev/projects/dotfiles/install-macos.sh
+   Why: Orchestrator (needs updating to call .zsh versions)
+
+3. /Users/aaron/Sync/dev/projects/dotfiles/shell.zsh
+   Why: Great Zsh reference (sophisticated, well-documented)
+
+4. /Users/aaron/Sync/dev/projects/dotfiles/gpg.zsh
+   Why: Sophisticated example (1Password integration)
+
+5. /Users/aaron/Sync/dev/projects/dotfiles/symlink.zsh
+   Why: Shows improved features (--dry-run, --prune flags)
+
+================================================================================
+END OF FILE INVENTORY
+================================================================================
+
+For navigation and analysis, start with:
+  /Users/aaron/Sync/dev/projects/dotfiles/ANALYSIS_INDEX.md
+
+Generated: 2026-01-20
