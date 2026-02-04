@@ -62,6 +62,7 @@ alias py="cd ~/Sync/dev/projects/python && ls"
 alias sz="source ~/.zshrc"
 alias website="cd ~/Sync/dev/projects/website && gs"
 alias peril="cd ~/Sync/dev/projects/peril && gs"
+alias hex="cd ~/Sync/dev/projects/godot/hex-pressure && gs"
 
 # -----------------------------
 # Functions
