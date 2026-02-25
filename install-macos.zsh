@@ -190,8 +190,10 @@ run_script "brew" "Homebrew installation & package management" || FAILED_SCRIPTS
 # Ensure brew is in PATH for subsequent scripts (brew.zsh runs as a subprocess)
 if [[ -x /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
+  log_info "Homebrew PATH: $(command -v brew)"
 elif [[ -x /usr/local/bin/brew ]]; then
   eval "$(/usr/local/bin/brew shellenv)"
+  log_info "Homebrew PATH: $(command -v brew)"
 fi
 
 # 2. Shell setup (zsh, Touch ID for sudo)
@@ -233,6 +235,51 @@ fi
 
 # 12. Symlink dotfiles (last, so configs are ready)
 run_script "symlink" "Create dotfile symlinks" || FAILED_SCRIPTS+=("symlink")
+
+# 13. Tart guest agent (only inside Apple VMs)
+if system_profiler SPHardwareDataType 2>/dev/null | grep -q 'VirtualMac'; then
+  log_info "Apple VM detected — installing Tart guest agent for clipboard sharing..."
+  if $DRY_RUN; then
+    log_info "[DRY RUN] Would install tart-guest-agent"
+  elif launchctl list 2>/dev/null | grep -q 'tart-guest-agent'; then
+    log_success "Tart guest agent already running"
+  else
+    local tga_url="https://github.com/cirruslabs/tart-guest-agent/releases/latest/download/tart-guest-agent-darwin-all.tar.gz"
+    local tga_tmp="/tmp/tart-guest-agent-install"
+    local tga_plist="/Library/LaunchAgents/org.cirruslabs.tart-guest-agent.plist"
+    mkdir -p "$tga_tmp"
+    if curl -sL "$tga_url" | tar xz -C "$tga_tmp"; then
+      sudo cp "$tga_tmp/tart-guest-agent" /usr/local/bin/
+      sudo tee "$tga_plist" >/dev/null <<'PLIST'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>org.cirruslabs.tart-guest-agent</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/tart-guest-agent</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/tmp/tart-guest-agent.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/tart-guest-agent.log</string>
+</dict>
+</plist>
+PLIST
+      launchctl load "$tga_plist" 2>/dev/null || true
+      log_success "Tart guest agent installed (clipboard sharing enabled)"
+    else
+      log_warning "Failed to download tart-guest-agent (not critical)"
+    fi
+    rm -rf "$tga_tmp"
+  fi
+fi
 
 # =====================================================================
 # Post-Installation
