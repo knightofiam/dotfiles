@@ -1,2 +1,8 @@
 audio_quality = high
 autostart_station = 179992254637679620
+fifo = /Users/aaron/.config/pianobar/ctl
+
+# Get credentials from 1Password
+# If credentials fail, comment out these lines and pianobar will prompt you
+user = knightofiam@gmail.com
+password_command = cat /tmp/.pianobar-pw

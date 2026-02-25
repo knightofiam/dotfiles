@@ -1,47 +1,83 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 PANDORA_FIFO="${HOME}/.config/pianobar/ctl"
 
+check_dependencies() {
+  local missing=()
+
+  command -v pianobar >/dev/null 2>&1 || missing+=("pianobar")
+  command -v screen >/dev/null 2>&1 || missing+=("screen")
+  command -v op >/dev/null 2>&1 || missing+=("op (1Password CLI)")
+
+  if (( ${#missing[@]} > 0 )); then
+    printf "Error: Missing required dependencies:\n"
+    for dep in "${missing[@]}"; do
+      printf "  - %s\n" "$dep"
+    done
+    printf "\nInstall with:\n"
+    [[ " ${missing[*]} " =~ " pianobar " ]] && printf "  brew install pianobar\n"
+    [[ " ${missing[*]} " =~ " op (1Password CLI) " ]] && printf "  brew install --cask 1password-cli\n"
+    return 1
+  fi
+  return 0
+}
+
 pandora() {
   [[ $1 == "quit" ]] && { quit_pandora; return; }
+
+  # Check dependencies before doing anything
+  check_dependencies || return 1
+
   is_pandora_running && { resume_pandora; return; }
-  start_pandora
-  login_to_pandora
+
+  # Fetch password from 1Password (in the foreground where Touch ID works).
+  # If Touch ID times out, press any key to retry.
+  local pw=""
+  until pw=$(op item get 4wrr4xvuwzfgpayczrmsnefihy --fields password --reveal 2>/dev/null) && [[ -n "$pw" ]]; do
+    read -sk1 "?Touch ID timed out. Press any key to retry (Ctrl-C to cancel)..."
+    printf "\n"
+  done
+
+  # Cache the password so pianobar can read it without another Touch ID prompt
+  printf "%s" "$pw" > /tmp/.pianobar-pw
+  chmod 600 /tmp/.pianobar-pw
+  unset pw
+
+  start_pandora || { rm -f /tmp/.pianobar-pw; return 1; }
+  resume_pandora
 }
 
 start_pandora() {
   remove_pandora_fifo
-  mkfifo "${PANDORA_FIFO}"
-  screen -dmS pandora bash -c pianobar
-}
 
-login_to_pandora() {
-  ! is_op_logged_in && op_login
-  ! is_op_logged_in && { op_login_failed; return 1; }
-  send_to_pandora $(get_pandora_login username)
-  send_to_pandora $(get_pandora_login password)
-  printf "Started Pandora.\n"
-}
+  # Create FIFO
+  if ! mkfifo "${PANDORA_FIFO}" 2>/dev/null; then
+    printf "Error: Failed to create control FIFO at %s\n" "${PANDORA_FIFO}"
+    return 1
+  fi
 
-is_op_logged_in() {
-  op account get &> /dev/null
-}
+  # Start pianobar in screen session
+  if ! screen -dmS pandora zsh -c pianobar; then
+    printf "Error: Failed to start pianobar in screen session\n"
+    remove_pandora_fifo
+    return 1
+  fi
 
-op_login() {
-  eval $(op signin 2> /dev/null)
-}
+  # Give pianobar a moment to start and authenticate
+  sleep 3
 
-op_login_failed() {
-  printf "Failed to login.\n"
-  quit_pandora
+  # Clean up cached password
+  rm -f /tmp/.pianobar-pw
 }
 
 send_to_pandora() {
-  echo "$1" > "${PANDORA_FIFO}"
-}
+  if [[ ! -p "${PANDORA_FIFO}" ]]; then
+    printf "Error: Pandora control FIFO not found. Is pianobar running?\n"
+    return 1
+  fi
 
-get_pandora_login() {
-  op item get 4wrr4xvuwzfgpayczrmsnefihy --fields "${1}"
+  # Send playback control command
+  echo "$1" > "${PANDORA_FIFO}"
 }
 
 is_pandora_running() {

@@ -26,6 +26,9 @@ fi
 # --- Aliases (kept in repo via symlink) ---
 [[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
 
+# --- Pandora/pianobar functions ---
+[[ -f ~/.pandora ]] && source ~/.pandora
+
 # --- 1Password SSH agent (names or fingerprints) ---
 OP_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 [[ -S "$OP_SOCK" ]] && export SSH_AUTH_SOCK="$OP_SOCK"

@@ -8,3 +8,6 @@
 ~/.gitattributes_global   git/gitattributes_global
 ~/.ssh/config             ssh/config
 ~/.zshrc                  zsh/zshrc
+~/.pandora                pandora
+~/.config/pianobar        config/pianobar
+~/.hushlogin              hushlogin
