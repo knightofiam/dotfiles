@@ -38,7 +38,7 @@ echo "Updating Homebrew..."
 brew update
 
 echo "Installing from Brewfile..."
-brew bundle --file="${SCRIPT_DIR}/Brewfile"
+brew bundle --file="${SCRIPT_DIR}/Brewfile2"
 
 echo "Cleaning up..."
 brew cleanup -s

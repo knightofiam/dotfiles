@@ -168,9 +168,8 @@ done < "$LIST_FILE"
 
 if $PRUNE; then
   echo "==> Pruning symlinks that point into repo but are not listed…"
-  # Limit the search to common top-level dotfiles + a few paths
-  for candidate in ~/.{*,config} ~/.vim ~/.ideavimrc 2>/dev/null; do
-    [[ -L "$candidate" ]] || continue
+  # Check all symlinks in $HOME (dotfiles)
+  for candidate in ~/.*(@N); do
     local dest
     dest="$(readlink "$candidate")"
     # Resolve to absolute for compare
