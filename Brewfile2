@@ -1,6 +1,7 @@
 brew "act"
 brew "awscli"
 brew "cocoapods"
+brew "dockutil"
 brew "duti"
 brew "gh"
 brew "git"
