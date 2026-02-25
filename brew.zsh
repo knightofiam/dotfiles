@@ -38,8 +38,7 @@ echo "Updating Homebrew..."
 brew update
 
 echo "Installing from Brewfile..."
-# --no-lock: avoids creating/updating Brewfile.lock.json
-brew bundle --file="${SCRIPT_DIR}/Brewfile" --no-lock
+brew bundle --file="${SCRIPT_DIR}/Brewfile"
 
 echo "Cleaning up..."
 brew cleanup -s

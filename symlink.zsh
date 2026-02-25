@@ -149,8 +149,8 @@ while IFS= read -r line || [[ -n "${line:-}" ]]; do
 
   [[ -z "$line" ]] && continue
 
-  # Split into words (zsh word-splitting on IFS)
-  set -A fields -- ${=line}
+  # Split into words (zsh word-splitting)
+  fields=(${=line})
   if (( ${#fields[@]} < 2 )); then
     echo "Skipping malformed line (need <target> <source>): $line" >&2
     continue
