@@ -209,7 +209,7 @@ run_script "mvim" "MacVim installation & configuration" || FAILED_SCRIPTS+=("mvi
 run_script "rider" "JetBrains Rider configuration" || FAILED_SCRIPTS+=("rider")
 
 # 8. File associations
-run_script "dutil" "File type associations (duti)" || FAILED_SCRIPTS+=("dutil")
+run_script "duti" "File type associations (duti)" || FAILED_SCRIPTS+=("duti")
 
 # 9. Dock configuration
 run_script "dock" "macOS Dock configuration" || FAILED_SCRIPTS+=("dock")
