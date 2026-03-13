@@ -50,6 +50,7 @@ alias gumd='PREV_BRANCH=$(git symbolic-ref --short HEAD) && git checkout main &&
 alias begin="cd ~/Sync/dev/begin && pwd && ls"
 alias eb="vim ~/Sync/dev/begin/begin.zsh"
 alias coa="cd ~/Sync/dev/projects/godot/coa && gs"
+alias coa2="cd ~/Sync/dev/projects/godot/coa2 && gs"
 alias dotfiles="cd ~/Sync/dev/projects/dotfiles && gs"
 alias ea="vim ~/.zsh/aliases.zsh"
 alias es="vim ~/.vim/spell/en.utf-8.add"
