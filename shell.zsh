@@ -4,7 +4,6 @@ set -euo pipefail
 ### --- Homebrew zsh bootstrap -------------------------------------------------
 # Detect Homebrew prefix on Apple Silicon / Intel
 BREW_PREFIX="${BREW_PREFIX:-/opt/homebrew}"
-[[ -x /usr/local/bin/brew && ! -x ${BREW_PREFIX}/bin/brew ]] && BREW_PREFIX="/usr/local"
 
 # Ensure Homebrew is in PATH for this session
 if [[ -x "${BREW_PREFIX}/bin/brew" ]]; then

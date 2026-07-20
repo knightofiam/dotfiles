@@ -17,16 +17,16 @@
 
 ### Step 1: Download macOS Base Image
 
-**One-time setup** - Downloads ~20GB macOS Sonoma base image (10-30 minutes depending on internet speed):
+**One-time setup** - Downloads ~20GB macOS Tahoe base image (10-30 minutes depending on internet speed):
 
 ```bash
 cd /Users/aaron/Sync/dev/projects/dotfiles
 
 # Pull the base image
-tart clone ghcr.io/cirruslabs/macos-sonoma-base:latest sonoma-base
+tart clone ghcr.io/cirruslabs/macos-tahoe-base:latest tahoe-base
 ```
 
-This creates a clean macOS Sonoma VM you'll clone from for each test.
+This creates a clean macOS Tahoe VM you'll clone from for each test.
 
 ### Step 2: Test Your Dotfiles
 
@@ -45,7 +45,7 @@ The script will:
 
 ```bash
 # 1. Create test VM
-tart clone sonoma-base my-test
+tart clone tahoe-base my-test
 
 # 2. Start VM (GUI opens)
 tart run my-test
@@ -143,7 +143,7 @@ zsh --version
 tart list
 
 # Create VM from base
-tart clone sonoma-base my-test-name
+tart clone tahoe-base my-test-name
 
 # Start VM (GUI)
 tart run my-test-name
@@ -185,7 +185,7 @@ tart list | grep test | awk '{print $1}' | xargs -n1 tart delete
 
 ### What to Keep
 
-- **Keep:** `sonoma-base` (your clean template)
+- **Keep:** `tahoe-base` (your clean template)
 - **Delete:** All test VMs after use
 
 ---
@@ -223,7 +223,7 @@ tart delete my-test
 
 ```bash
 # Create a test VM
-tart clone sonoma-base debug-vm
+tart clone tahoe-base debug-vm
 
 # Test, it breaks, don't delete it
 tart run debug-vm
@@ -235,23 +235,7 @@ tart run debug-vm
 tart delete debug-vm
 ```
 
-### 3. Test Multiple macOS Versions
-
-```bash
-# Create bases for different versions
-tart clone ghcr.io/cirruslabs/macos-ventura-base:latest ventura-base
-tart clone ghcr.io/cirruslabs/macos-sequoia-base:latest sequoia-base
-
-# Test on Ventura
-tart clone ventura-base test-ventura
-tart run test-ventura
-
-# Test on Sequoia
-tart clone sequoia-base test-sequoia
-tart run test-sequoia
-```
-
-### 4. Reduce DHCP Issues (Optional)
+### 3. Reduce DHCP Issues (Optional)
 
 If you're running LOTS of VMs daily:
 
@@ -313,7 +297,7 @@ tart list | grep test | awk '{print $1}' | xargs -n1 tart delete
 
 ## Your Next Steps
 
-1. **Download base image:** `tart clone ghcr.io/cirruslabs/macos-sonoma-base:latest sonoma-base` (do this now!)
+1. **Download base image:** `tart clone ghcr.io/cirruslabs/macos-tahoe-base:latest tahoe-base` (do this now!)
 2. **Run first test:** `./quick-test.zsh`
 3. **Start fixing your dotfiles** with rapid iteration
 4. **Push to GitHub** once things stabilize
@@ -340,13 +324,13 @@ tart list | grep test | awk '{print $1}' | xargs -n1 tart delete
 
 ```bash
 # First time setup
-tart clone ghcr.io/cirruslabs/macos-sonoma-base:latest sonoma-base
+tart clone ghcr.io/cirruslabs/macos-tahoe-base:latest tahoe-base
 
 # Each test iteration
 ./quick-test.zsh
 
 # Manual control
-tart clone sonoma-base test-vm
+tart clone tahoe-base test-vm
 tart run test-vm
 tart delete test-vm
 
@@ -359,7 +343,7 @@ tart list | grep test | awk '{print $1}' | xargs -n1 tart delete
 **You're all set! Download the base image and start testing:**
 
 ```bash
-tart clone ghcr.io/cirruslabs/macos-sonoma-base:latest sonoma-base
+tart clone ghcr.io/cirruslabs/macos-tahoe-base:latest tahoe-base
 ```
 
 (This will take 10-30 minutes - good time for a coffee break!)

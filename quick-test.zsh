@@ -4,19 +4,18 @@
 # Clones a fresh macOS VM, installs dotfiles, validates results, cleans up.
 #
 # Usage:
-#   ./quick-test.zsh                    # Test on Sonoma (default)
-#   ./quick-test.zsh sequoia            # Test on Sequoia
-#   ./quick-test.zsh sonoma --keep-vm   # Keep VM after test for inspection
+#   ./quick-test.zsh                    # Test on Tahoe
+#   ./quick-test.zsh --keep-vm          # Keep VM after test for inspection
 #   ./quick-test.zsh --full             # Run full install (not just dry-run)
 #   ./quick-test.zsh --branch feat/xyz  # Test a specific branch
 
 set -euo pipefail
 
 # ── Config ───────────────────────────────────────────────────────────
-MACOS_VERSION="sonoma"
+MACOS_VERSION="tahoe"
 KEEP_VM=false
 FULL_INSTALL=false
-BRANCH="modernize-dotfiles"
+BRANCH="master"
 REPO_URL="https://github.com/knightofiam/dotfiles.git"
 VM_USER="admin"
 VM_PASS="admin"
@@ -26,7 +25,6 @@ VM_IP=""
 # ── Parse args ───────────────────────────────────────────────────────
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    sonoma|sequoia|ventura) MACOS_VERSION="$1" ;;
     --keep-vm)   KEEP_VM=true ;;
     --full)      FULL_INSTALL=true ;;
     --branch)    BRANCH="$2"; shift ;;
@@ -41,13 +39,7 @@ done
 
 VM_NAME="dotfiles-test-${MACOS_VERSION}-$$"
 
-# ── Image registry ───────────────────────────────────────────────────
-typeset -A IMAGES=(
-  [sonoma]="ghcr.io/cirruslabs/macos-sonoma-base:latest"
-  [sequoia]="ghcr.io/cirruslabs/macos-sequoia-base:latest"
-  [ventura]="ghcr.io/cirruslabs/macos-ventura-base:latest"
-)
-IMAGE="${IMAGES[$MACOS_VERSION]}"
+IMAGE="ghcr.io/cirruslabs/macos-${MACOS_VERSION}-base:latest"
 BASE_VM="${MACOS_VERSION}-base"
 
 # ── Helpers ──────────────────────────────────────────────────────────

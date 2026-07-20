@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Detect Homebrew prefix
 BREW_PREFIX="/opt/homebrew"
-if [[ -x /usr/local/bin/brew && ! -x ${BREW_PREFIX}/bin/brew ]]; then
-  BREW_PREFIX="/usr/local"
-fi
 
 echo "Checking for Homebrew..."
 if ! command -v brew >/dev/null 2>&1; then

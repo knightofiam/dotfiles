@@ -1,7 +1,7 @@
 export GPG_TTY="$(tty)"
 
 # GUI-launched shells (Automator, LaunchServices)
-export PATH="/opt/homebrew/bin:/usr/local/bin:$HOME/Sync/dev/rider/scripts:$PATH"
+export PATH="/opt/homebrew/bin:$HOME/Sync/dev/rider/scripts:$PATH"
 
 # Use Vim for all CLI editing
 export EDITOR=vim

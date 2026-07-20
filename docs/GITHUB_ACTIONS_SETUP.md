@@ -19,7 +19,7 @@ Your dotfiles now have **automated CI/CD testing** that runs on every push and p
 
 **Location:** `.github/workflows/`
 
-- **`test-macos.yml`** - Tests on macOS Ventura, Sonoma, and Sequoia
+- **`test-macos.yml`** - Tests on macOS Tahoe
 - **`test-linux.yml`** - Tests on Ubuntu, Debian, and Fedora
 
 ### 2. Test Scripts
@@ -72,7 +72,7 @@ git add .github/ tests/ *.md
 # Commit
 git commit -m "Add GitHub Actions CI/CD testing
 
-- Test on macOS Ventura, Sonoma, Sequoia
+- Test on macOS Tahoe
 - Test on Ubuntu, Debian, Fedora
 - Automated validation on every push
 - Custom test suites for macOS and Linux"

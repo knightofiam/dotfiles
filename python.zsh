@@ -4,7 +4,6 @@ set -euo pipefail
 
 # Detect Homebrew prefix
 BREW_PREFIX="${BREW_PREFIX:-/opt/homebrew}"
-[[ -x /usr/local/bin/brew && ! -x ${BREW_PREFIX}/bin/brew ]] && BREW_PREFIX="/usr/local"
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Configuring Python"

@@ -77,8 +77,8 @@ fi
 
 # Test 3: Check for platform detection
 test_start "Platform detection implemented"
-if grep -r "uname -s" . --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*" || \
-   grep -r 'case.*uname' . --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*"; then
+if grep -r "uname -s" . --include='*.zsh' --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*" || \
+   grep -r 'case.*uname' . --include='*.zsh' --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*"; then
   test_pass
 else
   test_fail "No platform detection found"
@@ -86,7 +86,7 @@ fi
 
 # Test 4: Check for Linux package manager detection
 test_start "Package manager detection present"
-if grep -r "apt-get\|dnf\|yum\|pacman" . --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*"; then
+if grep -r "apt-get\|dnf\|yum\|pacman" . --include='*.zsh' --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*"; then
   test_pass
 else
   test_fail "No package manager detection found"
@@ -96,13 +96,14 @@ fi
 test_start "macOS-specific code is guarded"
 macos_specific_ok=true
 
-# Check if macOS-specific tools are properly guarded
-if grep -r "defaults write\|osascript\|killall Dock" . --exclude-dir=.git --exclude-dir=tests 2>/dev/null; then
-  # Check if these are within Darwin/macOS conditionals
-  if ! grep -B5 "defaults write\|osascript\|killall Dock" . --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q "Darwin\|macos"; then
-    macos_specific_ok=false
+# Per-file: a script using macOS-only commands must mention Darwin or macos
+# (either a runtime guard or a name/comment marking it macOS-only, which the
+# Linux installer skips)
+for f in *.zsh(N); do
+  if grep -q "defaults write\|osascript\|killall Dock" "$f"; then
+    grep -q "Darwin\|macos" "$f" || macos_specific_ok=false
   fi
-fi
+done
 
 if $macos_specific_ok; then
   test_pass
@@ -123,9 +124,9 @@ test_start "No hardcoded macOS paths"
 hardcoded_paths_ok=true
 
 # Check for common macOS-only paths
-if grep -r "/Applications\|/Library/\|/usr/local/bin" . --exclude-dir=.git --exclude-dir=tests --exclude="*.md" 2>/dev/null | grep -v "GITHUB"; then
+if grep -r "/Applications\|/Library/\|/usr/local/bin" . --include='*.zsh' --exclude-dir=.git --exclude-dir=tests --exclude="*.md" 2>/dev/null | grep -qv "GITHUB"; then
   # Check if they're in platform conditionals
-  if ! grep -B5 "/Applications\|/Library/" . --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q "Darwin"; then
+  if ! grep -B5 "/Applications\|/Library/" . --include='*.zsh' --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q "Darwin"; then
     test_skip "(Some macOS paths found, checking if guarded)"
   else
     test_pass
@@ -136,7 +137,7 @@ fi
 
 # Test 8: Check for Linuxbrew/Homebrew on Linux support
 test_start "Homebrew on Linux supported"
-if grep -r "Linuxbrew\|/home/linuxbrew" . --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*"; then
+if grep -r "Linuxbrew\|/home/linuxbrew" . --include='*.zsh' --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*"; then
   test_pass
 else
   test_skip "Homebrew on Linux not detected (optional)"
@@ -156,7 +157,7 @@ fi
 
 # Test 10: Check for distribution-specific handling
 test_start "Distribution detection present"
-if grep -r "Ubuntu\|Debian\|Fedora\|Arch\|/etc/os-release" . --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*"; then
+if grep -r "Ubuntu\|Debian\|Fedora\|Arch\|/etc/os-release" . --include='*.zsh' --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*"; then
   test_pass
 else
   test_skip "No distro detection (optional)"

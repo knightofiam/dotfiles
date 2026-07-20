@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
-# macos.zsh — opinionated but minimal macOS customization (Sequoia / Tahoe)
+# macos.zsh — opinionated but minimal macOS customization (Tahoe)
 
 set -euo pipefail
-echo "==> macOS tweaks (Sequoia/Tahoe-safe)"
+echo "==> macOS tweaks (Tahoe)"
 
 # Helper for PlistBuddy
 PB="/usr/libexec/PlistBuddy"

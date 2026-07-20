@@ -11,7 +11,6 @@ fi
 
 # Detect Homebrew prefix
 BREW_PREFIX="${BREW_PREFIX:-/opt/homebrew}"
-[[ -x /usr/local/bin/brew && ! -x ${BREW_PREFIX}/bin/brew ]] && BREW_PREFIX="/usr/local"
 
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
 MVIM_SRC="${REPO_ROOT}/vim/mvim"
