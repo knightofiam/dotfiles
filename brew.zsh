@@ -19,7 +19,7 @@ eval "$(${BREW_PREFIX}/bin/brew shellenv)"
 if ! grep -Fq 'brew shellenv' "${HOME}/.zprofile" 2>/dev/null; then
   {
     echo ""
-    echo '# Initialize Homebrew (added by brew.sh)'
+    echo '# Initialize Homebrew (added by brew.zsh)'
     echo "eval \"\$(${BREW_PREFIX}/bin/brew shellenv)\""
   } >> "${HOME}/.zprofile"
 fi
@@ -38,7 +38,7 @@ echo "Updating Homebrew..."
 brew update
 
 echo "Installing from Brewfile..."
-brew bundle --file="${SCRIPT_DIR}/Brewfile2"
+brew bundle --file="${SCRIPT_DIR}/Brewfile"
 
 echo "Cleaning up..."
 brew cleanup -s

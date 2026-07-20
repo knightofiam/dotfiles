@@ -11,12 +11,12 @@ curl -Ls https://github.com/knightofiam/dotfiles/archive/master.tar.gz | tar xz 
 macOS
 
 ```
-./install-macos.sh
+./install-macos.zsh
 ```
 
 Linux
 ```
-./install-linux.sh
+./install-linux.zsh
 ```
 
 ## License

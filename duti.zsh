@@ -1,10 +1,10 @@
 #!/usr/bin/env zsh
-# duti.zsh — apply Launch Services defaults via duti (uses ./duti2 by default)
+# duti.zsh — apply Launch Services defaults via duti (uses ./duti by default)
 
 set -euo pipefail
 
-# Path to your duti config (default: a file named "duti2" next to this script)
-: "${DUTI_FILE:="${0:A:h}/duti2"}"
+# Path to your duti config (default: a file named "duti" next to this script)
+: "${DUTI_FILE:="${0:A:h}/duti"}"
 
 # Ensure duti is available
 if ! command -v duti >/dev/null 2>&1; then

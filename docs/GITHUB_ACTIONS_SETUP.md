@@ -174,7 +174,7 @@ zsh -n ./brew.zsh
 ### Full Local Testing
 
 If you want to test in a clean environment locally, use VMs:
-- See `TART_TESTING_GUIDE.md` for Tart VM testing
+- See `LOCAL_TESTING.md` for Tart VM testing (`./quick-test.zsh`)
 - Or just rely on GitHub Actions (easier)
 
 ---
@@ -214,7 +214,7 @@ git push
 
 # 2. If you see warnings about a new macOS version:
 #    - GitHub may not have runners yet
-#    - Use Tart VMs for testing (see TART_TESTING_GUIDE.md)
+#    - Use Tart VMs for testing (see LOCAL_TESTING.md)
 #    - Or wait for GitHub to add runners
 
 # 3. Fix any issues found in tests

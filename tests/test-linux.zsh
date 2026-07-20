@@ -19,17 +19,17 @@ TESTS_FAILED=0
 
 # Helper functions
 test_start() {
-  ((TESTS_RUN++))
+  (( TESTS_RUN++ )) || true
   echo -n "${BLUE}[TEST $TESTS_RUN]${NC} $1... "
 }
 
 test_pass() {
-  ((TESTS_PASSED++))
+  (( TESTS_PASSED++ )) || true
   echo "${GREEN}✓ PASS${NC}"
 }
 
 test_fail() {
-  ((TESTS_FAILED++))
+  (( TESTS_FAILED++ )) || true
   echo "${RED}✗ FAIL${NC}"
   if [[ -n "${1:-}" ]]; then
     echo "  ${RED}└─ $1${NC}"
@@ -59,7 +59,7 @@ fi
 # Test 2: Check script syntax
 test_start "Script syntax is valid"
 syntax_ok=true
-for script in *.sh *.zsh; do
+for script in *.sh(N) *.zsh(N); do
   if [[ -f "$script" && -x "$script" ]]; then
     if [[ "$script" == *.zsh ]]; then
       zsh -n "$script" 2>/dev/null || syntax_ok=false

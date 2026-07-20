@@ -127,12 +127,9 @@ run_script() {
   local script_name="$1"
   local description="${2:-$script_name}"
 
-  # Prefer .zsh version, fallback to .sh
   local script_path=""
   if [[ -f "${REPO_ROOT}/${script_name}.zsh" ]]; then
     script_path="${REPO_ROOT}/${script_name}.zsh"
-  elif [[ -f "${REPO_ROOT}/${script_name}.sh" ]]; then
-    script_path="${REPO_ROOT}/${script_name}.sh"
   else
     log_warning "Script not found: ${script_name} (skipping)"
     return 0
@@ -305,11 +302,7 @@ if (( ${#FAILED_SCRIPTS[@]} > 0 )); then
   echo ""
   log_info "You can re-run failed scripts individually:"
   for script in "${FAILED_SCRIPTS[@]}"; do
-    if [[ -f "${REPO_ROOT}/${script}.zsh" ]]; then
-      echo "  ./${script}.zsh"
-    elif [[ -f "${REPO_ROOT}/${script}.sh" ]]; then
-      echo "  ./${script}.sh"
-    fi
+    echo "  ./${script}.zsh"
   done
   exit 1
 else

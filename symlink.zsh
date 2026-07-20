@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# symlink.zsh — create/update symlinks listed in ./symlinks2
+# symlink.zsh — create/update symlinks listed in ./symlinks
 # Format per line: <target-path> <repo-relative-source>
 # Example:
 #   ~/.zshrc                 zsh/zshrc
@@ -21,7 +21,7 @@ if [[ -z "$REPO_ROOT" ]]; then
   exit 1
 fi
 
-LIST_FILE="${LIST_FILE:-$REPO_ROOT/symlinks2}"
+LIST_FILE="${LIST_FILE:-$REPO_ROOT/symlinks}"
 
 # -------------------------
 # Flags
@@ -156,10 +156,8 @@ while IFS= read -r line || [[ -n "${line:-}" ]]; do
     continue
   fi
 
-  local tgt_raw="${fields[1]}"
-  local src_rel="${fields[2]}"
-
-  local tgt
+  tgt_raw="${fields[1]}"
+  src_rel="${fields[2]}"
   tgt="$(expandpath "$tgt_raw")"
 
   link_one "$tgt" "$src_rel"
@@ -170,7 +168,6 @@ if $PRUNE; then
   echo "==> Pruning symlinks that point into repo but are not listed…"
   # Check all symlinks in $HOME (dotfiles)
   for candidate in ~/.*(@N); do
-    local dest
     dest="$(readlink "$candidate")"
     # Resolve to absolute for compare
     if [[ "$dest" != /* ]]; then

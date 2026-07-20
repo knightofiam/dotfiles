@@ -19,17 +19,17 @@ TESTS_FAILED=0
 
 # Helper functions
 test_start() {
-  ((TESTS_RUN++))
+  (( TESTS_RUN++ )) || true
   echo -n "${BLUE}[TEST $TESTS_RUN]${NC} $1... "
 }
 
 test_pass() {
-  ((TESTS_PASSED++))
+  (( TESTS_PASSED++ )) || true
   echo "${GREEN}✓ PASS${NC}"
 }
 
 test_fail() {
-  ((TESTS_FAILED++))
+  (( TESTS_FAILED++ )) || true
   echo "${RED}✗ FAIL${NC}"
   if [[ -n "${1:-}" ]]; then
     echo "  ${RED}└─ $1${NC}"
@@ -57,7 +57,7 @@ fi
 # Test 2: Check script syntax
 test_start "Script syntax is valid"
 syntax_ok=true
-for script in *.sh *.zsh; do
+for script in *.sh(N) *.zsh(N); do
   if [[ -f "$script" && -x "$script" ]]; then
     if [[ "$script" == *.zsh ]]; then
       zsh -n "$script" 2>/dev/null || syntax_ok=false
@@ -76,7 +76,7 @@ fi
 # Test 3: Check for proper shebangs
 test_start "Scripts have proper shebangs"
 shebang_ok=true
-for script in *.sh *.zsh; do
+for script in *.sh(N) *.zsh(N); do
   if [[ -f "$script" && -x "$script" ]]; then
     first_line=$(head -n1 "$script")
     if [[ ! "$first_line" =~ ^#!/ ]]; then
@@ -111,9 +111,9 @@ fi
 # Test 6: Check for Apple Silicon compatibility
 test_start "Apple Silicon paths handled"
 has_hardcoded_paths=false
-if grep -r "/usr/local/bin" . --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*"; then
+if grep -r "/usr/local/bin" . --include='*.zsh' --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*"; then
   # Check if there's also Homebrew prefix detection
-  if grep -r "brew --prefix" . --exclude-dir=.git 2>/dev/null | grep -q ".*"; then
+  if grep -r "brew --prefix" . --include='*.zsh' --exclude-dir=.git 2>/dev/null | grep -q ".*"; then
     test_pass
   else
     has_hardcoded_paths=true
@@ -125,8 +125,8 @@ fi
 
 # Test 7: Check for macOS version detection
 test_start "macOS version detection present"
-if grep -r "sw_vers" . --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*" || \
-   grep -r "ProductVersion" . --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*"; then
+if grep -r "sw_vers" . --include='*.zsh' --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*" || \
+   grep -r "ProductVersion" . --include='*.zsh' --exclude-dir=.git --exclude-dir=tests 2>/dev/null | grep -q ".*"; then
   test_pass
 else
   test_skip "(Not required but recommended)"
@@ -142,8 +142,10 @@ fi
 
 # Test 9: Check for migration status
 test_start "Migration status (bash → zsh)"
-bash_count=$(ls -1 *.sh 2>/dev/null | wc -l | tr -d ' ')
-zsh_count=$(ls -1 *.zsh 2>/dev/null | wc -l | tr -d ' ')
+bash_files=( *.sh(N) )
+zsh_files=( *.zsh(N) )
+bash_count=${#bash_files[@]}
+zsh_count=${#zsh_files[@]}
 
 if [[ $bash_count -eq 0 ]]; then
   test_pass
@@ -156,14 +158,14 @@ else
 fi
 
 # Test 10: Check for help flags
+# Static check only — executing scripts with --help actually runs the ones
+# that don't parse arguments (dock.zsh, brew.zsh, ...).
 test_start "Scripts support --help flag"
 help_support=false
-for script in *.zsh; do
-  if [[ -f "$script" && -x "$script" ]]; then
-    if ./"$script" --help 2>/dev/null | grep -q "Usage"; then
-      help_support=true
-      break
-    fi
+for script in *.zsh(N); do
+  if [[ -f "$script" ]] && grep -q -- '--help' "$script"; then
+    help_support=true
+    break
   fi
 done
 
