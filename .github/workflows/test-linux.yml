@@ -31,6 +31,11 @@ jobs:
     container:
       image: ${{ matrix.distro }}
 
+    # Container jobs default to sh; the steps below use [[ ]] bashisms
+    defaults:
+      run:
+        shell: bash
+
     steps:
       - name: Install base dependencies
         run: |

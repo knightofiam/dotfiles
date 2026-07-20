@@ -15,12 +15,12 @@ jobs:
       fail-fast: false  # Continue testing other versions even if one fails
       matrix:
         include:
-          - os: macos-13
-            os-name: "Ventura"
           - os: macos-14
             os-name: "Sonoma"
           - os: macos-15
             os-name: "Sequoia"
+          - os: macos-26
+            os-name: "Tahoe"
 
     steps:
       - name: Checkout repository
