@@ -66,6 +66,9 @@ alias website="cd ~/Sync/dev/projects/website && gs"
 alias peril="cd ~/Sync/dev/projects/peril && gs"
 alias hex="cd ~/Sync/dev/projects/godot/hex-pressure && gs"
 alias dice="cd ~/Sync/dev/projects/dice-roll-test && gs"
+alias ft="cd ~/Sync/dev/projects/full-table && gs"
+alias ftk="cd ~/Sync/dev/projects/ftk && gs"
+alias ftc="cd ~/Sync/dev/projects/chicken-dinner && gs"
 
 # -----------------------------
 # Functions

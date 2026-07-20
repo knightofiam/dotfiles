@@ -29,6 +29,10 @@ fi
 # --- Pandora/pianobar functions ---
 [[ -f ~/.pandora ]] && source ~/.pandora
 
+# --- Private environment variables (set up by private.zsh) ---
+# set -a exports everything without needing explicit 'export'
+[[ -f ~/.extra ]] && { set -a; source ~/.extra; set +a; }
+
 # --- 1Password SSH agent (names or fingerprints) ---
 OP_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 [[ -S "$OP_SOCK" ]] && export SSH_AUTH_SOCK="$OP_SOCK"
@@ -71,3 +75,12 @@ fi
 # Simple prompt: "<user> <dirname> %"
 PROMPT='%n %1~ %# '
 PROMPT='%n %1~ %# '
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/aaron/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

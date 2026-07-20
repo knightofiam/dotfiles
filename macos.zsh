@@ -34,6 +34,11 @@ defaults write -g com.apple.trackpad.forceClick -bool false
 defaults write com.apple.AppleMultitouchTrackpad ForceSuppressed -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad ForceSuppressed -bool true
 
+# Disable "Look up & data detectors" (three-finger-tap / force-click dictionary popup)
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 0
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerTapGesture -int 0
+
 # Optional: map Caps Lock to Escape (device-agnostic via hidutil)
 # (Takes effect for the current boot; re-run on login if desired.)
 /usr/bin/hidutil property --set '{
@@ -92,6 +97,9 @@ defaults write com.apple.dock show-recents -bool false
 # Disable edge gestures that trigger snapping / tiling
 defaults write com.apple.dock showMissionControlGestureEnabled -bool false
 defaults write com.apple.dock showAppExposeGestureEnabled -bool false
+
+# Disable window tiling when dragging to screen edges
+defaults write com.apple.WindowManager EnableTilingByEdgeDrag -bool false
 
 # Disable “More Gestures” (best-effort; Apple moves these around)
 for d in com.apple.AppleMultitouchTrackpad com.apple.driver.AppleBluetoothMultitouch.trackpad; do
